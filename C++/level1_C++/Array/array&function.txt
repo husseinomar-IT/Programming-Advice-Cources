@@ -1,0 +1,51 @@
+
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+void  Read_array(float Gradel[3])
+{
+	cout << "Please enter Gradel1:\n";
+	cin >> Gradel[0];
+
+	cout << "Please enter Gradel2:\n";
+	cin >> Gradel[1];
+	cout << "Please enter Gradel3:\n";
+	cin >> Gradel[2];
+}
+
+float Calc_avg(float Gradel[3])
+{
+	
+	 return (Gradel[0] + Gradel[1] + Gradel[2])/3;
+	
+}
+void print_array(float  Gradel[3])
+{
+	cout << "  Gradel1:" << Gradel[0] << "\n";
+	cout << "  Gradel1:" << Gradel[1] << "\n";
+	cout << "  Gradel1:" << Gradel[2] << "\n";
+
+
+}
+
+
+int main()
+{
+	float Gradel[3];
+	float result;
+	Read_array(Gradel);
+	cout << "_______________________________________\n";
+	print_array(Gradel);
+	result = Calc_avg(Gradel);
+
+	cout << "The average of grades =" << result<<"\n";
+	
+	
+
+
+
+}

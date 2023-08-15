@@ -1,0 +1,37 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+
+float ReadPositiveNumber(string Massage)
+{
+	float Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num<=0);
+
+	return Num;
+
+}
+
+float CalculateRemainder(float TotalBill, float CashPaid)
+{
+	return CashPaid - TotalBill  ;
+}
+
+
+int main()
+
+{
+	float ToltaBill = ReadPositiveNumber("Please enter the TotalBill : ");
+	float CashPaid = ReadPositiveNumber("Please enter the Cash Paid : ");
+
+	cout << "TotalBill = " << ToltaBill << endl;
+	cout << "Cash Paid =" << CashPaid << endl;
+	cout << "Remainder =" << CalculateRemainder(ToltaBill, CashPaid) << endl;
+
+}

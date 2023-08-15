@@ -1,0 +1,93 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+
+using namespace std;
+
+
+
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+
+
+
+vector<string> SplitStringWord(string S1, string delim)
+{
+	vector<string>vstring;
+	
+
+	short pos = 0;
+	string sWord;
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+
+		sWord = S1.substr(0, pos);
+		if (sWord != "")
+		{
+			vstring.push_back(sWord);
+		}
+		S1.erase(0, pos + delim.length());
+	}
+	cout << endl;
+	if (S1 != "")
+	{
+		vstring.push_back(S1);
+
+	}
+
+	return vstring;
+}
+
+
+string printReverceWord(string txt)
+{
+	vector<string>vstring;
+	vstring = SplitStringWord(txt, " ");
+	vector<string>::iterator itr = vstring.end();
+	string S = "";
+	while (itr != vstring.begin())
+	{
+		itr--;
+		S += *itr + " ";
+
+	}
+	S = S.substr(0, S.length() - 1);
+	return S;
+
+}
+
+
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	
+	string txt = ReadString();
+	cout << "\n\nString after reversing words:\n " << printReverceWord(txt) << endl;
+	
+
+
+	
+
+
+	
+
+}

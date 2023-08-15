@@ -1,0 +1,105 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+
+  public  class clsPerson
+    {
+        public int ID
+        {
+            get;
+            set;
+        }
+
+        public string FirstName
+        {
+            get;
+            set;
+        }
+
+        public string LastName
+        {
+            get;
+            set;
+        }
+
+
+
+        public short Age
+        {
+            get;
+            set;
+        }
+        //public clsPerson(int id,string firstname,string lastname,short age)
+        //{
+        //    this.ID=id;
+        //    this.FirstName=firstname;
+        //    this.LastName = lastname;
+        //    this.Age=age;
+        //}
+        
+
+
+  public string FullName()
+        {
+           return FirstName+" "+LastName;
+        }
+
+    }
+
+
+
+
+    public class  clsEmployee:clsPerson
+    {
+
+        public float Salary
+        {
+            get;
+            set;
+        }
+        public string DepartmentName
+        {
+            get;
+            set;
+        }
+
+        public void  IncreceSalaryByAmount(float Amount)
+        {
+            Salary += Amount;
+        }
+
+    }
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+
+
+      //      clsPerson Person1 = new clsPerson();
+
+
+            clsEmployee Employee1 = new clsEmployee();
+            Employee1.ID = 1;
+            Employee1.FirstName = "Hussein";
+            Employee1.LastName = "Omar";
+            Employee1.Salary = 5000;
+            Employee1.IncreceSalaryByAmount(500);
+            Employee1.DepartmentName = "IT";
+            Console.WriteLine("Full Name:{0}", Employee1.FullName());
+            Console.WriteLine("Salary:{0}", Employee1.Salary);
+            Console.WriteLine("Department Name:", Employee1.DepartmentName);
+            Console.WriteLine("Increace Salary By Amount :{0}", Employee1.Salary);
+
+            Console.ReadKey();
+
+        }
+    }
+}

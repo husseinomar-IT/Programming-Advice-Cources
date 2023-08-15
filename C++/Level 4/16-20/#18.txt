@@ -1,0 +1,31 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+float Read_num()
+{
+	int r;
+	cout << "Enter the radious R : ";
+	cin >> r;
+	return r;
+
+	
+}
+float CalcuCircleArea(int r)
+{
+	const float PI = 3.141592653589793238;
+	float Area = pow(r, 2)*PI;
+	return Area;
+}
+
+void print_Area(float Area)
+{
+	cout << "The Circle Area =" << Area << "\n";
+}
+int main()
+{
+	
+	
+	print_Area(CalcuCircleArea(Read_num()));
+
+} 

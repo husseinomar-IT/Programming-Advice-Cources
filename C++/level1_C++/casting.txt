@@ -1,0 +1,24 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+	string name,num1,num2,concat;
+	cout << "please enter string1?\n";
+	getline(cin, name);
+	
+	cout << "please enter string2?\n";
+	cin >> num1;
+	cout << "please enter string3?\n";
+	cin >> num2;
+	concat = num1 + num2;
+	int multi = stoi(num1)*stoi(num2);
+	cout << "*********************************************\n";
+	cout << "the Lenght of Strting is" << name.length() << "\n";
+	cout << "character at 0.2.4.7 are: " << name[0] << name[2] << name[4] << name[7] << "\n";
+	cout << "Concatenating String2 and String3=" << concat << endl;
+	cout << "5 * 10 =" << multi << "\n";
+
+}

@@ -1,0 +1,582 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Data.SqlClient;
+using System.Data;
+
+namespace ContactsDataAccess
+{
+   static  public class clsContactDataAccess
+    {
+      public  static bool GetContactInfoByID(int ID, ref string  Firstname,ref string Lastname,ref string Email,ref string Phone,ref string Address,ref DateTime DateOfBirth,ref string ImagPath, ref int CountryID)
+       {
+           bool IsFound = false;
+           SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+           string Query = @"select * from Contacts where ContactID=@ContactID";
+           SqlCommand Command = new SqlCommand(Query, Connection);
+           Command.Parameters.AddWithValue("@ContactID", ID);
+           try
+           {
+               Connection.Open();
+               SqlDataReader Reader = Command.ExecuteReader();
+               if(Reader.Read())
+               {
+                   IsFound = true;
+
+                   Firstname = (string)Reader["FirstName"];
+                   Lastname = (string)Reader["LastName"];
+                   Email = (string)Reader["Email"];
+                   Phone = (string)Reader["Phone"];
+                   Address = (string)Reader["Address"];
+                   DateOfBirth = (DateTime)Reader["DateOfBirth"];
+                
+                   CountryID = (int)Reader["CountryID"];
+                   if(  Reader["ImagePath"]!=DBNull.Value)
+                   {
+                       ImagPath = (string)Reader["ImagePath"];
+                   }
+
+
+                   else
+                   {
+                       ImagPath = "";
+                   }
+               }
+               Reader.Close();
+           }
+
+           catch(Exception ex)
+           {
+               IsFound = false;
+           }
+           finally
+           {
+               Connection.Close();
+           }
+           return IsFound;
+
+       }
+
+
+
+
+       public static bool UpdateContact(int ID,string FirstName,string LastName,string Email,string Phone,string Address,DateTime DateOfBirth,string ImagePath,int CountryID)
+      {
+
+
+          int RowsAffected = 0;
+          SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+          string Query = @"Update [Contacts] set 
+                       [FirstName]=@FirstName,
+                      [LastName]=@LastName,
+                       [Email]=@Email,
+                        [Phone]=@Phone,  
+                        Address=@Address,
+                       DateOfBirth=@DateofBirth,
+                       ImagePath=@ImagePath,
+                       CountryID=@CountryID
+
+                       where ContactID=@ContactID ";
+
+          SqlCommand Command = new SqlCommand(Query, Connection);
+          Command.Parameters.AddWithValue("@FirstName", FirstName);
+          Command.Parameters.AddWithValue("@LastName", LastName);
+          Command.Parameters.AddWithValue("@Email", Email);
+          Command.Parameters.AddWithValue("@Phone", Phone);
+          Command.Parameters.AddWithValue("@Address", Address);
+          Command.Parameters.AddWithValue("@DateofBirth", DateOfBirth);
+          Command.Parameters.AddWithValue("@CountryID", CountryID);
+          Command.Parameters.AddWithValue("@ContactID", ID);
+          if (ImagePath != "")
+          {
+              Command.Parameters.AddWithValue("@ImagePath", ImagePath);
+          }
+          else
+          {
+              Command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+          }
+          try
+          {
+              Connection.Open();
+              RowsAffected = Command.ExecuteNonQuery();
+      
+          }
+
+
+           catch(Exception ex)
+          {
+
+          }
+
+           finally
+          {
+              Connection.Close();
+          }
+
+          return (RowsAffected > 0);
+
+
+      }
+
+       public static int AddNewContact(string Firstname,string Lastname,string Email,string Phone,string Address,DateTime DateOfBirth,string ImagePath,int CountryID)
+      {
+          int ContactID = -1;
+           int InsertedID;
+          SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+          string query = @"INSERT INTO Contacts (FirstName, LastName, Email, Phone, Address,DateOfBirth, CountryID,ImagePath)
+                             VALUES (@FirstName, @LastName, @Email, @Phone, @Address,@DateOfBirth, @CountryID,@ImagePath);
+                             SELECT SCOPE_IDENTITY();";
+
+
+         
+          SqlCommand Command = new SqlCommand(query, Connection);
+
+
+          Command.Parameters.AddWithValue("@FirstName", Firstname);
+          Command.Parameters.AddWithValue("@LastName", Lastname);
+          Command.Parameters.AddWithValue("@Email", Email);
+          Command.Parameters.AddWithValue("@Phone", Phone);
+          Command.Parameters.AddWithValue("@Address", Address);
+          Command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+          Command.Parameters.AddWithValue("@CountryID", CountryID);
+           if(ImagePath!="")
+           {
+               Command.Parameters.AddWithValue("@ImagePath", ImagePath);
+           }
+           else
+           {
+               Command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+           }
+      
+           try
+           {
+               Connection.Open();
+               object Result = Command.ExecuteScalar();
+               if(Result !=null && int.TryParse(Result.ToString(),out   InsertedID))
+               {
+                   ContactID = InsertedID;
+               }
+               else
+               {
+                   ContactID = -1;
+               }
+
+           }
+           catch(Exception ex)
+           {
+
+           }
+           finally
+           {
+               Connection.Close();
+           }
+
+
+           return ContactID;
+
+
+      }
+
+       public static bool DeleteContact(int ID)
+       {
+
+           int RowsAffected = 0;
+           SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+           string Query = @"DELETE FROM [Contacts] where ContactID=@ContactID";
+           SqlCommand Command = new SqlCommand(Query, Connection);
+           Command.Parameters.AddWithValue("@ContactID", ID);
+           try
+           {
+               Connection.Open();
+               RowsAffected = Command.ExecuteNonQuery();
+           }
+           catch (Exception  ex)
+           {
+
+           }
+           finally
+           {
+               Connection.Close();
+           }
+
+           return (RowsAffected > 0);
+       }
+
+
+
+       public static  DataTable GetAllContact()
+       {
+           DataTable dt = new DataTable();
+           SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+           string Query = @"Select * from Contacts";
+           SqlCommand Command = new SqlCommand(Query, Connection);
+
+
+           try
+           {
+               Connection.Open();
+               SqlDataReader Reader = Command.ExecuteReader();
+               if(Reader.HasRows)
+               {
+                   dt.Load(Reader);
+               }
+               Reader.Close();
+
+           }
+
+           catch(Exception ex)
+           {
+
+           }
+
+           finally
+           {
+               Connection.Close();
+           }
+           return dt;
+       }
+
+
+
+       public static bool IsContactExist(int ID)
+       {
+           bool IsFound = false;
+           SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+           string Query = @"Select Found=1 from Contacts where ContactID=@ContactID";
+           SqlCommand Command = new SqlCommand(Query, Connection);
+           Command.Parameters.AddWithValue("@ContactID", ID);
+           try
+           {
+               Connection.Open();
+               SqlDataReader Reader = Command.ExecuteReader();
+               IsFound = Reader.HasRows;
+               Reader.Close();
+           }
+               
+
+           catch (Exception  ex)
+           {
+
+           }
+
+
+           finally
+           {
+
+               Connection.Close();
+           }
+           return IsFound;
+       }
+
+
+
+
+
+       public static bool IsCountryExistByName(string CountryName)
+       {
+           bool IsFound = false;
+           SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+           string Query = @"Select Found=1 from Countries where CountryName=@CountryName";
+           SqlCommand Command = new SqlCommand(Query, Connection);
+           Command.Parameters.AddWithValue("@CountryName", CountryName);
+           try
+           {
+               Connection.Open();
+               SqlDataReader Reader = Command.ExecuteReader();
+               IsFound = Reader.HasRows;
+               Reader.Close();
+           }
+           catch (Exception ex)
+           {
+
+           }
+           finally
+           {
+               Connection.Close();
+           }
+           return IsFound;
+
+       }
+
+
+       public static bool IsCountryExistByID(int ID)
+       {
+           bool IsFound = false;
+           SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+           string Query = @"Select Found=1 from Countries where CountryID=@CountryID";
+           SqlCommand Command = new SqlCommand(Query, Connection);
+           Command.Parameters.AddWithValue("@CountryID", ID);
+           try
+           {
+               Connection.Open();
+               SqlDataReader Reader = Command.ExecuteReader();
+               IsFound = Reader.HasRows;
+               Reader.Close();
+           }
+           catch(Exception ex)
+           {
+
+           }
+           finally
+           {
+               Connection.Close();
+           }
+           return IsFound;
+
+       }
+
+
+       public static bool FindCountryByName(string Name, ref int ID,ref string Code,ref string PhoneCode)
+   {
+       bool IsFound = false;
+
+       SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+       string Query = @"Select * from Countries where CountryName=@CountryName";
+       SqlCommand Command = new SqlCommand(Query, Connection);
+       Command.Parameters.AddWithValue("@CountryName", Name);
+       try
+       {
+           Connection.Open();
+           SqlDataReader Reader = Command.ExecuteReader();
+         while(Reader.Read())
+         {
+             IsFound = true;
+
+             ID = (int)Reader["CountryID"];
+             if (Reader["Code"] != DBNull.Value)
+             {
+                 Code = (string)Reader["Code"];
+             }
+             else
+                 Code = "";
+
+
+
+             if (Reader["PhoneCode"] != DBNull.Value)
+             {
+                 PhoneCode = (string)Reader["PhoneCode"];
+             }
+             else
+                 PhoneCode = "";
+
+
+
+         }
+         Reader.Close();
+       }
+       catch (Exception ex)
+       {
+
+       }
+       finally
+       {
+           Connection.Close();
+       }
+       return IsFound;
+
+   }
+
+
+
+
+
+      public  static  bool FindCountryByID(int ID, ref string Countryname,ref string Code,ref string PhoneCode)
+       {
+           bool IsFound = true;
+           SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+           string Query = @"Select * from Countries where CountryID=@CountryID";
+           SqlCommand Command = new SqlCommand(Query, Connection);
+           Command.Parameters.AddWithValue("@CountryID", ID);
+           try
+           {
+               Connection.Open();
+               SqlDataReader Reader = Command.ExecuteReader();
+               if (Reader.Read())
+               {
+                   IsFound = true;
+
+                   Countryname = (string)Reader["CountryName"];
+
+
+                   if (Reader["Code"] != DBNull.Value)
+                   {
+                       Code = (string)Reader["Code"];
+                   }
+                   else
+                       Code = "";
+
+
+
+                   if (Reader["PhoneCode"] != DBNull.Value)
+                   {
+                       PhoneCode = (string)Reader["PhoneCode"];
+                   }
+                   else
+                       PhoneCode = "";
+               }
+               Reader.Close();
+           }
+           catch (Exception ex)
+           {
+
+           }
+           finally
+           {
+               Connection.Close();
+           }
+           return IsFound;
+       }
+
+
+
+
+
+       public static int AddNewCountry(string CountryName,string Code,string PhoneCode)
+      {
+          int CountryID = -1;
+          int InsertedID;
+          SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+          string query = @"INSERT INTO [Countries] (CountryName,Code, PhoneCode)
+                             VALUES (@CountryName, @Code, @PhoneCode);
+                             SELECT SCOPE_IDENTITY();";
+
+          SqlCommand Command = new SqlCommand(query, Connection);
+          Command.Parameters.AddWithValue("@CountryName", CountryName);
+           if(Code !="")
+           
+               Command.Parameters.AddWithValue("@Code", Code);
+           
+           else
+               Command.Parameters.AddWithValue("@Code", DBNull.Value);
+      
+
+           if(PhoneCode!="")
+
+          Command.Parameters.AddWithValue("@PhoneCode", PhoneCode );
+
+           else
+
+               Command.Parameters.AddWithValue("@PhoneCode", DBNull.Value);
+
+           try
+           {
+               Connection.Open();
+               object Result = Command.ExecuteNonQuery();
+               if(Result!=null && int.TryParse(Result.ToString(),out InsertedID))
+               {
+                   CountryID = InsertedID;
+
+               }
+
+
+           }
+           catch(Exception  ex)
+           {
+
+           }
+           finally
+           {
+               Connection.Close();
+           }
+
+           return CountryID;
+
+      }
+
+       public static bool UpdateCountry(int ID,string CountryName,string Code,string PhoneCode)
+       {
+           int RowsAffected = 0;
+           SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+           string query = @"UPDATE  [Countries] set CountryName=@CountryName,
+                                                  Code=@Code,
+                                                   PhoneCode=@PhoneCode
+                                              Where CountryID=@CountryID";
+
+
+           SqlCommand Command = new SqlCommand(query, Connection);
+
+
+           Command.Parameters.AddWithValue("@CountryID", ID);
+           if(CountryName!="")
+
+           Command.Parameters.AddWithValue("@CountryName", CountryName);
+           else
+
+               Command.Parameters.AddWithValue("@CountryName", DBNull.Value);
+
+           if (Code != "")
+
+               Command.Parameters.AddWithValue("@Code", Code);
+
+           else
+               Command.Parameters.AddWithValue("@Code", DBNull.Value);
+
+
+           if (PhoneCode != "")
+
+               Command.Parameters.AddWithValue("@PhoneCode", PhoneCode);
+
+           else
+
+               Command.Parameters.AddWithValue("@PhoneCode", DBNull.Value);
+
+           try
+           {
+               Connection.Open();
+              RowsAffected = Command.ExecuteNonQuery();
+
+           }
+           catch (Exception ex)
+           {
+
+           }
+           finally
+           {
+               Connection.Close();
+           }
+
+           return (RowsAffected > 0);
+
+       }
+
+
+
+       public static  DataTable GetListCountries()
+       {
+           DataTable dt = new DataTable();
+
+           SqlConnection Connection = new SqlConnection(clsContactDataAccessSettingscs.ConncetionString);
+           string Query = @"Select * From Countries";
+           SqlCommand Command = new SqlCommand(Query, Connection);
+           try
+           {
+               Connection.Open();
+               SqlDataReader Reader =Command.ExecuteReader();
+    
+               if(Reader.HasRows)
+               {
+                   dt.Load(Reader);
+               }
+               Reader.Close();
+           }
+
+
+           catch(Exception ex)
+           {
+
+           }
+
+           finally
+           {
+               Connection.Close();
+           }
+
+           return dt;
+
+       }
+
+
+    }
+}

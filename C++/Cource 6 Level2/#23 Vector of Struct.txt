@@ -1,0 +1,63 @@
+#include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+
+
+
+
+struct stEmployee{ 
+	string FirstName;
+	string LastName; 
+	float Salary; };
+
+
+
+
+
+int main(){
+
+	vector <stEmployee> vEmployee;
+	stEmployee tempEmployee;
+	
+	tempEmployee.FirstName = "Hussein";
+	tempEmployee.LastName = "Omar";
+	tempEmployee.Salary = 10000;
+	vEmployee.push_back(tempEmployee);
+
+
+
+	tempEmployee.FirstName = "khalid";
+	tempEmployee.LastName = "omar";
+
+	tempEmployee.Salary = 100000;
+	vEmployee.push_back(tempEmployee);
+
+
+
+	tempEmployee.FirstName = "Mhammed";
+	tempEmployee.LastName = "omar";
+	
+	tempEmployee.Salary = 20000;
+	vEmployee.push_back(tempEmployee);
+
+
+
+	tempEmployee.FirstName = "Tofiq";
+	tempEmployee.LastName = "omar";
+	tempEmployee.Salary = 20000;
+	vEmployee.push_back(tempEmployee);
+
+	for (stEmployee &Employe : vEmployee)
+	{
+		cout << "Firstname:" << Employe.FirstName << endl;
+		cout << "Lastname :" << Employe.LastName << endl;
+		cout << "Salary   :" << Employe.Salary << endl;
+		cout << endl;
+	}
+	cout << endl;
+
+}
+
+
+

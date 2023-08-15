@@ -1,0 +1,32 @@
+
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+
+
+
+
+void CallByValue(int x)
+{
+	x++;
+}
+
+
+int main(){
+
+	int a = 10;
+	CallByValue(a);
+	cout << "The Result when you call by  value : " << a << endl;
+
+
+}
+
+
+
+
+

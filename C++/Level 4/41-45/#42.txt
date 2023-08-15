@@ -1,0 +1,55 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+struct stDurtionInSecond
+{
+	int Days, Hours, Mintues, Seconds;
+};
+
+
+int calculateDurtionInSecond(stDurtionInSecond Durtion)
+{
+	int TotalSecond = 0;
+	TotalSecond = Durtion.Days * 24 * 60 * 60;
+	TotalSecond += Durtion.Hours * 60 * 60;
+	TotalSecond += Durtion.Mintues * 60;
+	TotalSecond += Durtion.Seconds;
+	return TotalSecond;
+}
+
+int ReadPositiveNumber(string Massage)
+{
+	int Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num<=0);
+
+	return Num;
+
+}
+
+stDurtionInSecond ReadStDurtionInSecond()
+{
+	stDurtionInSecond Durtion;
+	Durtion.Days = ReadPositiveNumber("Please enter the number of Day :");
+	Durtion.Hours = ReadPositiveNumber("Please enter the number of Hours :");
+	Durtion.Mintues = ReadPositiveNumber("Please enter the number of Mintues :");
+	Durtion.Seconds = ReadPositiveNumber("Please enter the number of Seconds :");
+	return Durtion;
+
+}
+
+
+
+int main()
+
+{
+	
+	
+	cout << calculateDurtionInSecond(ReadStDurtionInSecond()) << endl;
+	
+
+}

@@ -1,0 +1,23 @@
+   static void Main(string[] args)
+        {
+            DataTable EmployeesDateTable = new DataTable();
+            EmployeesDateTable.Columns.Add("ID", typeof(int));
+            EmployeesDateTable.Columns.Add("Name", typeof(string));
+            EmployeesDateTable.Columns.Add("Country", typeof(string));
+            EmployeesDateTable.Columns.Add("Salary", typeof(Double));
+            EmployeesDateTable.Columns.Add("Date", typeof(DateTime));
+
+            EmployeesDateTable.Rows.Add(1, "Hussein", "Yemen", 10000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(1, "Khalid", "USA", 10000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(1, "Ammar", "KSA", 10000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(1, "Ali", "Chaina", 10000, DateTime.Now);
+
+            foreach (DataRow Row in EmployeesDateTable.Rows)
+            {
+                Console.WriteLine("ID:{0}\tName:{1}\tCountry:{2}\tSalary:{3}\tDate:{4}\n", Row["ID"], Row["Name"], Row["Country"], Row["Salary"], Row["Date"]);
+                Console.WriteLine("ID:{0}\tName:{1}\tCountry:{2}\tSalary:{3}\tDate:{4}\n", Row[0], Row[1], Row[2], Row[3], Row[4]);
+            }
+       
+            Console.ReadKey();
+
+        }

@@ -1,0 +1,79 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+    public interface Iperson
+    {
+         string Firstname { get; set; }
+         string LastName { get; set; }
+         void Introduce();
+         void Print();
+         string To_String();
+
+    }
+
+
+
+
+    public abstract class clsPerson:Iperson
+    {
+        public string Firstname { get; set; }
+        public string LastName { get; set; }
+        public abstract void Introduce();
+
+
+        public void Print()
+        {
+            Console.WriteLine("Hi,I'm the Print Menthod");
+        }
+
+
+       public string  To_String()
+       {
+
+           return "Hi,I'm To_String Menthod";
+       }
+
+        public void SayGoodBye()
+        {
+            Console.WriteLine("GoodBye");
+        }
+     
+    }
+
+  
+
+
+   public class clsEmployee:clsPerson
+   {
+       public override void Introduce()
+       {
+           Console.WriteLine("Hi,my FirstName:{0} and my LastName:{1}", Firstname, LastName);
+       }
+   }
+   
+
+
+
+
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+
+            clsEmployee Employee = new clsEmployee();
+            Employee.Firstname = "Hussein";
+            Employee.LastName = "Khalid Omar";
+            Employee.Introduce();
+            Employee.SayGoodBye();
+            Employee.Print();
+           
+            Console.ReadKey();
+
+        }
+    }
+}

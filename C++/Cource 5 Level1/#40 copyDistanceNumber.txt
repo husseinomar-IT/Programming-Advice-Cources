@@ -1,0 +1,130 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+
+using namespace std;
+
+
+
+
+
+void FillArray(int arr[100], int &size)
+{
+	size = 10; 
+	arr[0] = 10;
+	arr[1] = 10;
+	arr[2] = 10;
+	arr[3] = 50;
+	arr[4] = 50;
+	arr[5] = 70;
+	arr[6] = 70;
+	arr[7] = 70;
+	arr[8] = 70;
+	arr[9] = 90;
+
+}
+void AddArrayElement(int Number, int arr[100], int &size)
+{
+	size++;
+	arr[size - 1] = Number;
+}
+
+int PosionNumberInArray(int array[100], int size, int searchNum)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (array[i] == searchNum)
+			return i;
+
+	}
+
+	return -1;
+}
+
+bool IsNumberInArray(int array[100], int size, int searchNum)
+{
+	return PosionNumberInArray(array, size, searchNum) != -1;
+}
+
+
+void CopyArrayUniqNumber(int arr[100], int arr2[100], int arrsize, int &arrsize2)
+{
+	
+	for (int i = 0; i < arrsize; i++)
+	{
+
+		if (!IsNumberInArray(arr2, arrsize2, arr[i]))
+		{
+			AddArrayElement(arr[i], arr2, arrsize2);
+
+		}
+			
+			
+	}
+
+
+}
+
+
+
+
+void PrintArray(int array[100], int size)
+{
+
+
+	for (int i = 0; i < size; i++)
+	{
+
+		cout << array[i] << " ";
+
+	}
+	cout << endl;
+
+}
+
+
+
+
+
+
+
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+	int arr[100];
+
+	int Length = 0;
+	int arr2[100];
+	int arrLength2 = 0;
+	FillArray(arr, Length);
+	PrintArray(arr, Length);
+	CopyArrayUniqNumber(arr, arr2, Length, arrLength2);
+
+	
+	
+	cout << "Copy Array: \n";
+	PrintArray(arr2, arrLength2);
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+
+using namespace std;
+
+
+
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+
+
+string RemovePunctuations(string txt)
+{
+	string S = "";
+	for (short i = 0; i < txt.length(); i++)
+	{
+		if (!ispunct(txt[i]))
+		{
+			S += txt[i];
+		}
+		
+	}
+	return S;
+	
+}
+
+int main(){
+	srand((unsigned)time(NULL));
+
+
+	string txt = "Welcome to #Yemen,Yemen is very nice Country;it's amazing";
+	cout << "Original String:\n";
+	cout << txt << endl;
+	cout << "\n\nPunctuations Removes:\n" << RemovePunctuations(txt) << endl;
+
+	
+	
+
+
+
+
+
+
+
+
+}

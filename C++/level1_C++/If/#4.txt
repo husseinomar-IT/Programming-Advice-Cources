@@ -1,0 +1,38 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+void Read_accept(short age, bool Drive_license)
+{
+	bool Result;
+	Result = (age >= 21 && Drive_license == 1);
+	if (Result == 1)
+	{
+		cout << "Hired\n";
+	}
+	else
+	{
+		cout << "Rejected\n";
+	}
+}
+
+int main()
+{
+	short age;
+	bool Drive_license;
+	
+	cout << "please enter your age:";
+	cin >> age;
+	cout << "Do you  have a Drive license:";
+	cin >> Drive_license;
+	Read_accept(age, Drive_license);
+	
+	cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

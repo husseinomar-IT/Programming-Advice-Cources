@@ -1,0 +1,76 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+
+
+
+class clsPerson
+{
+
+public:
+
+	// Virtual Function 
+	virtual void Print()
+	{
+		cout << "Hi,I'm a person!\n";
+	}
+
+
+};
+
+class clsEmployee :public clsPerson
+{
+
+public:
+
+	void Print()
+	{
+		cout << "Hi,I'm an Employee!\n";
+	}
+
+
+};
+
+
+class clsStudent :public clsPerson
+{
+public:
+
+
+	void Print()
+	{
+		cout << "Hi,I'm a Student!\n";
+	}
+
+};
+
+
+
+int main(){
+
+	clsEmployee Employee1;
+	clsStudent Student1;
+
+// Static/Early Binding//   Call at Compile time
+	 Employee1.Print() ;
+	 Student1.Print();
+// Static/Early Binding//   Call at Compile time
+
+
+
+// Dynamic/Late Binding//   Call at Run time
+	 clsPerson *person1 = &Employee1;
+	 clsPerson *person2 = &Student1;
+// Dynamic/Late Binding//   Call at Run time
+	 person1->Print();
+	 person2->Print();
+
+
+}

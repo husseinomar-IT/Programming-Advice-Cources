@@ -1,0 +1,56 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+enum encolor{Red=1,Green=2,Blue=3,Yellow=4};
+
+int main()
+{
+	cout << "__________________________________________________\n";
+	cout << "Please enter your color number\n";
+	cout << "1- Red\n";
+	cout << "2- Green\n";
+	cout << "3- Blue\n";
+	cout << "4- Yellow\n";
+	cout << "Your choise is??\n";
+	int c;
+	encolor color;
+	cin >> c;
+	color = (encolor)c;
+	
+	if (color == encolor::Red)
+	{
+		system("color 4F");
+	}
+	else if (color == encolor::Green)
+	{
+		system("color 2F");
+	}
+	else if (color == encolor::Blue)
+	{
+		system("color 1F");
+	}
+	else if (color == encolor::Yellow)
+	{
+		system("color 6F");
+	}
+
+	else
+	{
+		system("color 4F");
+	}
+
+
+	
+	
+
+
+	
+	//cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

@@ -1,0 +1,85 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+
+using namespace std;
+
+
+
+int ReadLength(string Massage)
+{
+	int Length;
+	do
+	{
+		cout << Massage;
+		cin >> Length;
+	} while (Length <= 0);
+	return Length;
+}
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+void FullArrayWithRandom(int arr[100], int size)
+
+{
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = RandomNumberBetweenRange(1, 100);
+	}
+}
+
+void copyArrayWithReverseValue(int arr[100], int size, int arr2[100])
+{
+	for (int i = 0; i < size; i++)
+	{
+		arr2[i] = arr[size - 1 - i];
+
+	}
+}
+
+
+
+
+void PrintArray(int array[100], int size)
+{
+
+
+	for (int i = 0; i < size; i++)
+	{
+
+		cout << array[i] << " ";
+
+	}
+	cout << endl;
+
+}
+
+
+
+
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+	int arr[100];
+	int Length = ReadLength("Please Enter the size of array");
+	int arr2[100];
+	
+
+	FullArrayWithRandom(arr, Length);
+	copyArrayWithReverseValue(arr, Length, arr2);
+
+	PrintArray(arr, Length); 
+	PrintArray(arr2, Length);
+	
+
+
+
+}
+

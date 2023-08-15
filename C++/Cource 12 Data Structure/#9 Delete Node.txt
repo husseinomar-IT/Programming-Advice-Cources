@@ -1,0 +1,115 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+class Node
+{
+public:
+	int value;
+	Node * next;
+};
+
+
+
+
+void InsertNodeAtBegining(Node* &head, int Value)
+{
+	Node* new_Node = new Node();
+	new_Node->value = Value;
+	new_Node->next = head;
+	head = new_Node;
+}
+
+
+
+void PrintList(Node* head)
+{
+
+	while (head != NULL)
+	{
+		cout << head->value << " ";
+		head = head->next;
+	}
+
+	cout << endl;
+}
+
+
+
+
+
+
+
+void DeleteNode(Node* &head, int Value)
+{
+	Node* Current = head;
+	Node* Prev = head;
+	if (head == NULL)
+	{
+		return;
+	}
+
+	if ( Current->value == Value)
+	{
+		head = Current->next;
+		delete Current;
+		return;
+	}
+
+
+	while (Current != NULL && Current->value != Value)
+	{
+		Prev = Current;
+		Current = Current->next;
+	}
+	if (Current == NULL)return;
+	Prev->next = Current->next;
+	delete Current;
+}
+
+
+
+void InsertAtEnd(Node* &head, int Value)
+{
+	Node * new_node = new Node();
+	new_node->value = Value;
+	new_node->next = NULL;
+	if (head == NULL)
+	{
+		head = new_node;
+		return;
+	}
+
+
+
+	Node *Last_node = head;
+
+	while (Last_node->next != NULL)
+	{
+		Last_node = Last_node->next;
+	}
+	Last_node->next = new_node;
+	return;
+}
+int main(){
+	
+	Node* head = NULL;
+
+	InsertAtEnd(head, 1);
+	InsertAtEnd(head, 2);
+	InsertAtEnd(head, 3);
+	InsertAtEnd(head, 4);
+
+	PrintList(head);
+
+
+	DeleteNode(head, 1);
+	PrintList(head);
+	system("pause>0");
+	return 0;
+
+}

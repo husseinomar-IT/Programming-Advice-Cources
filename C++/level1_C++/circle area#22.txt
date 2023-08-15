@@ -1,0 +1,11 @@
+const float  PI=3.14;
+		float a,b;
+	float Result;
+	cout<<"Enter the value:";
+	cin>>a;
+	cout<<"Enter the value:";
+	cin>>b;
+	
+	
+	Result=float(PI*pow(b,2)/4)*((2*a-b)/(2*a+b));
+	cout<<"the result is :\n"<<floor(Result)<<"\n";

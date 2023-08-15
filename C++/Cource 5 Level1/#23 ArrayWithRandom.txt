@@ -1,0 +1,79 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+
+short ReadNumber(string Maseage)
+{
+	short size;
+	do{
+		cout << Maseage << endl;
+		cin >> size;
+	} while (size <= 0);
+	return
+		size;
+}
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+void ReadAraayFillRandomNumber(int array[100], int &size)
+{
+	cout << "Please enter the length of array: ";
+	cin >> size;
+	
+	for (int i = 1; i <= size; i++)
+	
+		
+		array[i] = RandomNumberBetweenRange(1, 100);
+	
+	
+	
+	
+}
+int ReadRepeted(int NumToCheck, int  arr[100], int size)
+{
+	int counter = 0;
+	for (int i = 1; i <= size; i++)
+	{
+		if (arr[i] == NumToCheck)
+			counter++;
+	}
+	return counter;
+}
+void PrintArrayFillRandomNumber(int array[100], short size)
+{
+	
+
+	for (int i = 1; i <= size; i++)
+	{
+		
+		cout << array[i] << " ";
+
+	}
+	cout << endl;
+
+}
+
+
+
+
+
+int main()
+{
+srand((unsigned)time_t(NULL));
+	
+	int arr[100];
+	int Length;
+	ReadAraayFillRandomNumber(arr,Length);
+	
+	
+	
+	PrintArrayFillRandomNumber(arr, Length);
+	
+	
+
+}

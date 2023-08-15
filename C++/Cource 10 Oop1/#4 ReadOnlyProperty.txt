@@ -1,0 +1,67 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+class clsPerson{
+private:
+	int _ID=10;
+	string _Firstname;
+	string _Lastname;
+
+	
+
+
+public:
+	//property Read Only because we dont have a set ID
+	int ID()
+	{
+		return _ID;
+	}
+
+	
+	void setFirsatname(string firstname)
+	{
+		_Firstname = firstname;
+	}
+
+	void setLastname(string lastname)
+	{
+		_Lastname = lastname;
+	}
+	string Firstname()
+	{
+		return _Firstname;
+	}
+	string Lastname()
+	{
+		return _Lastname;
+	}
+
+	string FullName()
+	{
+		return _Firstname + " " + _Lastname;
+	}
+
+};
+
+
+
+
+int main(){
+
+
+	clsPerson Person1;
+	Person1.setFirsatname("Hussein");
+	Person1.setLastname("Khalid Omar");
+
+	cout << "ID: " << Person1.ID() << endl; 
+	cout << "First name: " << Person1.Firstname() << endl;
+	cout << "Last name: " << Person1.Lastname() << endl;
+	cout << "Full name: " << Person1.FullName() << endl;
+}

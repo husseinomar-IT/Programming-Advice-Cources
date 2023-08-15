@@ -1,0 +1,12 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{const float PI=3.14;
+float a,Area;
+cout<<"Enter the value a=";
+cin>>a;
+Area=PI*pow(a,2);
+
+cout<<ceil(Area)<<"\n";
+}

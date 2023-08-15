@@ -1,0 +1,26 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+float Rectangle_Area(float length, float width)
+{
+	
+	return length*width;
+}
+
+
+int main()
+{
+	float a, b, Result;
+	
+	cout << "Enter the length of rectenagle\n";
+	cin >> a;
+	cout << "Enter the width of rectenagle\n";
+	cin >> b;
+
+
+	Result = Rectangle_Area(a, b);
+	cout << "the Result=" << Result << "\n";
+	
+}

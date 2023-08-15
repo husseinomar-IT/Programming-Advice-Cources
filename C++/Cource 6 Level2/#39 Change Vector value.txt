@@ -1,0 +1,58 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+struct stPerson
+{
+	string Name;
+	float salary;
+
+};
+
+
+
+
+
+int main(){
+	vector<int>vNum{ 1, 2, 3, 4, 5 };
+	
+	for (const int& i : vNum)
+	{
+		cout << i << " ";
+	}
+
+	cout << "\nchange using for   : ";
+	for ( int& i : vNum)
+	{
+		i = 20;
+		cout << i << " ";
+	}
+	cout << "\nchange using [i]    : ";
+	vNum[4] = 25;
+	vNum[3] = 15;
+	vNum[2] = 10;
+	vNum[1] = 5;
+	vNum[0] = 0;
+	for (const int& i : vNum)
+	{
+		cout << i << " ";
+	}
+	cout << "\nchange using .at(i)  : ";
+	vNum.at(4) = 0;
+	for (const int& i : vNum)
+	{
+		cout << i << " ";
+	}
+	cout << endl;
+	
+
+}
+
+
+
+
+

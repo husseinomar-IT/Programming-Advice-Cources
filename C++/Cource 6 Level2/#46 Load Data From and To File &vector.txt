@@ -1,0 +1,57 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+#include<cctype>
+#include<fstream>
+using namespace std;
+void LoadDateFromFileToVector(string filename,vector<string>&vContantFile)
+{
+	fstream FileName;
+	FileName.open(filename, ios::in);
+	if (FileName.is_open())
+	{
+		string line;
+		while (getline(FileName,line))
+		{
+			vContantFile.push_back(line);
+		}
+		FileName.close();
+	}
+}
+
+void LoadDateFromVectorToFile(string filename, vector<string>vContantFile)
+{
+	fstream FileName;
+	FileName.open(filename, ios::out);
+	if (FileName.is_open())
+	{
+		for (string &line : vContantFile)
+		{
+			if (line != "")
+			{
+				FileName << line << endl;
+			}
+		}
+		FileName.close();
+	}
+}
+int main(){
+	
+	vector<string>vContantFile;
+	LoadDateFromFileToVector("Name_Student.txt", vContantFile);
+	
+	vContantFile[0] = "1-Hussein Khalid Omar";
+	for (string &line : vContantFile)
+	{
+		cout << line << endl;
+	}
+
+	LoadDateFromVectorToFile("Name_Student.txt", vContantFile);
+}
+
+
+
+
+

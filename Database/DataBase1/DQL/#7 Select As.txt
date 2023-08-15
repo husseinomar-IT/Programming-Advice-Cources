@@ -1,0 +1,40 @@
+select A=4*5,b=6/2;
+
+select A=4*5,b=6/2 from Employees;
+
+
+
+select ID, FirstName,MonthlySalary/2 from Employees;
+
+select ID, FirstName,HalfSalary=MonthlySalary/2 from Employees;
+
+select ID,FullName=FirstName+' '+LastName from Employees;
+
+select ID,FirstName+' '+LastName as FullName from Employees;
+
+select ID,FullName=FirstName+' '+LastName,MonthlySalary,YearlySalary=MonthlySalary*12 from Employees;
+
+select ID,FullName=FirstName+' '+LastName,MonthlySalary,
+YearlySalary=MonthlySalary*12,
+BonusAmout=MonthlySalary*BonusPerc
+from Employees;
+
+
+
+
+
+
+select ID,FullName=FirstName+' '+LastName,MonthlySalary,
+YearlySalary=MonthlySalary*12,
+BonusAmout=MonthlySalary*BonusPerc,
+Age=DATEDIFF(YEAR,DateOfBirth,GETDATE())
+from Employees;
+
+
+
+select ID,FullName=FirstName+' '+LastName,MonthlySalary,
+YearlySalary=MonthlySalary*12,
+BonusAmout=MonthlySalary*BonusPerc,
+Age=DATEDIFF(YEAR,DateOfBirth,GETDATE())
+from Employees
+where ExitDate is not null;

@@ -1,0 +1,39 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+enum enMarks{Pass=1,Fail=2};
+int Read_Marks()
+{
+	int Mark;
+	cout << "PLease enter your mark: ";
+	cin >> Mark;
+	return Mark;
+}
+enMarks Check_marks(int Mark)
+{
+	if (Mark > 50)
+		return enMarks::Pass;
+	else
+		return enMarks::Fail;
+}
+void Print_Result(int mark)
+
+{
+	if (Check_marks(mark) == enMarks::Pass)
+		cout << "You are PASS \n";
+	else
+		cout << "You are FAIL \n";
+	
+}
+
+
+
+
+
+
+int main()
+{
+	Print_Result(Read_Marks());
+}
+	

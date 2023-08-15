@@ -1,0 +1,66 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+  
+
+
+
+
+    static  class clsSetting
+    {
+
+
+
+
+      //private  clsSetting()
+      //  {
+
+      //  }
+        public static int DayNumber
+        {
+            get
+            {
+                return DateTime.Today.Day;
+            }
+        }
+
+
+
+
+        public static string DayName
+        {
+            get
+            {
+                return DateTime.Today.DayOfWeek.ToString();
+            }
+        }
+
+
+
+
+        public static string ProjectPath
+        {
+            get;
+            set;
+        }
+    }
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+
+
+
+        
+            Console.WriteLine("Today Name is :{0}", clsSetting.DayName);
+            Console.WriteLine("Today Number is :{0}", clsSetting.DayNumber);
+
+          
+        }
+    }
+}

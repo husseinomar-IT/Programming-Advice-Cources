@@ -1,0 +1,26 @@
+create table persons(
+ID int not null Primary key,
+FirstName nvarchar(100) not null,
+LastName nvarchar(100) not null,
+Age tinyint)
+
+
+
+
+
+create index idx_LastName
+ON persons(LastName Asc)
+
+
+
+create index idx_LastName
+ON persons(LastName desc)
+
+
+
+drop index persons.idx_LastName;
+
+
+
+create index idx_PersonName
+ ON persons(FirstName,LastName);

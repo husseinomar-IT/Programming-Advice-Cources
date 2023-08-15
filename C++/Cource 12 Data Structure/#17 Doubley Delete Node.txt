@@ -1,0 +1,204 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+class Node
+{
+public:
+	int value;
+	Node * next;
+	Node * Prev;
+};
+
+
+
+void InsertAtBegining(Node * &head,int Value)
+{
+	Node *new_node = new Node();
+	new_node->value = Value;
+	new_node->next = head;
+	new_node->Prev = NULL;
+	if (head != NULL)
+	{
+		head->Prev = new_node;
+	}
+	head = new_node;
+
+}
+
+
+void PrintNodesDetails(Node*& head)
+{
+	if (head->Prev != NULL)
+	{
+		cout << head->Prev->value;
+	}
+	else
+		cout << "NULL";
+	cout << "<--->"<<head->value << "<--->";
+	if (head->next != NULL)
+	{
+		cout << head->next->value << "<--->";
+	}
+	else
+		cout << "NULL";
+}
+
+
+
+
+void PrintListDetails(Node* &head)
+{
+	while (head != NULL)
+	{
+		PrintNodesDetails(head);
+		head = head->next;
+
+	}
+}
+
+
+
+Node * FindNode(Node *head,int Value)
+{
+	while (head != NULL)
+	{
+		if (head->value == Value)
+		
+			return head;
+		
+		head = head->next;
+	}
+	return NULL;
+}
+
+
+void PrintList(Node *head)
+{
+	cout << "NULL <--->";
+	while (head !=NULL)
+	{
+		cout << head->value << "<--->";
+		head = head->next;
+	}
+	cout << "NULL\n";
+}
+
+
+
+
+
+void InsertAfter(Node *Current, int Value)
+{
+	if (Current == NULL)
+	{
+		cout << "\nThe Given Prives Node can not be Null \n\n";
+		return;
+	}
+	Node* new_Node = new Node();
+	new_Node->value = Value;
+	new_Node->next = Current->next;
+	new_Node->Prev = Current;
+	if (Current->next != NULL)
+	{
+		Current->next->Prev = new_Node;
+	}
+	Current->next = new_Node;
+}
+
+
+
+void InsertAtEnd(Node *&head, int Value)
+{
+	Node* new_Node = new Node();
+	new_Node->value = Value;
+	new_Node->next = NULL;
+	if (head == NULL)
+	{
+		new_Node->Prev = NULL;
+		head = new_Node;
+		return;
+	}
+
+	else
+	{
+		Node* Current = head;
+		while (Current->next !=NULL)
+		{
+			Current = Current->next;
+		}
+		Current->next = new_Node;
+		new_Node->Prev = Current;
+		return;
+	}
+
+		
+
+
+}
+
+
+
+void DeleteNode(Node * &head, Node* &NodeToDeleted)
+{
+
+
+	if (head == NULL || NodeToDeleted == NULL)
+	{
+		return;
+	}
+
+
+
+	if (head == NodeToDeleted)
+	{
+		head = NodeToDeleted->next;
+	}
+
+	if (NodeToDeleted->next != NULL)
+	{
+		NodeToDeleted->next->Prev = NodeToDeleted->Prev;
+	}
+
+	if (NodeToDeleted->Prev != NULL)
+	{
+		NodeToDeleted->Prev->next = NodeToDeleted->next;
+	}
+
+	delete NodeToDeleted;
+
+
+
+}
+int main(){
+
+
+	Node * head = NULL;
+	
+
+	
+	InsertAtEnd(head, 1);
+	InsertAtEnd(head, 2);
+	InsertAtEnd(head, 3);
+	Node *N1 = FindNode(head, 1);
+
+	PrintList(head);
+
+	DeleteNode(head, N1);
+	PrintList(head);
+	cout << endl;
+
+
+
+
+
+
+
+	system("pause>0");
+	return 0;
+
+}

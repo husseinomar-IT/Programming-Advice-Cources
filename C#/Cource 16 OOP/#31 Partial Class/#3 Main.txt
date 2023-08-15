@@ -1,0 +1,27 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+   
+
+
+
+
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+
+            MyClass C1 = new MyClass();
+            C1.Fun1();
+            C1.Fun2();
+
+            Console.ReadKey();
+
+        }
+    }
+}

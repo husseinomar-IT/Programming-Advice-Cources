@@ -1,0 +1,139 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+
+using namespace std;
+
+enum encharType{ smallLeteer = 1, captellLetter = 2, SpecialLetter = 3, Digit = 4 };
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+char GetTypeLetter(encharType type)
+{
+	switch (type)
+	{
+	case encharType::captellLetter:
+		return char(RandomNumberBetweenRange(65, 90));
+
+	case encharType::smallLeteer:
+		return char(RandomNumberBetweenRange(97, 122));
+
+
+	case encharType::Digit:
+		return char(RandomNumberBetweenRange(48, 57));
+
+	case encharType::SpecialLetter:
+		return char(RandomNumberBetweenRange(33, 47));
+		break;
+
+
+	}
+}
+string GenrateWord(encharType type, short Length)
+
+{
+	string word = "";
+	for (int i = 1; i <= Length; i++)
+	{
+		word = word + GetTypeLetter(type);
+
+	}
+	return
+		word;
+}
+
+string GenrateKey()
+{
+	string Key = "";
+	Key = GenrateWord(encharType::captellLetter, 4) + "-";
+	Key = Key + GenrateWord(encharType::captellLetter, 4) + "-";
+	Key = Key + GenrateWord(encharType::captellLetter, 4) + "-";
+	Key = Key + GenrateWord(encharType::captellLetter, 4);
+
+
+	return Key;
+}
+
+
+
+
+int ReadLength(string Massage)
+{
+	int Length;
+	do
+	{
+		cout << Massage;
+		cin >> Length;
+	} while (Length <= 0);
+	return Length;
+}
+
+
+
+void FullArrayWithKeys(string arr[100], int size)
+
+{
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = GenrateKey();
+	}
+}
+
+
+
+
+
+
+void PrintArrayString(string array[100], int size)
+{
+
+
+	for (int i = 0; i < size; i++)
+	{
+
+		cout << "Key[" << i << "]= " << array[i] << endl;
+
+	}
+	cout << endl;
+
+}
+
+
+
+
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+	string arr[100];
+	int Length = ReadLength("How many Keys you want to Genarte");
+	
+	
+
+	FullArrayWithKeys(arr, Length);
+	
+
+
+	PrintArrayString	(arr, Length);
+	
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,49 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+
+float ReadPositiveNumber(string Massage)
+{
+	float Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num<=0);
+
+	return Num;
+
+}
+float HoursToDays(float NumberOfHours)
+{
+	return  (float) NumberOfHours / 24;
+}
+float DaysToWeeks(float NumberOfHours)
+{
+	return HoursToDays(NumberOfHours) / 7;
+
+}
+
+
+
+
+int main()
+
+{
+	float NumberOfHours = ReadPositiveNumber("Please enter the Numer Of Houres : ");
+	float HourToD = HoursToDays(NumberOfHours);
+	float DayToW = DaysToWeeks(NumberOfHours);
+	cout << endl;
+
+
+	cout << "NumberOfHours = " << NumberOfHours << endl;
+	cout << "NumberOfDays = " << HourToD << endl;
+	cout << "NumberOfWekks = " << DayToW << endl;
+	
+	
+	
+
+}

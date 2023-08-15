@@ -1,0 +1,5 @@
+select Employees.EmployeeID,Employees.Name,Employees.ManagerID,Employees.Salary,Manager.Name as MangerName
+from Employees inner join Employees as Manager on
+Employees.ManagerID=Manager.EmployeeID
+
+where Manager.Name='Mohammed'

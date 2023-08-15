@@ -1,0 +1,37 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int Read_num(string Massage)
+{
+	int Num;
+	cout << Massage << endl;
+	cin >> Num;
+	return Num;
+
+}
+
+int CheckNumberWithSum()
+{
+	int sum = 0, num, Counter = 1;
+	do{
+		num = Read_num("Please enter the num " + to_string(Counter));
+		if (num == -99)
+		{
+			break;
+		}
+		sum += num;
+		Counter++;
+	} while (num != 99);
+	return sum;
+	
+	
+}
+
+int main()
+
+{
+	
+	cout << "The Result of our calcute is =" << CheckNumberWithSum()<< endl;
+
+}

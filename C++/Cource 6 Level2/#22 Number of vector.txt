@@ -1,0 +1,61 @@
+#include<iostream>
+#include<iomanip>
+#include<vector>
+using namespace std;
+
+int addElement()
+{
+	int Num;
+	cin >> Num;
+	return Num;
+}
+
+
+void ReadNumber(vector<int>&vNumber)
+{
+	
+	char acccept = 'Y';
+	do{
+		cout << "Please enter a number: ";
+		vNumber.push_back(addElement());
+		cout << "Do you want to add a number more Y/N?:";
+		cin >> acccept;
+
+	
+		
+		
+
+	} while (acccept == 'Y' || acccept == 'y');
+
+
+
+
+}
+
+void print(vector<int>&vNumber)
+{
+	cout << "Vector Number: ";
+	cout << endl;
+	for (int &i : vNumber)
+	{
+		cout << i << endl;
+	}
+}
+
+
+
+
+int main(){
+
+	vector<int>vNumber;
+
+	    ReadNumber(vNumber);
+		print(vNumber);
+
+
+
+
+}
+
+
+

@@ -1,0 +1,19 @@
+
+
+select * from AcctiveEmployee
+union
+select * from ResigndEmployee
+
+
+
+select * from Departments
+union
+select * from Departments
+
+
+
+
+
+select * from Departments
+union All
+select * from Departments

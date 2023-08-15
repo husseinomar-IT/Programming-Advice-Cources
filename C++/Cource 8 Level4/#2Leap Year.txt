@@ -1,0 +1,70 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+#include<fstream>
+
+using namespace std;
+
+short ReadYear()
+{
+	short Num;
+	cout << "Please enter the Year? ";
+	cin >> Num;
+	return Num;
+
+}
+
+
+
+
+bool IsLeapYear(int Year)
+{
+	if (Year % 400 == 0)
+	{
+		return true;
+	}
+	else if ( Year % 100 == 0)
+	{
+		return false;
+	}
+	else if (Year % 4 == 0)
+	{
+		return true;
+	}
+	else
+	return false;
+}
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	short Year = ReadYear();
+	if (IsLeapYear(Year))
+	{
+		cout << " The Year"<< Year <<"is Leap Year\n";
+	}
+	else
+	{
+		cout << " The Year" << Year << "is not  Leap Year\n";
+	}
+	
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+}

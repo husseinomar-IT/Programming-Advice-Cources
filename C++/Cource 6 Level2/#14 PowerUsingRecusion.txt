@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+
+
+
+
+int PowOfNumber(int base, int Order)
+{
+	if (Order == 0)
+		return 1;
+	return (base*PowOfNumber(base, Order - 1));
+
+	
+	
+}
+
+
+int main(){
+
+	cout << PowOfNumber(2, 5) << endl;
+
+
+}

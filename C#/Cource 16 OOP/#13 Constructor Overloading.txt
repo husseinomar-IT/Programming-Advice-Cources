@@ -1,0 +1,75 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+
+    class clsPerson
+    {
+        public int ID
+        {
+            get;
+            set;
+        }
+
+
+        public string Name
+        {
+            get;
+            set;
+        }
+
+
+
+        public short Age
+        {
+            get;
+            set;
+        }
+        public clsPerson()
+        {
+            ID = -1;
+            Name = "Empty";
+            Age = 0;
+        }
+
+
+        public clsPerson(int id,string name,short age)
+        {
+            this.ID = id;
+            this.Name = name;
+            this.Age = age;
+        }
+
+    }
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+
+            clsPerson Person1 = new clsPerson();
+            Console.WriteLine("Person1 ID:{0}", Person1.ID);
+            Console.WriteLine("Person1 Name:{0}", Person1.Name);
+            Console.WriteLine("Person1 Age:{0}", Person1.Age);
+    
+
+
+            clsPerson Person2 = new clsPerson(1,"Hussein Khalid Omar",22);
+            Console.WriteLine("\nPerson2 ID:{0}", Person2.ID);
+            Console.WriteLine("Person2 Name:{0}", Person2.Name);
+            Console.WriteLine("Person2 Age:{0}", Person2.Age);
+
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}

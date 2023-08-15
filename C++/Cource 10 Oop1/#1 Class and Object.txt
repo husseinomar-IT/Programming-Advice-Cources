@@ -1,0 +1,34 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+class clsPerson{
+
+public:
+	string Firstname;
+	string Lastname;
+
+	string FullName()
+	{
+		return Firstname + " " + Lastname;
+	}
+};
+
+
+
+
+int main(){
+
+
+	clsPerson Person1;
+	Person1.Firstname = "Hussein";
+	Person1.Lastname = "Khalid Omar";
+	cout << Person1.FullName() << endl;
+
+}

@@ -1,0 +1,56 @@
+
+
+
+
+
+Use DB1;
+
+select * from Employees;
+
+
+insert into Employees
+values
+(1,'Hussein',773787547,10000)
+
+
+
+insert into Employees
+values
+(2,'Ali',7010104225,3000),
+(3,'Ahmed',77777777,5000),
+(4,'Majed',01012142,3000)
+
+
+
+insert into Employees(ID,Name)
+values
+(5,'Naiser')
+
+
+
+
+
+insert into Employees(Name,ID,Salary,Phone)
+values
+('Naje',6,8000,739714141);
+
+
+insert into Employees(Salary,Phone)
+values
+(8000,739714141);
+
+insert into Employees(ID,Name,Phone,Salary)
+
+values
+(7,'Yasser',null,null);
+
+
+
+
+insert into Employees(ID,Name,Phone,Salary)
+
+values
+(10,'Yasser',null,10000000);
+
+
+delete  from Employees

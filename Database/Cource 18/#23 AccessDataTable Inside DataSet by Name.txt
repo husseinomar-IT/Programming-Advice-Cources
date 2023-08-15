@@ -1,0 +1,90 @@
+     static void Main(string[] args)
+        {
+            DataTable EmployeesDateTable = new DataTable("EmployeesDataTable");
+            EmployeesDateTable.Columns.Add("ID", typeof(int));
+            EmployeesDateTable.Columns.Add("Name", typeof(string));
+            EmployeesDateTable.Columns.Add("Country", typeof(string));
+            EmployeesDateTable.Columns.Add("Salary", typeof(Double));
+            EmployeesDateTable.Columns.Add("Date", typeof(DateTime));
+
+      
+
+
+
+
+
+
+
+            DataColumn[] PrimaryKeyColumns = new DataColumn[1];
+            PrimaryKeyColumns[0] = EmployeesDateTable.Columns["ID"];
+            EmployeesDateTable.PrimaryKey = PrimaryKeyColumns;
+
+
+
+            EmployeesDateTable.Rows.Add(1, "Hussein", "Yemen", 20000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(2, "Khalid", "Yemen", 10000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(3, "Ammar", "KSA", 25000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(4, "Ali", "Chaina", 10000, DateTime.Now);
+
+
+
+
+
+
+
+
+
+
+
+
+            DataTable DepartmentDataTable = new DataTable("DepartmentsDataTable");
+            DepartmentDataTable.Columns.Add("ID", typeof(int));
+            DepartmentDataTable.Columns.Add("Name", typeof(string));
+
+
+
+            DepartmentDataTable.Rows.Add(1, "IT");
+            DepartmentDataTable.Rows.Add(2, "Markting");
+            DepartmentDataTable.Rows.Add(3, "HR");
+
+
+
+
+            DataSet dataset1 = new DataSet();
+            dataset1.Tables.Add(EmployeesDateTable);
+            dataset1.Tables.Add(DepartmentDataTable);
+
+
+            foreach (DataRow Row in dataset1.Tables["EmployeesDataTable"].Rows )
+            {
+                Console.WriteLine("ID:{0}\tName:{1}\tCountry:{2}\tSalary:{3}\tDate:{4}", Row["ID"], Row["Name"], Row["Country"], Row["Salary"], Row["Date"]);
+            }
+
+
+            Console.WriteLine();
+
+
+
+            foreach(DataRow Row in dataset1.Tables["DepartmentsDataTable"].Rows )
+            {
+                Console.WriteLine("ID:{0}\tName:{1}", Row["ID"], Row["Name"]);
+            }
+
+
+
+        
+
+
+            
+
+
+   
+
+
+         
+
+
+
+            Console.ReadKey();
+
+        }

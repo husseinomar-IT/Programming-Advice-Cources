@@ -1,0 +1,38 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+#include"clsQueueLine.h"
+using namespace std;
+
+
+
+
+
+
+
+int main(){
+
+	
+	clsQueueLine PayBillQueue("A0", 10);
+
+	PayBillQueue.IssueTicket();
+	PayBillQueue.IssueTicket();
+	PayBillQueue.IssueTicket();
+	PayBillQueue.IssueTicket();
+	PayBillQueue.IssueTicket();
+	cout << "\nPay Bills Queue Info:\n";
+	
+	PayBillQueue.ServeNextClient();
+
+	PayBillQueue.PrintInfo();
+	PayBillQueue.PrintTicketsLineRTL();
+	PayBillQueue.PrintTicketsLineLTR();
+	PayBillQueue.PrintAllTickets();
+
+
+
+
+	system("pause>0");
+	return 0;
+
+}

@@ -1,0 +1,89 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+
+using namespace std;
+
+
+struct stClienData
+{
+	string AccountNumber ;
+	string PINCODE ;
+	string Name ;
+	string Phone ;
+	double AccountBlance;
+};
+
+
+
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+
+
+
+
+
+
+stClienData ReadClientData()
+{
+	stClienData ClientData;
+	cout << "Enter Account Number?";
+	getline(cin, ClientData.AccountNumber);
+	cout << "Enter PINCODE?";
+	getline(cin, ClientData.PINCODE);
+	cout << "Enter Name?";
+	getline(cin, ClientData.Name);
+	cout << "Enter Phone?";
+	getline(cin, ClientData.Phone);
+	cout << "Enter AccountBlance ?";
+	cin >> ClientData.AccountBlance;
+	return ClientData;
+}
+
+string PrintClientData(stClienData ClientData, string Spletor = "#//#")
+{
+	string line = "";
+	line += ClientData.AccountNumber + Spletor;
+	line += ClientData.PINCODE + Spletor;
+	line += ClientData.Name + Spletor;
+	line += ClientData.Phone + Spletor;
+	line += to_string(ClientData.AccountBlance);
+	return line;
+
+
+
+}
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	cout << "Please Enter Client Data:\n\n";
+	stClienData Client = ReadClientData();
+	cout << "\n\nClient Record for saving is:\n" << PrintClientData(Client) << endl;
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+}

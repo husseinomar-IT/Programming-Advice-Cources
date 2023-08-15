@@ -1,0 +1,63 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+    class clsA
+    {
+         public  int var1=10;
+        private int var2 = 20;
+        protected int var3 = 30;
+        public int Fun1()
+        {
+            return 100;
+        }
+
+        private int Fun2()
+        {
+            return 200;
+        }
+
+
+
+        protected int Fun3()
+        {
+            return 300;
+        }
+
+
+       
+    }
+
+
+
+
+    class clsB:clsA
+    {
+        public int Fun4()
+        {
+            return var1 + var3;
+        }
+    }
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+            clsA A1 = new clsA();
+            Console.WriteLine("All public Members are accessable");
+            Console.WriteLine("Var1={0}", A1.var1);
+            Console.WriteLine("Fun1={0}", A1.Fun1());
+
+
+
+            clsB B1 = new clsB();
+            Console.WriteLine("Fun4={0}",B1.Fun4());
+
+        Console.ReadKey();
+          
+        }
+    }
+}

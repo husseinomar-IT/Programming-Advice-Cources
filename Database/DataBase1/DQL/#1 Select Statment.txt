@@ -1,0 +1,16 @@
+
+select * from Employees;
+
+
+select Employees.* from Employees;
+
+
+select ID,FirstName,LastName,DateOfBirth from Employees;
+
+
+select ID,FirstName,DateOfBirth from  Employees;
+
+select * from Countries;
+
+
+select * from Departments;

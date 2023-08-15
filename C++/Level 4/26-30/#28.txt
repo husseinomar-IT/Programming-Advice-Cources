@@ -1,0 +1,86 @@
+#include<iostream>
+#include<string>
+using namespace std;
+enum enOddorEven{ odd = 1,even=2 };
+
+
+int Read_num()
+{
+	int N;
+	cout << "Please Enter the number:\n";
+	cin >> N;
+	return N;
+
+}
+enOddorEven checknum(int num)
+{
+	if (num % 2 == 0)
+		return enOddorEven::even;
+	else
+		return enOddorEven::odd;
+}
+
+int SumNumberFrom1ToN(int N)
+{
+	cout << "the REsult with for loop:\n";
+	int sum = 0;
+	for (int i = 1; i <= N; i++)
+	{
+		if (checknum(i) == enOddorEven::odd)
+		{
+			sum += i;
+		}
+	
+	}
+	return sum;
+}
+int SumNumberFrom1ToNWithWhile(int N)
+
+{
+	int counter = 1;;
+	int sum = 0;
+	while (counter <= N)
+	{
+		
+		if (checknum(counter) == enOddorEven::odd)
+		{
+			sum += counter;
+		}
+		counter++;
+
+
+	}
+	return sum;
+
+}
+int SumNumberFrom1ToNWithDoWhile(int N)
+{
+
+	int counter = 1;;
+	int sum = 0;
+	do{
+		if (checknum(counter) == enOddorEven::odd)
+		{
+			sum += counter;
+		}
+		counter++;
+
+	} while (counter <= N);
+	return sum;
+
+}
+void print_value(int sum)
+{
+	cout << "The sum of odd  number:" << sum << endl;
+}
+
+
+
+int main()
+
+{
+	int N = Read_num();
+	//print_value(SumNumberFrom1ToN(N));
+	//print_value(SumNumberFrom1ToNWithWhile(N));
+	print_value(SumNumberFrom1ToNWithDoWhile(N));
+}

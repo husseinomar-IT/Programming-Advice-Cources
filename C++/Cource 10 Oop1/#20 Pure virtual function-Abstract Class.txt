@@ -1,0 +1,80 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+
+
+class clsMobile
+{
+	virtual void Dial(string phoneNumber) = 0;
+	virtual void SendSMS(string phoneNumber,string Message) = 0;
+	virtual void TakePicture() = 0;
+};
+
+
+class clsIphone :public clsMobile
+{
+public:
+
+	void Dial(string phoneNumber)
+	{
+
+	}
+
+
+	void SendSMS(string phoneNumber, string Message)
+	{
+
+	}
+
+	void TakePicture()
+	{
+
+	}
+};
+
+
+class clsSamsungNote10:public clsMobile
+{
+public:
+	void Dial(string phoneNumber)
+	{
+
+	}
+
+
+	void SendSMS(string phoneNumber, string Message)
+	{
+
+	}
+
+	void TakePicture()
+	{
+
+	}
+
+
+};
+
+
+
+ 
+int main(){
+
+	
+
+	clsIphone Iphone1;
+	Iphone1.TakePicture();
+	clsSamsungNote10 Note10;
+	Note10.TakePicture();
+
+
+
+
+}

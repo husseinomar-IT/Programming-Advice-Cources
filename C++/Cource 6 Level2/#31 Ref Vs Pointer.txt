@@ -1,0 +1,63 @@
+
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+
+
+
+
+
+
+
+int main(){
+
+	int a = 10;
+	int &x = a;
+
+	cout << "--------------Ref---------------------------\n";
+	cout << "Value        a   : " << a << endl;
+
+	cout << "Value        x   : " << x << endl;
+	cout << endl;
+
+	cout << "Address      a : " << &a << endl;
+
+	cout << "Address      x : " << &x << endl;
+
+	cout << "-------------------Pointer---------------------------\n";
+	int *p;
+	p= &a;
+
+
+	
+
+
+
+	cout << "Value        p   : " << p << endl;
+	cout << "Value Deref  p   : " << *p << endl;
+	cout << "\n";
+
+
+	*p = 50;
+
+	cout << "Value        a   : " << a << endl;
+	cout << "Value Deref  p   : " << *p << endl;
+
+	int b = 150;
+	p = &b;
+	cout << "\n\n";
+	cout << "Value        p   : " << p << endl;
+	cout << "Value Deref  p   : " << *p << endl;
+
+
+}
+
+
+
+
+

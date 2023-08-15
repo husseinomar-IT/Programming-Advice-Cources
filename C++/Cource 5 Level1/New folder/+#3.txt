@@ -1,0 +1,54 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+enum enperfectnum
+{
+	perfect = 1,
+	notPerfect = 2
+};
+enperfectnum checkPerfect(int Num)
+{
+	int sum = 0;
+	for (int i = 1; i < Num; i++)
+	{
+		if (Num%i == 0)
+
+			sum += i;
+	}
+	if (Num == sum)
+		return enperfectnum::perfect;
+	else
+		return enperfectnum::notPerfect;
+}
+
+
+float Read_num(string Massage)
+{
+	float Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num <= 0);
+
+	return Num;
+
+}
+void PrintPerfectNumber(int Num)
+{
+	
+	if (checkPerfect(Num)==enperfectnum::perfect)
+		cout << "It is perfect num \n";
+	else
+		cout << "It is Not perfect num \n";
+}
+
+
+int main()
+
+{
+	PrintPerfectNumber(Read_num("Enter Positve number"));
+
+
+}

@@ -1,0 +1,116 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+
+using namespace std;
+
+
+int ReadNumber()
+{
+	int Num;
+	cout << "Please enter the Number? ";
+	cin >> Num;
+	return Num;
+}
+
+void AddArrayElement(int Number, int arr[100], int &size)
+{
+	size++;
+	arr[size - 1] = Number;
+}
+
+void InputUserArray(int arr[100], int &size)
+{
+	bool Accept = true;
+	do
+	{
+		AddArrayElement(ReadNumber(), arr, size);
+		cout << "Do you want to insert number[0]:No [1]:Yes ";
+		cin >> Accept;
+
+	} while (Accept);
+
+}
+
+
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+
+void CopyArrayUsingAddArrayElement(int arr[100], int size, int arr2[100], int &arrsize2)
+{
+	for (int i = 0; i < size; i++)
+		AddArrayElement(arr[i], arr2, arrsize2);
+
+}
+
+
+void FullArrayWithRandom(int arr[100], int &size)
+
+{
+	cout << "Please enter the size of Array :";
+	cin >> size;
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = RandomNumberBetweenRange(1, 100);
+	}
+}
+
+void PrintArray(int array[100], int size)
+{
+
+
+	for (int i = 0; i < size; i++)
+	{
+
+		cout << array[i] << " ";
+
+	}
+	cout << endl;
+
+}
+
+
+
+
+
+
+
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+	int arr[100];
+	int Length = 0;
+	
+
+	InputUserArray(arr, Length);
+	cout << "Length" << Length << endl;
+	PrintArray(arr, Length);
+	
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,44 @@
+
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+struct stPerson
+{
+	string Name;
+	float salary;
+
+};
+
+
+
+
+
+int main(){
+
+	stPerson Employe, *ptr;
+	Employe.Name = "Hussein khaid omar";
+	Employe.salary = 5000;
+	ptr = &Employe;
+	cout << "Your name : " << Employe.Name << endl;
+
+	cout << "Your Salary : " << Employe.salary << endl;
+
+
+	cout << endl;
+
+	cout << "Using Pointer  " << endl;
+	cout << "Your name : " << ptr->Name << endl;
+
+	cout << "Your Salary : " <<ptr->salary << endl;
+
+}
+
+
+
+
+

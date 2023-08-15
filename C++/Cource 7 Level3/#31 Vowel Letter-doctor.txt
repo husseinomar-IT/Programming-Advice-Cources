@@ -1,0 +1,101 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+char InvertLetterCase(char Letter)
+{
+	return(isupper(Letter) ? tolower(Letter) : toupper(Letter));
+
+
+}
+
+string ReadString(string Message)
+{
+	string txt;
+	cout << Message << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+char GetLetter()
+{
+	char Letter = ' ';
+	cout << "Please Enter a Character? \n";
+	cin >> Letter;
+	return Letter;
+
+}
+bool checkVowelsCharcter( char Letter)
+{
+	Letter = tolower(Letter);
+	return(Letter == 'a' || Letter == 'i' || Letter == 'u' || Letter == 'e' || Letter == 'o');
+	
+}
+
+
+
+short CountofCharMatchCase(string txt, char Letter, bool MatchCase = true)
+{
+	short Counter = 0;
+	for (int i = 0; i< txt.length(); i++)
+	{
+		if (MatchCase)
+		{
+			if (txt[i] == Letter)
+				Counter++;
+		}
+		else
+		{
+			if (tolower(txt[i]) == tolower(Letter))
+				Counter++;
+		}
+
+		
+	}
+	return Counter;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	
+
+	
+
+	char Letter = GetLetter();
+
+	
+	if (checkVowelsCharcter( Letter))
+	{
+		cout << "\nYES Letter '" << Letter << "' is Vowel" << endl;
+	}
+
+	else{
+		cout << "\nNo Letter '" << Letter << "' is Not Vowel" << endl;
+	}
+
+		
+	
+	
+
+}

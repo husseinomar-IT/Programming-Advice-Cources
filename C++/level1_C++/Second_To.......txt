@@ -1,0 +1,22 @@
+	int Total_second,SecondPerDay,SecondPerHour,SecondPerMin,
+	NumberOfDay,NumberOfHour,NumberOfMin,NumberOfSeconds,Remender;
+	cout<<"Enter the Second=\n";
+	cin>>Total_second;
+	SecondPerDay=24*60*60;
+	SecondPerHour=60*60;
+	SecondPerMin=60;
+	
+	NumberOfDay=floor(Total_second/SecondPerDay);
+	Remender=(Total_second)%(SecondPerDay);
+	cout<<Remender;
+	NumberOfHour=floor(Remender/SecondPerHour);
+	Remender=(Remender)%(SecondPerHour);
+	
+	NumberOfMin=floor(Remender/SecondPerMin);
+	Remender=(Remender%SecondPerMin);
+	
+	
+  NumberOfSeconds=Remender;
+  cout<<"NumberOfDay:"<<round(NumberOfDay) <<"  NumberOfHour:"<<roud(NumberOfHour)<<"\n";
+  cout<<"NumberOfMin:"<<  round(NumberOfMin)<<"  NumberOfSecond:"<<round(NumberOfSeconds)<<"\n";
+	

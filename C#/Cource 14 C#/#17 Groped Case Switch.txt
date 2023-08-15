@@ -1,0 +1,35 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+     
+        static void Main(string[] args)
+        {
+
+
+            char ch;
+            Console.WriteLine("Enter a char: ");
+            ch = Convert.ToChar(Console.ReadLine());
+            switch(Char.ToLower(ch))
+            {
+                case 'a':
+                case 'e':
+                case 'o':
+                case 'i':
+                case 'u':
+                    Console.WriteLine("Vowel");
+                    break;
+                default:
+                    Console.WriteLine(" Not Vowel");
+
+                    break;
+            }
+        
+
+          
+        }
+    }
+}

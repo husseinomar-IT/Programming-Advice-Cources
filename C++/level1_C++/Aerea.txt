@@ -1,0 +1,77 @@
+	float a,b,Result;
+			cout<<"Enter the length of rectenagle\n";
+			cin>>a;
+			cout<<"Enter the width of rectenagle\n";
+			cin>>b;
+			Result=a*b;
+			cout<<"the result is :\n"<<Result<<"\n";
+			**************#15***********************
+			*/
+			/*
+			**************#17***********************
+			float a,h,Result;
+			cout<<"Enter the length of rectenagle\n";
+			cin>>a;
+			cout<<"Enter the width of rectenagle\n";
+			cin>>h;
+				Result=a/2*h;
+		
+			cout<<"the result is :\n"<<Result<<"\n";
+				**************#17***********************
+			*/
+			
+			
+		//	**************#19***********************
+		/*
+		float short PI=3.14;
+		float D,Result;
+	cout<<"Enter the value:";
+	cin>>D;
+	Result=(PI*D*D)/4;
+	cout<<"the result is :\n"<<Result<<"\n";
+   **************#19***********************
+   */
+   // circle in squere
+   
+   
+   /*
+     **************#20***********************
+   	const float PI=3.14;
+		float A,Result;
+	cout<<"Enter the value:";
+	cin>>A;
+	Result=(PI*A*A)/4;
+	cout<<"the result is :\n"<<Result<<"\n";
+	**************#20***********************
+	*/
+	/*
+	
+	//**************#21***********************
+		const float PI=3.14;
+		float l,Result;
+	cout<<"Enter the value:";
+	cin>>l;
+	Result=(l*l)/(4*PI);
+	cout<<"the result is :\n"<<Result<<"\n";
+	//**************#21***********************
+	*/ 
+	
+//	**************#22***********************
+
+/*
+	const float  PI=3.14;
+		float a,b;
+	float Result;
+	cout<<"Enter the value:";
+	cin>>a;
+	cout<<"Enter the value:";
+	cin>>b;
+	
+	
+	Result=float(PI*b*b/4)*((2*a-b)/(2*a+b));
+	cout<<"the result is :\n"<<Result<<"\n";
+	
+	
+//	**************#22***********************
+	*/
+	

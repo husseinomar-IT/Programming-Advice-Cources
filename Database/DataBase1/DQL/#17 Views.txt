@@ -1,0 +1,28 @@
+
+
+
+create view AcctiveEmployee as
+select * from Employees
+where ExitDate is not Null
+
+
+
+create view ResigndEmployee as
+select * from Employees
+where ExitDate is not Null
+
+
+
+
+
+select DepartmentID,TotalCount=COUNT(MonthlySalary) from AcctiveEmployee
+group by DepartmentID
+having COUNT(MonthlySalary)>=100
+order by DepartmentID;
+
+
+
+
+
+create view ShortDateilsEmployees as
+select ID,FirstName,LastName from Employees;

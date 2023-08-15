@@ -1,0 +1,52 @@
+using System;
+
+
+
+
+   
+
+
+
+public class clsA
+{
+    public void Fun1()
+    {
+             Console.WriteLine("Fun1  From Class A ...");
+    }
+    public void Fun2()
+    {
+             Console.WriteLine("Fun2 From Class A ...");
+             Console.WriteLine("Here Will Call Fun1 From Class B........");
+
+        clsB B=new clsB();
+        B.Fun1();
+
+    }
+
+}
+
+
+public class clsB
+{
+      public void Fun1()
+    {
+             Console.WriteLine("Fun1  From Class B ...");
+    }
+}
+
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+           clsA A=new clsA();
+            A.Fun1();
+            A.Fun2();
+           
+            Console.ReadKey();
+
+        }
+    }
+

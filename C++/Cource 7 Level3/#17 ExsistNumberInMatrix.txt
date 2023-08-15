@@ -1,0 +1,89 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+
+void printRandomArray(int array[3][3], short Rows, short Cols)
+{
+
+
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+
+			//printf("%0*d\t", 2, array[i][j]);
+			cout << setw(3) << array[i][j] << " ";
+		}
+		cout << endl;
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+short InsertNumberSearch()
+{
+	short  Num;
+	cout << "Please Enter the number to look for in matrix? ";
+	cin >> Num;
+	return Num;
+}
+
+bool ExistsNumberInMatrix (int arr[3][3], short Rows, short Cols, short Number)
+{
+	
+
+
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+
+			if (arr[i][j] == Number )
+			{
+				return true;
+			}
+		}
+	}
+	return false;
+}
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	int Matrixarr1[3][3] = { { 1, 2, 9 }, { 5, 2, 4 }, { 2, 3, 9 } };
+
+
+
+	cout << "Matrix1: \n";
+	printRandomArray(Matrixarr1, 3, 3);
+	short Number = InsertNumberSearch();
+
+	if (ExistsNumberInMatrix(Matrixarr1, 3, 3, Number))
+		cout << "Yes it is   there \n";
+		
+	else 
+		cout << "no it is not there \n";
+
+
+}

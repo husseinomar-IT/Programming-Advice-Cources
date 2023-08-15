@@ -1,0 +1,101 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+class Node
+{
+public:
+	int value;
+	Node * next;
+	Node * Prev;
+};
+
+
+
+void InsertAtBegining(Node * &head,int Value)
+{
+	Node *new_node = new Node();
+	new_node->value = Value;
+	new_node->next = head;
+	new_node->Prev = NULL;
+	if (head != NULL)
+	{
+		head->Prev = new_node;
+	}
+	head = new_node;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+Node * FindNode(Node *head,int Value)
+{
+	while (head != NULL)
+	{
+		if (head->value == Value)
+		
+			return head;
+		
+		head = head->next;
+	}
+	return NULL;
+}
+
+
+void PrintList(Node *head)
+{
+	cout << "NULL <--->";
+	while (head !=NULL)
+	{
+		cout << head->value << "<--->";
+		head = head->next;
+	}
+	cout << "NULL\n";
+}
+
+int main(){
+
+
+	Node * head = NULL;
+	InsertAtBegining(head, 5);
+	InsertAtBegining(head, 6);
+	InsertAtBegining(head, 7);
+	
+
+
+	cout << "Linked List Content:\n";
+	PrintList(head);
+	Node *N1 = FindNode(head, 8);
+	if (N1 != NULL)
+	{
+		cout << "\n\nNode is Found :-)\n";
+	}
+	else
+	{
+		cout << "\n\nNode is not Found :-(\n";
+	}
+
+	cout << endl;
+
+
+
+
+
+
+
+	system("pause>0");
+	return 0;
+
+}

@@ -1,0 +1,6 @@
+float number,Result;
+
+	cout<<"Enter the number:\n";cin>>number;
+	Result=number/2;
+		 
+		cout<<"Half of "<<number<<" is: "<<Result<<"\n";

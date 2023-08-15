@@ -1,0 +1,38 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int Read_Age()
+{
+	int Age;
+	cout << "Please enter Your Age: ";
+	cin >> Age;
+	return Age;
+}
+bool ValidtionAge(int Age, int from, int to)
+{
+	return(Age >= from && Age <= to);
+
+}
+int AgeBetweenValue(int from, int to)
+{
+	int Age = 0;
+	do{
+		Age = Read_Age();
+	} 
+	while (!ValidtionAge(Age,from, to));
+	return Age;
+	
+}
+void Print_Result(int Age)
+{
+	cout << "Your Age is:" << Age << endl;
+}
+
+
+
+int main()
+{
+	Print_Result(AgeBetweenValue(18,45));
+	
+}

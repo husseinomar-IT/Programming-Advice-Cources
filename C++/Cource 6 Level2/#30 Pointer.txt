@@ -1,0 +1,32 @@
+
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+
+
+
+
+
+
+
+int main(){
+
+	int a = 10;
+	int *p;
+	p= &a;
+	cout << "Value   a   : " << a << endl;
+	cout << "Address a   : " << &a << endl;
+	cout << "Value   p   : " << p << endl;
+
+
+}
+
+
+
+
+

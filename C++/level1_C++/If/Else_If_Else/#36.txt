@@ -1,0 +1,68 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+double simple_calculator(double num1, double num2, char op)
+{
+	if (op == '+')
+	{
+		return num1 + num2;
+
+	}
+	 else if (op == '-')
+	{
+		return num1 - num2;
+
+	}
+	 else if (op == '*')
+	{
+		return num1 * num2;
+
+	}
+	 else  if (op == '/')
+	 {
+		 return num1 / num2;
+
+
+	 }
+	  else if (op == '%')
+	 {
+		   return (int)num1 % (int)num2;
+
+
+	 }
+	  else
+	  {
+		  return 0;
+	  }
+
+}
+int main()
+{
+	double num1, num2,Result;
+	char opr;
+	cout << "Enter the num1:";
+	cin >> num1;
+	cout << "Enter the oprator:";
+	cin >> opr;
+	cout << "Enter the num2:";
+	cin >> num2;
+
+
+
+	Result = simple_calculator(num1, num2, opr);
+	
+	 cout << "Result=" << Result << "\a\n";
+	
+	
+
+
+	
+	cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

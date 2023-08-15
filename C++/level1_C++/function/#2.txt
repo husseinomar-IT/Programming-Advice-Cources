@@ -1,0 +1,20 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+string Enter_name(string name)
+{
+	return name;
+}
+
+int main()
+{
+	string name;
+	cout << "please enter your name:\n";
+	getline(cin, name);
+	cout << Enter_name(name) << "\n";
+
+	
+}

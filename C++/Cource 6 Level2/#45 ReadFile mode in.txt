@@ -1,0 +1,33 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+#include<cctype>
+#include<fstream>
+using namespace std;
+void printFileContent(string filename)
+{
+	fstream FileName;
+	FileName.open(filename, ios::in);
+	if (FileName.is_open())
+	{
+		string line;
+		while (getline(FileName,line))
+		{
+			cout << line << endl;
+		}
+		FileName.close();
+	}
+}
+int main(){
+
+	fstream  Myfile;
+	printFileContent("Name_Student.txt");
+
+}
+
+
+
+
+

@@ -1,0 +1,54 @@
+#include<iostream>
+#include<string>
+using namespace std;
+enum enMarks{Pass=1,Fail=2};
+
+
+void Read_num(int &num1, int &num2, int &num3)
+{
+	cout << "Enter the number 1: ";
+	cin >> num1;
+	cout << "Enter the number 2: ";
+	cin >> num2;
+	cout << "Enter the number 3: ";
+	cin >> num3;
+
+}
+int sum_number(int num1, int num2, int num3)
+{
+	return num1 + num2 + num3;
+}
+float calclute_avg(int num1, int num2, int num3)
+{
+	return (float)(num1 + num2 + num3) / 3;
+}
+enMarks check_avg(float avg)
+{
+	if (avg > 50)
+		 return enMarks::Pass;
+	else
+	return 	enMarks::Fail;
+}
+
+void Print_Result(float Total)
+{
+	if (check_avg(Total) == enMarks::Pass)
+		cout << "You are PASS\n";
+	else
+		cout << "You are FAIL\n";
+}
+
+
+
+
+
+
+
+
+int main()
+{
+	int num1, num2, num3;
+	Read_num(num1, num2, num3);
+	Print_Result(calclute_avg(num1, num2, num3));
+
+}

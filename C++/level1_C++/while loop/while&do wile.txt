@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+int Enter_number_betweenWhile(int  from, int to)
+{
+	int num;
+	cout << "please enter number between " << from << "to" << to << endl;
+	cin >> num;
+	while (num <from ||num> to)
+	{
+		cout << "wrong number\n";
+		cout << "please enter number between " << from << "to" << to << endl;
+		cin >> num;
+	}
+	return num;
+}
+
+int Enter_number_betweenDO_While(int  from, int to)
+{
+	int num;
+
+	do{
+		cout << "please enter number between " << from << "to" << to << endl;
+		cin >> num;
+
+	} while (num <from || num> to);
+	return num;
+
+}
+int main()
+{
+	//cout << "the number is=" << Enter_number_between(1, 10) << endl;
+	cout << "the number is=" << Enter_number_betweenDO_While(1, 10) << endl;
+
+}

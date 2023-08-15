@@ -1,0 +1,37 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+void Read_Age(short Age)
+{
+	
+	
+	if (Age >= 18 && Age <= 45)
+	{
+		cout << "Valid Age\n";
+	}
+	else
+	{
+		cout << "Unvalid Age\n";
+	}
+}
+int main()
+{
+	short Age=20;
+	cout << "Enter your age" << "\n";
+	cin >> Age;
+	Read_Age(Age);
+	
+	
+
+
+	
+	cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

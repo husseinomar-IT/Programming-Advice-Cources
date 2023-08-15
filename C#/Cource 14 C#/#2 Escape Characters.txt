@@ -1,0 +1,28 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Useful Escape Characters\n");
+            Console.WriteLine("NewLine:");
+            Console.WriteLine("Welcome to \nProgramming Advice\n");
+            Console.WriteLine("Tab:");
+            Console.WriteLine("Welcome to\tProgramming Advice\n");
+            Console.WriteLine("BackSpace:");
+            Console.WriteLine("Welcome to  \bProgramming Advice\n");
+            Console.WriteLine("Single Quote:");
+            Console.WriteLine("Welcome to \'Programming\' Advice\n");
+            Console.WriteLine("Double Quote:");
+            Console.WriteLine("Welcome to \"Programming\"Advice\n");
+            Console.WriteLine("Backslash:");
+            Console.WriteLine("Welcome to \\Programming Advice\n");
+            Console.WriteLine("Alert:");
+            Console.WriteLine("\a");
+
+          
+        }
+    }
+}

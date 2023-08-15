@@ -1,0 +1,52 @@
+   static void Main(string[] args)
+        {
+
+
+
+            string ConnectionString = "Server=.;Database=HR_DataBase;User Id=sa;Password=se123456";
+            DataSet dataset = new DataSet();
+            string Query = "Select * from Employees";
+
+           
+            SqlDataAdapter DataAdepter = new SqlDataAdapter(Query, ConnectionString);
+
+            SqlConnection Connection = new SqlConnection(ConnectionString);
+            Connection.Open();
+            DataAdepter.SelectCommand.Connection = Connection;
+            DataAdepter.Fill(dataset, "Employees");
+            Connection.Close();
+            DataTable EmployeesDataTable = dataset.Tables["Employees"];
+             
+
+
+            foreach (DataRow Row in EmployeesDataTable .Rows)
+            {
+                Console.WriteLine("ID:{0}, FullName:{1}, Gender{2}", Row["ID"], Row["FirstName"] + " " + Row["LastName"], Row["Gender"]);
+            }
+
+
+
+
+
+            //Update 
+            Connection.Open();
+            DataAdepter.UpdateCommand.Connection = Connection;
+
+            DataAdepter.Update(dataset, "Employees");
+            Connection.Close();
+        
+
+
+            
+
+
+   
+
+
+         
+
+
+
+            Console.ReadKey();
+
+        }

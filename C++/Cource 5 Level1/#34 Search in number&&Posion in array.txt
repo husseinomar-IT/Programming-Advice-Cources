@@ -1,0 +1,108 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+
+using namespace std;
+
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+
+int ReadLength(string Massage)
+{
+	int Length;
+	do
+	{
+		cout << Massage;
+		cin >> Length;
+	} while (Length <= 0);
+	return Length;
+}
+
+
+void FullArrayWithRandom(int arr[100], int size)
+
+{
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = RandomNumberBetweenRange(1,100);
+	}
+}
+
+void PrintArray(int array[100], int size)
+{
+
+
+	for (int i = 0; i < size; i++)
+	{
+
+		cout << array[i] << " ";
+
+	}
+	cout << endl;
+
+}
+
+int PosionNumberInArray(int array[100], int size, int searchNum)
+{
+	for ( int i = 0; i < size; i++)
+	{
+		if (array[i] == searchNum)
+			return i;
+	
+	}
+	
+		return -1;
+}
+
+
+
+
+
+
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+	int arr[100];
+	int Length = ReadLength("How many element you want in array");
+
+	FullArrayWithRandom(arr, Length);
+
+	PrintArray(arr, Length);
+	short NumberSearch = ReadLength("PLease enter the elementt of you want to search about it");
+
+		int Posion = PosionNumberInArray(arr, Length, NumberSearch);
+		if (Posion == -1)
+		{
+			cout << "The number you search not found :-(\n";
+		}
+		else
+		{
+			cout << "The number you Search at postion: " << Posion << endl;
+			cout << "The number you Search at Order: " << Posion+1 << endl;
+
+		}
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

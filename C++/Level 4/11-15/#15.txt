@@ -1,0 +1,27 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+void Read_num(int &Length, int &width)
+{
+	cout << "Enter the Lenght : ";
+	cin >> Length;
+	cout << "Enter the width : ";
+	cin >> width;
+}
+float Calculation_Rectangle_Area(int Length, int width)
+{
+	return (float) Length*width;
+}
+
+void print_Area(float Area)
+{
+	cout << "The Rectangle Area =" << Area << "\n";
+}
+int main()
+{
+	int num, num2;
+	Read_num(num, num2);
+	print_Area(Calculation_Rectangle_Area(num, num2));
+
+}

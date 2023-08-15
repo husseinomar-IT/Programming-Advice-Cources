@@ -1,0 +1,43 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+float Durtion_in_second(float day,float hours,float minutes,float second)
+{
+	
+	
+	
+	
+
+	
+	
+	
+	float Total_second = (day * 24 * 60 * 60) + (hours * 60 * 60) + (minutes * 60) + second;
+	return Total_second;
+
+
+	
+	
+}
+	
+	
+
+
+int main()
+{
+	float day,  hours,  minutes,  second;
+	cout << "the number of Day=\n";
+	cin >> day;
+	cout << "the number of Hours=\n";
+	cin >> hours;
+	cout << "the number of Miutesn=\n";
+	cin >> minutes;
+	cout << "the number of Second=\n";
+	cin >> second;
+	cout << round(Durtion_in_second(day, hours, minutes, second)) << "\n";
+
+	
+	
+	
+}

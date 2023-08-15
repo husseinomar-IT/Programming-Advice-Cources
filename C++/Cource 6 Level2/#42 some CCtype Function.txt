@@ -1,0 +1,30 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+#include<cctype>
+using namespace std;
+
+
+
+
+
+
+
+
+int main(){
+	char x=toupper('b'), y=tolower('d');
+	cout << "Converting b to .. " << x << endl;
+	cout << "Converting D to .. " << y << endl;
+	cout << "isUpper x :" << isupper(x) << endl;
+	cout << "isLower y :" << islower(y) << endl;
+	cout << "isDigit 9 :" << isdigit('9') << endl;
+	cout << "ispunct A :" << ispunct(',') << endl;
+	
+}
+
+
+
+
+

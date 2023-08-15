@@ -1,0 +1,41 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int factorial_num(int N)
+{
+	int fact = 1;
+	for (int i = N; i >=1; i--)
+
+	{
+		 
+	
+		cout << i << "\n";
+		fact = fact *i ;
+		
+	
+	}
+	return fact;
+
+
+}
+
+int main()
+{
+	//print_cabtel_letter();
+	int N;
+	cout << "Enter The number" << endl;
+	cin >> N;
+	cout << "______________________________________\n";
+	cout << factorial_num(N) << endl;
+	
+	
+
+	//cout << "--------------------------------Thank you------------------------------------------\n";
+
+
+
+
+
+}

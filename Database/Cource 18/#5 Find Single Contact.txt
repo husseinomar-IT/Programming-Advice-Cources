@@ -1,0 +1,110 @@
+using System;
+using System.Linq;
+using MyFirstClassLibrary;
+using System.Data.SqlClient;
+
+namespace ConsoleApplication7
+{
+
+   
+  
+
+
+
+
+    class Program
+    {
+        static string ConncetionString = "Server=.;Database=ContactsDB;User Id=sa;Password=se123456";
+
+
+
+
+    public  struct stContactInfo
+        {
+            public int ContactID { get; set; }
+            public string FirstName { get; set; }
+
+            public string LastName { get; set; }
+
+            public string Email { get; set; }
+
+            public string Phone { get; set; }
+            public string Address { get; set; }
+            public int CountryID { get; set; }
+
+
+       
+
+        }                          
+
+
+
+
+
+        static bool FindContactByID(int ContactID,ref stContactInfo ContactInfo)
+        {
+            bool IsFound = false;
+            SqlConnection Connection = new SqlConnection(ConncetionString);
+            string Query = "select  * from Contacts where ContactID=@ContactID";
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.AddWithValue("@ContactID", ContactID);
+
+            try
+            {
+                Connection.Open();
+                SqlDataReader Reader = Command.ExecuteReader();
+                while(Reader.Read())
+                {
+                  IsFound = true;
+                 ContactInfo.ContactID = (int)Reader["ContactID"];
+                ContactInfo.FirstName=(string)Reader["FirstName"];
+                ContactInfo.LastName=(string)Reader["LastName"];
+                ContactInfo.Email=(string)Reader["Email"];
+                  ContactInfo.Phone=(string)Reader["Phone"];
+                  ContactInfo.Address=(string)Reader["Address"];
+                  ContactInfo.CountryID=(int)Reader["CountryID"];
+                }
+                Reader.Close();
+                Connection.Close();
+            }
+
+                catch(Exception ex)
+                {
+                    Console.WriteLine("Error:"+ex.Message);
+                }
+
+
+            return IsFound;
+
+
+        }
+
+
+  
+
+        static void Main(string[] args)
+        {
+            stContactInfo ContactInfo = new stContactInfo();
+            if(FindContactByID(1,ref ContactInfo))
+            {
+                Console.WriteLine("ContactID:" + ContactInfo.ContactID);
+                Console.WriteLine("FirstName:" + ContactInfo.FirstName);
+                Console.WriteLine("LastName :" + ContactInfo.LastName);
+                Console.WriteLine("Email    :" + ContactInfo.Email);
+                Console.WriteLine("Phone    :" + ContactInfo.Phone);
+                Console.WriteLine("Address  :" + ContactInfo.Address);
+                Console.WriteLine("CountryID:" + ContactInfo.CountryID);
+
+            }
+
+
+
+            else
+            {
+                Console.WriteLine("Tjis Contact is not Found");
+            }
+            Console.ReadKey();
+
+        }
+    }
+}

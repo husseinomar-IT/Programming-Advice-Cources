@@ -1,0 +1,94 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+char InvertLetterCase(char Letter)
+{
+	return(isupper(Letter) ? tolower(Letter) : toupper(Letter));
+
+
+}
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+char GetLetter()
+{
+	char Letter = ' ';
+	cout << "Please Enter a Character? \n";
+	cin >> Letter;
+	return Letter;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+short CountOfWord(string S1)
+{
+	string delim = " ";
+
+	short pos = 0;
+	short Counter = 0;
+	string sWord;
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+		
+		sWord = S1.substr(0, pos);
+		if (sWord != "")    
+		{
+			Counter++;
+		} 
+		S1.erase(0, pos + delim.length());
+	}
+	if (S1 != "")
+	{
+		Counter++;
+	}
+	
+	return Counter;
+		
+}
+
+
+
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	
+	string txt = ReadString();
+
+	short count= CountOfWord(txt);
+		
+	cout << "\nThe number of words in your string is : ";
+	cout << count << endl;
+
+
+
+}

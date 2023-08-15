@@ -1,0 +1,59 @@
+
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+
+
+
+
+
+
+
+int main(){
+
+	vector<int>vNumber;
+	
+	vNumber.push_back(10);
+	vNumber.push_back(20);
+	vNumber.push_back(30);
+	vNumber.push_back(40);
+	vNumber.push_back(50);
+
+
+
+	cout << "The Size of Vector is =" << vNumber.size() << endl;
+
+	//vNumber.clear();
+	cout << "First number : " << vNumber.front() << "\n";
+	cout << "Last number : " << vNumber.back() << "\n";
+	cout << "Capcity : " << vNumber.capacity() << "\n";
+	cout << "Empty : " << vNumber.empty() << "\n";
+
+
+	
+	
+	if (!vNumber.empty())
+	vNumber.pop_back();
+
+
+	for (int &element : vNumber)
+	{
+		cout << element << endl;
+		
+	}
+	cout << endl;
+
+
+
+
+}
+
+
+
+
+

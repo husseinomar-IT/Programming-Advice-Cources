@@ -1,0 +1,90 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+char InvertLetterCase(char Letter)
+{
+	return(isupper(Letter) ? tolower(Letter) : toupper(Letter));
+
+
+}
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+char GetLetter()
+{
+	char Letter = ' ';
+	cout << "Please Enter a Character? \n";
+	cin >> Letter;
+	return Letter;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+void PrintEachWordInString(string S1)
+{
+	string delim = " ";
+	cout << "\nYour string wrords are: \n\n";
+	short pos = 0;
+	string sWord;
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+		
+		sWord = S1.substr(0, pos);
+		if (sWord != "")    
+		{
+			cout << sWord << endl;
+		} 
+		S1.erase(0, pos + delim.length());
+	}
+	cout << endl;
+	if (S1 != "")  
+	{
+		cout << S1 << endl; 
+
+	}
+		
+}
+
+
+
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	
+	string txt = ReadString();
+
+	PrintEachWordInString(txt);
+
+
+
+}

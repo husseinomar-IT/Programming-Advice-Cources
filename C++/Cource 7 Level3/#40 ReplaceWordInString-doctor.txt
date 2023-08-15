@@ -1,0 +1,68 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+
+using namespace std;
+
+
+
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+
+
+
+
+
+
+
+string ReplaceWordInStringUsingBuildInFunc(string txt, string Replacetxt, string ToReplace)
+{
+	short pos = txt.find(Replacetxt);
+	//while ((pos = txt.find(Replacetxt)) != std::string::npos)
+	while (pos!=std::string::npos)
+	{
+		txt = txt.replace(pos, Replacetxt.length(), ToReplace);
+	   pos = txt.find(Replacetxt);
+	}
+	return txt;
+}
+
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	
+	string txt = "Hussein from Yemen ,Yemen is nice county\n";
+	string Replace = "Yemen";
+	string ToReplace = "USE";
+	cout << ReplaceWordInStringUsingBuildInFunc(txt, Replace, ToReplace) << endl;
+
+	
+
+	
+
+
+	
+
+
+	
+
+}

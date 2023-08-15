@@ -1,0 +1,40 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<cmath>
+
+using namespace std;
+
+
+float ReadNumber()
+{
+	float Num;
+	cout << "Please enter the Number? ";
+	cin >> Num;
+	return Num;
+}
+
+int MyFloor(float Num)
+{
+	if (Num > 0)
+		return int(Num);
+	else
+		return (int)Num - 1;
+ 
+
+	 
+}
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+
+	float Num = ReadNumber();
+	cout << "My Floor Function: " << MyFloor(Num) << endl;
+	cout << "C++  Floor Function: " << floor(Num) << endl;
+
+
+}
+

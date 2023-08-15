@@ -1,0 +1,29 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+#include<cctype>
+#include<fstream>
+using namespace std;
+int main(){
+
+	fstream  Myfile;
+	Myfile.open("Name_Student.txt", ios::out | ios::app);
+	if (Myfile.is_open())
+	{
+		Myfile << "1-Mohammed\n";
+		Myfile << "2-Ahmed\n";
+		Myfile << "3-Ali\n";
+		Myfile << "4-Sami\n";
+		Myfile << "Hello I am Hussein Khalid I am programming and My princess is Roaa Hatem \n ";
+		Myfile.close();
+	}
+	
+	
+}
+
+
+
+
+

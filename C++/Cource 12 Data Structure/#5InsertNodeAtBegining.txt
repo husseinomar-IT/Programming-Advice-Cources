@@ -1,0 +1,62 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+class Node
+{
+public:
+	int value;
+	Node * next;
+};
+
+
+
+
+void InsertNodeAtBegining(Node* &head, int Value)
+{
+	Node* new_Node = new Node();
+	new_Node->value = Value;
+	new_Node->next = head;
+	head = new_Node;
+}
+
+
+
+void PrintList(Node* head)
+{
+
+	while (head != NULL)
+	{
+		cout << head->value << " ";
+		head = head->next;
+	}
+
+	cout << endl;
+}
+
+int main(){
+	
+	Node* head = NULL;
+
+	InsertNodeAtBegining(head, 1);
+	InsertNodeAtBegining(head, 2);
+	InsertNodeAtBegining(head, 3);
+	InsertNodeAtBegining(head, 4);
+	InsertNodeAtBegining(head, 5);
+
+	PrintList(head);
+
+
+
+
+
+	
+
+	system("pause>0");
+	return 0;
+
+}

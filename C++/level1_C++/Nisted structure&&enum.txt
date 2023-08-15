@@ -1,0 +1,75 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+enum enGender{Famele,Male};
+enum enState{ Married ,Single};
+enum enColor{Red,green,black,white,Yellow};
+
+struct STAddress
+{
+	string city;
+	string country;
+};
+
+
+struct STsalary
+{
+	double Monthly_salary;
+	double Yearly_salary;
+};
+struct STConection
+{
+	string phone;
+	string email;
+	STAddress address;
+	STsalary salary;
+};
+
+
+struct Employe
+{
+
+	string name;
+	short age;
+	STConection contact;
+	enColor color;
+	enGender Gender;
+	enState stat;
+
+};
+int main()
+{
+	Employe person1; 
+	person1.Gender = enGender::Famele;
+	person1.stat = enState::Single;
+	person1.color = enColor::white;
+	
+	person1.name = "Hussein khalid";
+	person1.age = 21;
+	person1.contact.address.city = "sana'a";
+	person1.contact.address.country = "Yemen";
+	person1.contact.salary.Monthly_salary = 5000;
+	person1.contact.salary.Yearly_salary = person1.contact.salary.Monthly_salary * 12;
+	
+	person1.contact.phone = "773787547";
+	person1.contact.email = "Hussein@gmail.com";
+
+
+	cout << "**************************************\n";
+	cout << "Name:" << person1.name << "\n";
+	cout << "Age:" << person1.age << "\n";
+	cout << "City:" << person1.contact.address.city << "\n";
+	cout << "Country:" << person1.contact.address.country << "\n";
+	cout << "Monthly_Salary" << person1.contact.salary.Monthly_salary << "\n";
+	cout << "Year_salary:" << person1.contact.salary.Yearly_salary << "\n";
+	cout << "Gender:" << person1.Gender << "\n";
+	cout << "Maried:" <<person1.stat << "\n";
+	cout << "Faviorate_color: " << person1.color << "\n";
+	cout << "Phone:" << person1.contact.phone << "\n";
+	cout << "Email:" << person1.contact.email << endl;
+	cout << "**************************************\n";
+
+
+
+}

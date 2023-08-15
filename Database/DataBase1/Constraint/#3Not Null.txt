@@ -1,0 +1,6 @@
+create table Persons(
+id int not null,
+Firtsname nvarchar(100))
+
+Alter table Persons
+Alter Column FirtsName nvarchar(100) not null

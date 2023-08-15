@@ -1,0 +1,37 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+       
+       
+        static void Main(string[] args)
+        {
+
+            dynamic MyDynamicVar = 100;
+            Console.WriteLine("Value:{0},Type:{1}", MyDynamicVar, MyDynamicVar.GetType());
+            MyDynamicVar = "Hussein";
+            Console.WriteLine("Value:{0},Type:{1}", MyDynamicVar, MyDynamicVar.GetType());
+
+
+            MyDynamicVar = true;
+            Console.WriteLine("Value:{0},Type:{1}", MyDynamicVar, MyDynamicVar.GetType());
+
+
+            MyDynamicVar = 5.6f;
+            Console.WriteLine("Value:{0},Type:{1}", MyDynamicVar, MyDynamicVar.GetType());
+
+
+
+
+            MyDynamicVar = 1000.9d;
+            Console.WriteLine("Value:{0},Type:{1}", MyDynamicVar, MyDynamicVar.GetType());
+
+            Console.ReadKey();
+
+          
+        }
+    }
+}

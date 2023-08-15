@@ -1,0 +1,115 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+void printRandomArray(int array[3][3], short Rows, short Cols)
+{
+	
+
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+		
+			printf("%0*d\t", 2, array[i][j]);
+		}
+		cout << endl;
+
+	}
+
+
+}
+
+
+
+
+
+
+void FillMatrixWithRandomNumbers(int array[3][3], short Rows, short Cols)
+{
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j < Cols; j++)
+		{
+			array[i][j] = RandomNumberBetweenRange(1, 10);
+		}
+
+
+	}
+
+	
+
+}
+
+
+
+int SumOfMatrix(int array[3][3], short Rows, short Cols)
+{
+	int sum = 0;
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+			sum += array[i][j];
+			
+		}
+	
+	}
+	return sum;
+}
+bool AreTypical(int Matrix1[3][3],int Matrix2[3][3], short Rows, short Cols)
+{
+
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+			return(Matrix1[i][j] == Matrix2[i][j]);
+		}
+	}
+		
+}
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	int Matrixarr1[3][3],
+		Matrixarr2[3][3];
+
+
+	FillMatrixWithRandomNumbers(Matrixarr1, 3, 3);
+	cout << "Matrix1: \n";
+	printRandomArray(Matrixarr1, 3, 3);
+
+
+	FillMatrixWithRandomNumbers(Matrixarr2, 3, 3);
+	cout << "Matrix2: \n";
+	printRandomArray(Matrixarr2, 3, 3);
+ 
+	if (AreTypical(Matrixarr1, Matrixarr2, 3, 3))
+		cout << "Yes: Mateices are Typical :-) \n";
+	else
+		cout << "No: Mateices are not Typical :-( \n";
+	
+
+
+
+
+}

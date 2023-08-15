@@ -1,0 +1,44 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+
+
+
+class clsPerson{
+public:
+	string Fullname = "Hussein Khalid Hussein Omar";
+};
+
+class clsEmployee :public clsPerson{
+
+public:
+	string Title = "IT";
+};
+
+
+
+
+
+
+int main(){
+
+	//Up Casting
+	clsEmployee Employee1;
+	clsPerson *person1 = &Employee1;
+	cout << person1->Fullname << endl;
+	
+	//------------------------------------------
+	// Down Casting not can
+	/*clsPerson person2;
+	clsEmployee *Employee2 = &person2;
+	cout << Employee2->Fullname << endl;*/
+
+
+}

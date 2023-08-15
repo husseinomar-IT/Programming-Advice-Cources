@@ -1,0 +1,70 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+
+short ReadNumber(string Maseage)
+{
+	short size;
+	do{
+		cout << Maseage << endl;
+		cin >> size;
+	} while (size <= 0);
+	return
+		size;
+}
+void ReadAraay( int array[100],int &size)
+{
+	cout << "Please enter the length of array: ";
+	cin >> size;
+	cout << "please enter the element:";
+	for (int i = 1; i <= size; i++)
+	{
+		cout << "Element [" << i << "]" << " : ";
+		cin >> array[i];
+	
+	}cout << endl;
+	
+}
+int ReadRepeted(int NumToCheck, int  arr[100], int size)
+{
+	int counter = 0;
+	for (int i = 1; i <= size; i++)
+	{
+		if (arr[i] == NumToCheck)
+			counter++;
+	}
+	return counter;
+}
+void PrintArray(int array[100], short size)
+{
+	
+
+	for (int i = 1; i <= size; i++)
+	{
+		
+		cout << array[i] << " ";
+
+	}
+	cout << endl;
+
+}
+
+
+
+
+
+int main()
+{
+	
+	int arr[100];
+	int Length;
+	ReadAraay(arr,Length);
+	PrintArray(arr, Length);
+	int NumToCheck = ReadNumber("Please enter the number you want to check in array");
+	
+	cout << "The number " << NumToCheck << "is Repated " << ReadRepeted(NumToCheck, arr, Length) << endl;
+	
+	
+
+}

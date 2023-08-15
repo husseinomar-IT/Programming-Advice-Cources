@@ -1,0 +1,6 @@
+float TotalBill,service_free=1.10,sales_tax=1.16,Result;
+	cout<<"Enterb the TotalBill=\n";
+	cin>>TotalBill;
+	Result=TotalBill*service_free*sales_tax;
+	cout<<"the TotalBill ="<<Result<<"\a\n";
+	

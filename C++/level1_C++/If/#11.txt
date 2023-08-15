@@ -1,0 +1,54 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+void Read_marks(float Marks[3])
+
+{
+	cout << "Enter your Mark1:";
+	cin >> Marks[0];
+	cout << "Enter your Mark1:";
+	cin >> Marks[1];
+	cout << "Enter your Mark1:";
+	cin >> Marks[2];
+	
+}
+float Calclute_avg(float Marks[3])
+{
+	return(Marks[0] + Marks[1] + Marks[2]) / 3;
+
+
+}
+void Print_Result(float avg)
+{
+	if (avg >= 50)
+	{
+		cout << "PASS\n";
+	}
+	else
+	{
+		cout << "FAIL\n";
+	}
+}
+
+int main()
+{
+	float Marks[3], Result;
+	Read_marks(Marks);
+	
+	Result= Calclute_avg(Marks);
+	cout << "The Result = " << Result << "\n";
+	Print_Result(Result);
+	
+
+
+	
+	cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

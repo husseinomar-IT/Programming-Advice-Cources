@@ -1,0 +1,64 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+int Read_num(string Massage)
+{
+	int Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num <= 0);
+
+	return Num;
+
+}
+int ReverceNum(int Num)
+{
+	int sum = 0;
+	string InToStr;
+	int Remender = 0;
+	int Number2 = 0;
+	while (Num > 0)
+	{
+		Remender = Num % 10;
+		Num = Num / 10;
+		Number2 = Number2 * 10 + Remender;
+
+	}
+	return Number2;
+
+}
+
+
+
+void PrintDigitNumber(int Num)
+{
+
+	int Remender = 0;
+	while (Num > 0)
+	{
+		Remender = Num % 10;
+		Num = Num / 10;
+		cout << Remender << endl;
+	}
+}
+
+
+
+
+
+
+
+
+int main()
+
+{
+	int Num = Read_num("Please enter a Postive number");
+	PrintDigitNumber(ReverceNum(Num));
+
+	
+}

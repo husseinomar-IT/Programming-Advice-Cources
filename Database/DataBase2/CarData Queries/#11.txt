@@ -1,0 +1,6 @@
+select   Makes.Make,count(*) as NumberOfVehicles from VehicleDetails
+inner join Makes on
+VehicleDetails.MakeID=Makes.MakeID
+group by(Makes.Make)
+having count(*)>20000
+order by NumberOfVehicles desc

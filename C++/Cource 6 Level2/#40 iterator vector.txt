@@ -1,0 +1,34 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+struct stPerson
+{
+	string Name;
+	float salary;
+
+};
+
+
+
+
+
+int main(){
+	vector<int>vNum{ 1, 2, 3, 4, 5 };
+	vector<int>::iterator itr;
+	for ( itr = vNum.begin(); itr < vNum.end(); itr++)
+	{
+		cout << *itr << " ";
+	}
+	cout << endl;
+
+}
+
+
+
+
+

@@ -1,0 +1,120 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+
+using namespace std;
+
+
+struct stClienData
+{
+	string AccountNumber ;
+	string PINCODE ;
+	string Name ;
+	string Phone ;
+	double AccountBlance;
+};
+
+
+
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+
+
+
+
+stClienData ReadClientData()
+{
+	stClienData ClientData;
+	cout << "Enter Account Number?";
+	getline(cin, ClientData.AccountNumber);
+	cout << "Enter PINCODE?";
+	getline(cin, ClientData.PINCODE);
+	cout << "Enter Name?";
+	getline(cin, ClientData.Name);
+	cout << "Enter Phone?";
+	getline(cin, ClientData.Phone);
+	cout << "Enter AccountBlance ?";
+	cin >> ClientData.AccountBlance;
+	return ClientData;
+}
+
+string PrintClientDataInLine(stClienData ClientData, string Spletor = "#//#")
+{
+	string line = "";
+	line += ClientData.AccountNumber + Spletor;
+	line += ClientData.PINCODE + Spletor;
+	line += ClientData.Name + Spletor;
+	line += ClientData.Phone + Spletor;
+	line += to_string(ClientData.AccountBlance);
+	return line;
+
+
+
+}
+stClienData ConvertLineToRecord(string line, string seperator = "#//#")
+{
+	stClienData Client;
+	vector<string>vString = SplitStringWord(line, seperator );
+	Client.AccountNumber = vString[0];
+	Client.PINCODE = vString[1];
+	Client.Name = vString[2];
+	Client.Phone = vString[3];
+	Client.AccountBlance = stod(vString[4]);
+	return Client;
+
+}
+void printStructre(stClienData Client)
+{
+	cout << "Account Number: " << Client.AccountNumber << endl;
+
+	cout << "PINCODE: " << Client.PINCODE << endl;
+	
+	cout << "Name: " << Client.Name << endl;
+	
+	cout << "Phone: " << Client.Phone << endl;
+	
+	cout << "AccountBlance:" << Client.AccountBlance << endl;
+	
+}
+
+int main(){
+	srand((unsigned)time(NULL));
+
+
+	
+	
+	cout << "Please Enter Client Data:\n\n";
+	stClienData Client = ReadClientData();
+	string line = PrintClientDataInLine(Client);
+	cout << "\n\nLine Record is:\n" << line<< endl;
+	cout << "\nThe following is the extravted client record:\n";
+	Client = ConvertLineToRecord(line);
+	printStructre(Client);
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,17 @@
+#include<iostram>
+#include<cmath>
+using namespace std;
+int main()
+{
+short Num;
+		cout<<"Enter the number:\n";
+		cin>>Num;
+		short
+		a=pow(Num,2),
+		b=pow(Num,3),
+		c=pow(Num,4),
+		cout<<"the Num^2="<<round(a)<<"\n";
+		cout<<"the Num^3="<<round(b)<<"\n";
+		cout<<"the Num^4="<<round(c)<<"\n";
+
+}

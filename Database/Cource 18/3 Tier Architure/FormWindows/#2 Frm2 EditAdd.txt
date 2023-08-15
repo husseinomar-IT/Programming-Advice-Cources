@@ -1,0 +1,182 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data;
+using ContactsBusinisLayer;
+
+
+namespace ContactsFormsApplication
+{
+    public partial class FrmEditAddContact : Form
+    {
+        private int _ContactID;
+        enum enMode { Update = 0, AddNew = 1 };
+        private enMode _Mode;
+        clsContact Contact1;
+        public FrmEditAddContact(int ContactID)
+        {
+            
+            InitializeComponent();
+            _ContactID = ContactID;
+            if (ContactID == -1)
+                _Mode = enMode.AddNew;
+            else
+                _Mode = enMode.Update;
+        }
+
+
+
+
+        private void _FillCountriesInComobox()
+        {
+            DataTable dt = clsCountry.GetAllCountries();
+            foreach(DataRow Row in  dt.Rows)
+            {
+                cbCountry.Items.Add(Row["CountryName"]);
+            }
+        }
+
+        private void _LoadData()
+        {
+            _FillCountriesInComobox();
+            cbCountry.SelectedIndex = 0;
+            if(_Mode==enMode.AddNew)
+            {
+                Contact1 = new clsContact();
+                lblFrmMode.Text = "Add New Contact";
+                return;
+            }
+
+            Contact1 = clsContact.Find(_ContactID);
+
+
+            if(Contact1 ==null)
+            {
+                MessageBox.Show("This Form will be Closed becuase No Contact With ID:" + _ContactID);
+                this.Close();
+                return;
+            }
+            lblFrmMode.Text = "Edit  Contact ID = " + _ContactID;
+            lblContactID.Text = Contact1.ID.ToString();
+            txtFirstName.Text = Contact1.Firstname;
+            txtLastName.Text = Contact1.Lastname;
+            txtEmail.Text = Contact1.Email;
+            dtpDateOfBirth.Value = Contact1.DateOfBirth;
+            txtPhone.Text = Contact1.Phone;
+            txtAddress.Text = Contact1.Address;
+            if (Contact1.ImagePath != "")
+            {
+                pictureBox1.Load(Contact1.ImagePath);
+            }
+            llRemoveImage.Visible = (Contact1.ImagePath != "");
+            cbCountry.SelectedIndex = cbCountry.FindString(clsCountry.FindCountryByID(Contact1.CountryID).Name);
+
+        }
+
+        private void Frm2_Load(object sender, EventArgs e)
+        {
+            _LoadData();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox5_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            int CountryID = clsCountry.FindCountryByName(cbCountry.Text).ID;
+            Contact1.Firstname = txtFirstName.Text;
+            Contact1.Lastname = txtLastName.Text;
+            Contact1.Email = txtEmail.Text;
+            Contact1.Phone = txtPhone.Text;
+            Contact1.Address = txtAddress.Text;
+            Contact1.DateOfBirth = dtpDateOfBirth.Value;
+            Contact1.CountryID = CountryID;
+            if(pictureBox1.ImageLocation!=null)
+            {
+                Contact1.ImagePath = pictureBox1.ImageLocation;
+            }
+            if (Contact1.Save())
+            {
+                MessageBox.Show("Data Saved Successfuly :-)");
+            }
+               
+            else
+            {
+                MessageBox.Show("Data is not  Saved Successfuly :-(");
+            }
+               
+            _Mode = enMode.Update;
+           
+            lblFrmMode.Text = "Edit  Contact ID = " + Contact1.ID;
+            lblContactID.Text = Contact1.ID.ToString();
+        }
+
+        private void llSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openFileDialog1.InitialDirectory = "F:\\";
+            openFileDialog1.Filter = "Image png(*.png)|*.png|Image jpg(*.jpg)|*.jpg";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+                pictureBox1.Load(openFileDialog1.FileName);
+
+        }
+
+        private void llRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            pictureBox1.ImageLocation = null;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+          
+        }
+    }
+}

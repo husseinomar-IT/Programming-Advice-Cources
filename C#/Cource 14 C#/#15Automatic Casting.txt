@@ -1,0 +1,20 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+       
+       
+        static void Main(string[] args)
+        {
+            int Myint = 20;
+            double myDouble;
+            myDouble = Myint;
+            Console.WriteLine(Myint);
+            Console.WriteLine(myDouble);
+            Console.ReadKey();
+        }
+    }
+}

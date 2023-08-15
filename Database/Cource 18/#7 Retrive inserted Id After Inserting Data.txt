@@ -1,0 +1,122 @@
+using System;
+using System.Linq;
+using MyFirstClassLibrary;
+using System.Data.SqlClient;
+
+namespace ConsoleApplication7
+{
+
+   
+  
+
+
+
+
+    class Program
+    {
+        static string ConncetionString = "Server=.;Database=ContactsDB;User Id=sa;Password=se123456";
+
+
+
+
+    public  struct stContactInfo
+        {
+          
+            public string FirstName { get; set; }
+
+            public string LastName { get; set; }
+
+            public string Email { get; set; }
+
+            public string Phone { get; set; }
+            public string Address { get; set; }
+            public int CountryID { get; set; }
+
+
+       
+
+        }                          
+
+
+
+
+
+     
+
+        static void AddNewContactAndGetID(stContactInfo Contact)
+        {
+            string  ID="";
+            SqlConnection Connection=new SqlConnection(ConncetionString);
+            string Query = @"INSERT INTO Contacts(FirstName,LastName,Email,Phone,Address,CountryID) 
+            Values(@Firstname,@lastname,@Email,@Phone,@Address,@CountryID);
+                   SELECT SCOPE_IDENTITY();";
+            
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.AddWithValue("@Firstname", Contact.FirstName);
+            Command.Parameters.AddWithValue("@lastname", Contact.LastName);
+            Command.Parameters.AddWithValue("@Email", Contact.Email);
+            Command.Parameters.AddWithValue("@Phone", Contact.Phone);
+            Command.Parameters.AddWithValue("@Address", Contact.Address);
+            Command.Parameters.AddWithValue("@CountryID", Contact.CountryID);
+
+
+
+            try
+            {
+                int InsertedID;
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+
+                if(result !=null && int.TryParse(result.ToString(),out  InsertedID))
+                {
+                    Console.WriteLine("Newly Inserted ID:{0}", InsertedID);
+                }
+
+
+                else
+                {
+                    Console.WriteLine("Falid to retrieve the inserted id.");
+                }
+            
+                Connection.Close();
+            }
+
+
+
+              catch(Exception ex)
+              {
+                  Console.WriteLine("Error:"+ex.Message);
+              }
+
+       
+      
+            
+         
+         
+        }
+
+
+  
+
+        static void Main(string[] args)
+        {
+            stContactInfo ContactInfo = new stContactInfo
+            {
+                FirstName = "Hussein",
+                LastName = "Omar",
+                Email = "Hussein@Gmail.com",
+                Phone = "773787547",
+                Address = "Sanaa",
+                CountryID = 1
+
+            };
+            AddNewContactAndGetID(ContactInfo);
+        
+
+
+       
+            Console.ReadKey();
+
+        }
+    }
+}

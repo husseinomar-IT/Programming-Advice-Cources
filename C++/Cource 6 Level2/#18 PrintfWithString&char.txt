@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+
+
+
+
+
+
+
+int main(){
+
+	char Name[] = "Hussein Khaid Hussein Omar";
+	char SchoolName[] = "Programming Advaice";
+	printf("Dear %s,How are you?\n", Name);
+	printf("Welcome to %s\n", SchoolName);
+	char c = 's';
+	printf("Setting the width of c: %*c\n",2,c);
+	printf("Setting the width of c: %*c\n", 3, c);
+	printf("Setting the width of c: %*c\n", 4, c);
+	printf("Setting the width of c: %*c\n", 5, c);
+
+
+
+
+
+}

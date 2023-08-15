@@ -1,0 +1,43 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+float circle_Area(float a,float b,float c)
+{
+
+	const float PI = 3.14;
+	float p,  Area, final;
+	
+	p = (a + b + c) / 2;
+
+	Area = (a*b*c) / (4 * sqrt(p*(p - a)*(p - b)*(p - c)));
+
+	Area = pow(Area, 2);
+
+
+	final = Area*PI;
+	return final;
+	
+
+	
+	
+}
+	
+	
+
+
+int main()
+{
+	float p, a, b, c;
+	cout << "Enter the value a:";
+	cin >> a;
+	cout << "Enter the value b:";
+	cin >> b;
+	cout << "Enter the value c:";
+	cin >> c;
+	
+	cout << floor(circle_Area(a,b,c)) << "\n";
+	
+	
+}

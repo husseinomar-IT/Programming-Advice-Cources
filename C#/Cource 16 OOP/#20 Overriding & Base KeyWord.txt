@@ -1,0 +1,46 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+
+ public class clsA
+ {
+     public  virtual void Print()
+     {
+         Console.WriteLine("Hi I'am Print method from base class A");
+     }
+ }
+
+
+  public  class clsB:clsA
+  {
+      public override void Print()
+      {
+          Console.WriteLine("Hi I'am Print method from drived class b");
+          base.Print();
+      }
+  }
+
+
+
+   
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+
+            //Up Casting
+            clsB B1 = new clsB();
+            B1.Print();
+            Console.ReadKey();
+
+        }
+    }
+}

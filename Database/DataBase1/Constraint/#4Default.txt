@@ -1,0 +1,31 @@
+create table Persons(
+id int not null,
+Firtsname nvarchar(100)not null,
+LastName nvarchar(100)not null,
+city  nvarchar(100) default 'Sanaa',
+StartDate date default GetDate()
+)
+
+
+
+
+create table Persons(
+id int not null,
+Firtsname nvarchar(100)not null,
+LastName nvarchar(100)not null,
+city  nvarchar(100),
+StartDate date default GetDate()
+)
+
+Alter table Persons
+Add Constraint Def_City default 'Sanaa' for city
+
+
+
+
+
+
+Alter table Persons
+drop Constraint Def_City;
+
+

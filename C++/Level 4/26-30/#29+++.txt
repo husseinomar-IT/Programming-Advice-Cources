@@ -1,0 +1,103 @@
+#include<iostream>
+#include<string>
+using namespace std;
+enum enOddorEven{ odd = 1, even = 2 };
+
+
+enum enWhattosum{ all = 1, evenNumber = 2, oddNumber=3 };
+
+enWhattosum ReadOprator()
+{
+	int OP = 0;
+	cout << "Please Enter The OPration You want 1:ALLNunber   2:EvenNumber    3:OddNumber :";
+	cin >> OP;
+	return (enWhattosum)OP;
+}
+
+
+
+
+int Read_num()
+{
+	int N;
+	cout << "Please Enter the number:\n";
+	cin >> N;
+	return N;
+
+}
+enOddorEven checknum(int num)
+{
+	if (num % 2 == 0)
+		return enOddorEven::even;
+	else
+		return enOddorEven::odd;
+
+}
+
+int sumRange(int num, enWhattosum OP)
+
+
+
+{
+	int sum = 0;
+	switch (OP)
+	{
+	case enWhattosum::all:
+		for (int i = 1; i <= num; i++)
+		{
+			sum += i;
+		}
+		return sum;
+		
+	case enWhattosum::evenNumber:
+		for (int i = 1; i <= num; i++)
+		{
+			if (checknum(i) == enOddorEven::even)
+			{
+				sum += i;
+			}
+
+		}
+		return sum;
+
+		
+	case enWhattosum::oddNumber:
+		for (int i = 1; i <= num; i++)
+		{
+			if (checknum(i) == enOddorEven::odd)
+			{
+				sum += i;
+			}
+
+		}
+		return sum;
+
+		
+	default:
+		for (int i = 1; i <= num; i++)
+		{
+			sum += i;
+		}
+		return sum;
+
+		
+	}
+
+	
+
+}
+
+
+
+
+int main()
+
+{
+
+	int N = Read_num();
+	enWhattosum OP = ReadOprator();
+
+
+	cout << "Result= " << sumRange(N, OP) << endl;
+
+}

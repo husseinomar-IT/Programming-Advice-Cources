@@ -1,0 +1,31 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+double circle_Area(double a)
+{
+
+	
+
+		const double PI = 3.14;
+	
+		
+		return  PI*pow(a, 2);
+
+	
+}
+	
+	
+
+
+int main()
+{
+	double  Area;
+	cout << "Enter the value a=\n";
+	cin >> Area;
+	
+	cout << circle_Area(Area) << "\n";
+	
+	
+}

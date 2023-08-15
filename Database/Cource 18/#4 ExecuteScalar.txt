@@ -1,0 +1,66 @@
+using System;
+using System.Linq;
+using MyFirstClassLibrary;
+using System.Data.SqlClient;
+
+namespace ConsoleApplication7
+{
+
+   
+  
+
+
+
+
+    class Program
+    {
+        static string ConncetionString = "Server=.;Database=ContactsDB;User Id=sa;Password=se123456";
+  
+      
+
+
+        static string GetFirstName(int ContactID)
+        {
+
+            string Firtname = "";
+            SqlConnection Connection = new SqlConnection(ConncetionString);
+            string Query = "select FirstName from Contacts where ContactID=@ContactID";
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.AddWithValue("@ContactID", ContactID);
+
+            try
+            {
+                Connection.Open();
+                object result = Command.ExecuteScalar();
+               if(result !=null)
+               {
+                   Firtname = result.ToString();
+               }
+
+               else
+               {
+                   Firtname = "";
+               }
+               
+                Connection.Close();
+            }
+
+
+            catch (Exception e)
+            {
+                Console.WriteLine("Error:" + e.Message);
+
+            }
+
+            return Firtname;
+
+        }
+
+        static void Main(string[] args)
+        {
+            Console.WriteLine(GetFirstName(4));
+            Console.ReadKey();
+
+        }
+    }
+}

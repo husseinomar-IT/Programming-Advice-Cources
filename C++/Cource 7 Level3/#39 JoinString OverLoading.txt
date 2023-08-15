@@ -1,0 +1,119 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+
+using namespace std;
+
+
+
+
+
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+
+
+
+
+
+
+
+
+vector<string> SplitStringWord(string S1, string delim)
+{
+	vector<string>vstring;
+
+
+	short pos = 0;
+	string sWord;
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+
+		sWord = S1.substr(0, pos);
+		if (sWord != "")
+		{
+			vstring.push_back(sWord);
+		}
+		S1.erase(0, pos + delim.length());
+	}
+	cout << endl;
+	if (S1 != "")
+	{
+		vstring.push_back(S1);
+
+	}
+
+	return vstring;
+}
+
+string JoinString(vector<string>vstring,string delim)
+{
+	
+	
+	
+	string S1 = "";
+	for (string &s:vstring)
+	{
+		
+		S1 += s + delim;
+
+	}
+	S1 = S1.substr(0, S1.length() - delim.length());
+	return S1;
+
+}
+string JoinString(string arr[], short length,string delim)
+{
+	string S1 = "";
+	for (short i = 0; i < length; i++)
+	{
+		S1 += arr[i] + delim;
+	}
+	S1 = S1.substr(0, S1.length() - delim.length());
+	return S1;
+}
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+
+	string delim = ",";
+
+         vector<string>vstring= { "Hussein", "Khalid", "Mohammed", "Tofiq" };
+         string arrString[] = { "Hussein", "Khalid", "Mohammed", "Tofiq" };
+      cout<<"\n Vector after join:\n";
+      cout<< JoinString(vstring, delim);
+
+
+      cout<<"\n\n Array after join:\n";
+      cout<< JoinString(arrString, 4, delim) ;
+	
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+}

@@ -1,0 +1,59 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<cmath>
+
+using namespace std;
+
+
+float ReadNumber()
+{
+	float Num;
+	cout << "Please enter the Number? ";
+	cin >> Num;
+	return Num;
+}
+int MyAbs(int Num)
+{
+	if (Num > 0)
+		return Num;
+	else
+		return Num*-1;
+}
+float GetFractionPart(float Num)
+{
+	return Num - (int)Num;
+}
+int MyRound(float Num)
+{
+ int 	IntPart = (int)Num;
+ float FractionPart = GetFractionPart(Num);
+ if (abs(FractionPart) >= .5)
+ {
+	 if (Num > 0)
+		 return ++IntPart;
+	 else
+		 return --IntPart;
+
+ }
+
+ else
+ {
+	 return IntPart;
+ }
+	 
+}
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+
+	float Num = ReadNumber();
+	cout << "My Round Function: " << MyRound(Num) << endl;
+	cout << "C++  Function: " << round(Num) << endl;
+
+
+}
+

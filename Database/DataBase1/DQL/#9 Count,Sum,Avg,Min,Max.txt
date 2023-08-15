@@ -1,0 +1,19 @@
+select TotalCounts=Count(MonthlySalary),
+        SumSalary=Sum(MonthlySalary),
+		Avarage=AVG(MonthlySalary),
+		MinSalary=MIN(MonthlySalary),
+		MaxSalary=Max(MonthlySalary)
+		from Employees;
+
+
+		select TotalCounts=Count(MonthlySalary),
+        SumSalary=Sum(MonthlySalary),
+		Avarage=AVG(MonthlySalary),
+		MinSalary=MIN(MonthlySalary),
+		MaxSalary=Max(MonthlySalary)
+		from Employees
+		where DepartmentID=1;
+
+
+
+		select ExitEmployees=Count(ExitDate) from Employees;

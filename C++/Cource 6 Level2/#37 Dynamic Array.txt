@@ -1,0 +1,49 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+
+
+
+
+
+
+int main(){
+	
+
+	cout << "_______________________________________________________________________\n\n";
+
+
+	int   *ptrArray;
+	int num;
+	cout << "Please enter the number of element you want : \n";
+	cin >> num;
+	ptrArray = new int[num];
+	for (int i = 0; i < num; i++)
+	{
+		cout << "Please enter the elment number : " << i + 1 << endl;
+		cin >> *(ptrArray + i);
+	}
+	
+	cout << "\n\n";
+
+	for (int i = 0; i < num; i++)
+	{
+		cout << *(ptrArray + i) << endl;
+	}
+
+	delete []ptrArray;
+	cout << "_______________________________________________________________________\n\n";
+
+
+
+}
+
+
+
+
+

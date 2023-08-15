@@ -1,0 +1,12 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{ double height,diagonal,Area;
+cout<<"Enter the height of rectangle:";
+cin>>height;
+cout<<"Enter the diagonal of rectangle:";
+cin>>diagonal;
+Area=height*sqrt(pow(diagonal,2)-pow(height,2));
+cout<<Area<<"\n";
+}

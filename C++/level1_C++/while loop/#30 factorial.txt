@@ -1,0 +1,44 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int factorial_num(int N)
+{
+	while (N < 0)
+	{
+		cout << "please enter positive number:\n";
+		cin >> N;
+	}
+	int counter = N;
+	int fact = 1;
+	while (counter >= 1)
+	{
+		fact = fact*counter;
+		counter--;
+
+	}
+	return fact;
+
+
+
+}
+
+int main()
+{
+	//print_cabtel_letter();
+	int N;
+	cout << "Enter The number" << endl;
+	cin >> N;
+	cout << "______________________________________\n";
+	cout << factorial_num(N) << endl;
+
+
+
+	//cout << "--------------------------------Thank you------------------------------------------\n";
+
+
+
+
+
+}

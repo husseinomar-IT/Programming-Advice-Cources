@@ -1,0 +1,36 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+
+        static void PrintMyName(int age, string name = "Hussein")
+        {
+            Console.WriteLine("Your name is {0} and you age is{1}",name,age);
+        }
+
+        static int sum(int N1,int N2)
+        {
+            return (N1 + N2);
+        }
+
+
+        static void MuMethod(string chiled1,string chiled2,string chiled3)
+        {
+            Console.WriteLine("My Youngest child is :" + chiled3);
+        }
+
+
+        static void Main(string[] args)
+        {
+           
+            MuMethod(chiled3: "Hussein", chiled1: "Mohammed", chiled2: "Tofiq");
+            Console.WriteLine(sum(5, 10));
+        
+        Console.ReadKey();
+          
+        }
+    }
+}

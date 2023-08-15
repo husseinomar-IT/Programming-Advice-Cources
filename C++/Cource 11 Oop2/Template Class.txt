@@ -1,0 +1,99 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+#include<iomanip>
+#include"clsBankClient.h"
+#include"clsInputValidate.h"
+#include"clsUtil.h"
+#include"clsMainScreen.h"
+#include"clsLoginScreen.h"
+
+using namespace std;
+
+
+
+
+template<typename T>T MyMax(T Number1, T Number2)
+{
+	return(Number1 > Number2) ? Number1 : Number2;
+}
+
+
+
+
+template<class T>class clscalculator
+{
+private:
+
+
+	T _Number1;
+	T _Number2;
+public:
+
+	clscalculator(T Number1, T Number2)
+	{
+		_Number1 = Number1;
+		_Number2 = Number2;
+	}
+
+	T Add()
+	{
+		return _Number1 + _Number2;
+	}
+
+
+	T Subtract()
+	{
+		return _Number1 - _Number2;
+	}
+
+
+	T Multiply()
+	{
+		return _Number1*_Number2;
+	}
+
+
+	T Divide()
+	{
+		return _Number1/_Number2;
+	}
+
+
+	void PrintResult()
+	{
+		cout << "Numbers: " << _Number1 <<" "<< "and" <<" "<< _Number2 << endl;
+		cout << _Number1 << "+" << _Number2 << "=" << Add() << endl;
+		cout << _Number1 << "-" << _Number2 << "=" << Subtract() << endl;
+		cout << _Number1 << "*" << _Number2 << "=" << Multiply() << endl;
+		cout << _Number1 << "/" << _Number2 << "=" << Divide() << endl;
+
+	}
+
+};
+int main(){
+	
+
+
+
+	
+	clscalculator <int> intNum(5, 10);
+	cout << "Int Result:" << endl;
+	intNum.PrintResult();
+
+	cout << "\n\n";
+
+	clscalculator <float> floatNum(5.5, 10.5);
+	cout << "Flaot Result:" << endl;
+	floatNum.PrintResult();
+
+
+
+
+
+	
+	system("pause>0");
+	return 0;
+
+}
+

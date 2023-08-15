@@ -1,0 +1,71 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+struct Stperson
+{
+	string first_name;
+	string last_name;
+	short age;
+	string phone;
+
+};
+void Read_oneinfo(Stperson &Info)
+{
+	cout << "Enter your first name:";
+	cin >>Info.first_name;
+	cout << "Enteour Last name:";
+	cin >> Info.last_name;
+	cout << "Enteour age:";
+	cin >> Info.age;
+	cout << "Enteour phone:";
+	cin >> Info.phone;
+	cout << "_____________________________________________________________\n";
+
+}
+void print_oneinfo(Stperson Info)
+
+{
+	cout << "First name:" << Info.first_name << "\n";
+	cout << "Last name:" << Info.last_name << "\n";
+	cout << "Age:" << Info.age << "\n";
+	cout << " Phone:" << Info.phone << "\n";
+	cout << "_____________________________________________________________\n";
+
+}
+void Read_twoInfo(Stperson person[2])
+{
+	
+	Read_oneinfo(person[0]);
+
+	Read_oneinfo(person[1]);
+
+
+}
+void print_towInfo(Stperson person[2])
+
+
+{
+	print_oneinfo(person[0]);
+	print_oneinfo(person[1]);
+
+
+}
+
+
+
+int main()
+{
+	Stperson person[2];
+
+	
+	
+	Read_twoInfo(person);
+	print_towInfo(person);
+
+	
+	
+
+
+
+}

@@ -1,0 +1,80 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+void Print_month(int numofmonth)
+{
+	switch (numofmonth)
+	{
+	case 1:
+		cout << "jan\n";
+		break;
+	case 2:
+		cout << "february\n";
+		break;
+	case 3:
+		cout << "march\n";
+		break;
+	case 4:
+		cout << "April\n";
+		break;
+	case 5:
+		cout << "may\n";
+		break;
+	case 6:
+		cout << "june\n";
+		break;
+	case 7:
+		cout << "july\n";
+		break;
+	case 8:
+		cout << "August\n";
+		break;
+	case 9:
+		cout << "september\n";
+		break;
+	case 10:
+		cout << "jan\n";
+		break;
+	case 11:
+
+		cout << "Novmber\n";
+		break;
+	case 12:
+		cout << "December\n";
+		break;
+	default:cout << "Wrong month\n";
+		break;
+	}
+	
+	
+
+
+}
+
+int main()
+{
+	int month;
+	cout << "Enter the num of month:";
+	cin >> month;
+
+
+
+
+
+
+	cout << "It is:";
+	Print_month(month);
+
+
+
+
+
+	//cout << "--------------------------------Thank you------------------------------------------\n";
+
+
+
+
+
+}

@@ -1,0 +1,72 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+struct stPerson
+{
+	string Name;
+	float salary;
+
+};
+
+
+
+
+
+int main(){
+	int *ptrx;
+	float *ptry;
+
+	ptrx = new int;
+	ptry = new float;
+
+	*ptrx = 50;
+	*ptry = 10.5;
+
+	cout << *ptrx << endl;
+	cout << *ptry << endl;
+	delete ptrx;
+	delete ptry;
+	cout << "_______________________________________________________________________\n\n";
+
+
+	int   *ptrArray;
+	ptrArray = new int[5];
+	*ptrArray = 10;
+	*(ptrArray + 1) = 20;
+	*(ptrArray + 2) = 30;
+	*(ptrArray + 3) = 40;
+	*(ptrArray + 4) = 50;
+
+	for (int i = 0; i < 5; i++)
+	{
+		cout << *(ptrArray + i) << endl;
+	}
+
+	delete[]ptrArray;
+	cout << "_______________________________________________________________________\n\n";
+
+	stPerson *ptrEmploye;
+
+	ptrEmploye = new stPerson;
+
+
+	ptrEmploye->Name = "Hussein";
+	ptrEmploye->salary = 5000;
+
+	cout << ptrEmploye->Name << endl;
+	cout << ptrEmploye->salary << endl;
+
+	delete ptrEmploye;
+
+
+}
+
+
+
+
+

@@ -1,0 +1,52 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<cmath>
+#include<ctime>
+#include"MyInput.h"
+#include"MyOutPuth.h"
+
+using namespace std;
+
+
+//void PrintArrayFillRandomNumber( int arr[])
+//{
+//
+//
+//	for (int i : arr)
+//	{
+//
+//		cout << i << " ";
+//
+//	}
+//	cout << endl;
+//
+//}
+
+
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int arr[5];
+	int size;
+
+	MyInput::ReadAraayFillRandomNumber(arr,size);
+	for (int i : arr)
+	{
+		cout << i << endl;
+	}
+	//--------------------------------------------
+
+	int array1[] = { 1, 2, 3, 4, 5 };
+	for (int i : array1)
+		{
+			cout << i << endl;
+		}
+	
+	return 0;
+
+
+
+}
+

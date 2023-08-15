@@ -1,0 +1,35 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+
+using namespace std;
+
+
+int ReadNumber()
+{
+	int Num;
+	cout << "Please enter the Number? ";
+	cin >> Num;
+	return Num;
+}
+int MyAbs(int Num)
+{
+	if (Num > 0)
+		return Num;
+	else
+		return Num*-1;
+}
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+
+	int Num = ReadNumber();
+	cout << "My Abs Function: " << MyAbs(Num) << endl;
+	cout << "C++  Function: " << abs(Num) << endl;
+
+
+}
+

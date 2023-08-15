@@ -1,0 +1,36 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+void Read_PIN(short PIN_CODE)
+{
+	float blance = 7500;
+	if (PIN_CODE == 1234)
+	{
+		cout << "your Balance is:" << blance << "\n";
+	}
+	else
+	{
+		cout << "roung PIN_CODE" << "\n";
+	}
+
+}
+int main()
+{
+	short PIN;
+	cout << "Enter your PIN:";
+	cin >> PIN;
+	Read_PIN(PIN);
+	
+	
+
+
+	
+	cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

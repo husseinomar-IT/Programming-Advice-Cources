@@ -1,0 +1,21 @@
+   #include<iostream>
+using namespace std;
+
+
+
+
+void PrintNumberRange(int a, int b)
+{
+	if (a >= b)
+	{
+		cout << a << endl;
+		PrintNumberRange(a -1, b);
+	}
+}
+
+
+int main(){
+
+	PrintNumberRange(10,1);
+
+}

@@ -1,0 +1,122 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+
+    class clsPerson
+    {
+        public int ID
+        {
+            get;
+            set;
+        }
+
+        public string Name
+        {
+            get;
+            set;
+        }
+
+
+
+        public short Age
+        {
+            get;
+            set;
+        }
+        public clsPerson(int id,string name,short age)
+        {
+            this.ID=id;
+            this.Name=name;
+            this.Age=age;
+        }
+        
+
+
+        public static clsPerson Find(int id)
+        {
+            if (id == 10)
+                return new clsPerson(10, "Hussein Khalid", 22);
+            else
+                return null;
+        }
+
+        public static clsPerson Find(string Username,string Password)
+        {
+            if (Username == "Admin"&& Password=="p1234")
+                return new clsPerson(10, "Hussein Khalid", 22);
+            else
+                return null;
+        }
+
+
+
+     
+
+
+
+   
+
+      
+
+
+       
+
+    }
+
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+
+
+      //      clsPerson Person1 = new clsPerson();
+
+            clsPerson Person1 = clsPerson.Find(11);
+            if(Person1 !=null)
+            {
+                Console.WriteLine("ID:{0}", Person1.ID);
+                Console.WriteLine("Name:{0}", Person1.Name);
+                Console.WriteLine("Age:{0}", Person1.Age);
+
+
+            }
+
+
+            else
+            {
+                Console.WriteLine("Could not found this person with this  id ");
+            }
+
+
+            clsPerson Person2 = clsPerson.Find("Admin","p1234");
+
+
+            if (Person2 != null)
+            {
+                Console.WriteLine("\nID:{0}",   Person2.ID);
+                Console.WriteLine("Name:{0}", Person2.Name);
+                Console.WriteLine("Age:{0}",  Person2.Age);
+
+
+            }
+
+
+            else
+            {
+                Console.WriteLine("Could not found this person with this Username and Password");
+            }
+
+
+            Console.ReadKey();
+
+        }
+    }
+}

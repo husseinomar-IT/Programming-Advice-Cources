@@ -1,0 +1,226 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+class clsPerson{
+private:
+	int _ID;
+	string _Firstname;
+	string _Lastname;
+	string _email;
+	string _phone;
+public:
+
+	
+
+	
+	clsPerson(int ID, string Firstname, string Lastname, string email, string phone)
+	{
+		_ID = ID;
+		_Firstname = Firstname;
+		_Lastname = Lastname;
+		_email = email;
+		_phone = phone;
+	}
+	int GetID()
+	{
+		return _ID;
+	}
+	void SetFirstname(string Name)
+	{
+		_Firstname = Name;
+	}
+
+	void SetLastname(string Name)
+	{
+		_Lastname = Name;
+	}
+
+	string Firstname()
+	{
+		return _Firstname;
+	}
+
+	string Lastname()
+	{
+		return _Lastname;
+	}
+
+	string Fullname()
+	{
+		return _Firstname + " " + _Lastname;
+	}
+
+	string email()
+	{
+		return _email;
+	}
+
+	string Phone()
+	{
+		return _phone;
+	}
+
+	void Print()
+	{
+		cout << "\nInfo:\n";
+		cout << "_______________________\n";
+		cout << "ID        :" << _ID << "\n";
+		cout << "FirstName :" << _Firstname << "\n";
+		cout << "LAstName  :" << _Lastname << "\n";
+		cout << "FullName  :" << Fullname() << "\n";
+		cout << "Email     :" << _email << "\n";
+		cout << "Phone     :" << _phone << "\n";
+		cout << "_______________________\n";
+
+	}
+
+	void SendEmail(string subject, string body)
+	{
+		cout << "\nThe following sent successfully to email: " << _email << "\n";
+		cout << "Subject: " << subject << endl;
+		cout << "Body: " << body << endl;
+	}
+
+
+	void SendSms(string Message)
+	{
+		cout << "\nThe following SMS sent successfully to phone: " << _phone << "\n";
+		cout << Message << "\n";
+	}
+
+
+};
+
+class clsEmployee :public clsPerson
+{
+private:
+	string _Title;
+	string _Department;
+	float _Salary;
+public:
+
+	clsEmployee(int ID, string Firstname, string Lastname, string email, string phone,string Title,string Department,float Salary)
+		:clsPerson(ID,Firstname,Lastname,email,phone)
+	{
+		_Title = Title;
+		_Department = Department;
+		_Salary = Salary;
+
+	}
+	void SetTitle(string Title)
+	{
+		_Title = Title;
+	}
+	string Title()
+	{
+		return _Title;
+	}
+
+
+	void SetDepartment(string Department)
+	{
+		_Department = Department;
+	}
+
+
+	string Department()
+	{
+		return _Department;
+	}
+
+
+	void SetSalary(float Salary)
+	{
+		_Salary = Salary;
+	}
+
+
+	float Salary()
+	{
+		return _Salary;
+	}
+
+	//Overridding Function
+	void Print()
+	{
+		cout << "\nInfo:\n";
+		cout << "_______________________\n";
+		cout << "ID         :" << GetID() << "\n";
+		cout << "FirstName  :" << Firstname() << "\n";
+		cout << "LAstName   :" << Lastname() << "\n";
+		cout << "FullName   :" << Fullname() << endl;
+		cout << "Email      :" << email() << "\n";
+		cout << "Phone      :" << Phone() << "\n";
+		cout << "Title      :" << _Title << "\n";
+		cout << "Department :" << _Department << "\n";
+		cout << "Salary     :" << _Salary << "\n";
+		cout << "_______________________\n";
+	}
+
+
+
+};
+
+
+
+class clsDeveloper :public clsEmployee
+{
+private:
+	string _MainProgrammingLanguage;
+public:
+	clsDeveloper(int ID, string Firstname, string Lastname, string email, string phone, string Title, string Department, float Salary, string MainProgramming_Language)
+		:clsEmployee(ID, Firstname, Lastname, email, phone, Title, Department, Salary)
+	{
+		_MainProgrammingLanguage = MainProgramming_Language;
+	}
+
+	void SetProgrammingLanguage(string MainProgramming_Language)
+	{
+		_MainProgrammingLanguage = MainProgramming_Language;
+	}
+
+
+	string MainProgramming_Language()
+	{
+		return _MainProgrammingLanguage;
+	}
+
+	void Print()
+	{
+
+		cout << "\nInfo:\n";
+		cout << "_______________________\n";
+		cout << "ID                        :" << GetID() << "\n";
+		cout << "FirstName                 :" << Firstname() << "\n";
+		cout << "LAstName                  :" << Lastname() << "\n";
+		cout << "FullName                  :" << Fullname() << "\n";
+		cout << "Email                     :" << email() << "\n";
+		cout << "Phone                     :" << Phone() << endl; 
+		cout << "Title                     :" << Title() << "\n";
+		cout << "Department                :" << Department() << "\n";
+		cout << "Salary                    :" << Salary() << "\n";
+		cout << "Main_Programming_Language :" << _MainProgrammingLanguage << "\n";
+		cout << "_______________________\n";
+
+	}
+};
+
+
+int main(){
+
+	
+
+
+	clsDeveloper Developer(10, "Hussein", "Khalid Omar", "my@gmail.com", "773787547", "Sana'a", "IT", 10000, "C++");
+	Developer.Print();
+	
+	system("pause>0");
+	return 0;
+
+}

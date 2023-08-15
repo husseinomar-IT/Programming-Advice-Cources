@@ -1,0 +1,57 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+
+
+
+
+
+void PrintFabonicUsingRecurion( int Num,int counter,int &prev1,int &prev2)
+{
+
+	int Result = 0;
+	
+	if (counter<= Num)
+	{
+		
+		Result = prev1 + prev2;
+		prev2 = prev1;
+		prev1 = Result;
+		cout << Result << " ";
+		PrintFabonicUsingRecurion(Num, counter + 1, prev1, prev2);
+		cout << endl;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	
+
+	int prev1 = 1;
+	int prev2 = 0;
+	cout << "1" << " ";
+	PrintFabonicUsingRecurion(10,2,prev1,prev2);
+
+	
+	
+}

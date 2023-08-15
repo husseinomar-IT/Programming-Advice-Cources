@@ -1,0 +1,54 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+enum enPrimeNumber{prime=1,noprime=2};
+enPrimeNumber checkPrimeNumber(int Num)
+{
+	int M = 0;
+	M = round(Num / 2);
+	for (int Counter = 2; Counter <= M; Counter++)
+	{
+		if (Num %Counter == 0)
+			return enPrimeNumber::noprime;
+	}
+	return enPrimeNumber::prime;
+}
+
+
+float Read_num(string Massage)
+{
+	float Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num<=0);
+
+	return Num;
+
+}
+void PrintPrimeNumber(int Num)
+{
+	switch (checkPrimeNumber(Num))
+
+	{case enPrimeNumber::prime:
+		cout << "Prime Number\n";
+		break;
+	case enPrimeNumber::noprime:
+		cout << "NoPrime Number\n";
+		break;
+	default:
+		cout << "wrong\n";
+		break;
+	}
+}
+
+
+int main()
+
+{
+	PrintPrimeNumber(Read_num("Please enter Positive number"));
+	
+	
+}

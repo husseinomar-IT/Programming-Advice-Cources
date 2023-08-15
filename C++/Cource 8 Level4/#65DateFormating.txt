@@ -1,0 +1,214 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+#include<fstream>
+
+using namespace std;
+
+
+short ReadYear()
+{
+	short Year;
+	cout << "Please enter a Year? ";
+	cin >> Year;
+	return Year;
+
+}
+
+short ReadMonth()
+{
+	short Month;
+	cout << "Please enter a Month? ";
+	cin >> Month;
+	return Month;
+
+}
+
+short ReadDay()
+{
+	short Day;
+	cout << "\nPlease enter a Day? ";
+	cin >> Day;
+	return Day;
+
+}
+
+short IsLeapYear(short Year)
+
+{
+	return(Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0);
+}
+
+
+
+
+struct sDate
+
+{
+
+	short Day;
+	short Month;
+	short Year;
+};
+
+
+struct sPeriod{
+
+	sDate Start;
+	sDate Ends;
+
+};
+short NumberOfDaysInMonth(short Year, short Month)
+{
+
+	if (Month<1 || Month>12)
+		return 0;
+	int NumberOfDays[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	return	(Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+
+
+}
+
+
+
+
+
+short NumberofDaysFromTheBeginingOfTheYear( short Day,short Month, short Year)
+{
+
+	short TotalDays = 0;
+	for (short i = 1; i <= Month-1; i++)
+
+        {
+			TotalDays += NumberOfDaysInMonth(Year, i);
+	    }
+	TotalDays += Day;
+	return TotalDays;
+
+}
+
+
+
+sDate ReadFullDate()
+{
+	sDate Date;
+	Date.Day = ReadDay();
+	Date.Month = ReadMonth();
+	Date.Year = ReadYear();
+	return Date;
+}
+
+
+
+
+string ReadDateAsString(string Message)
+{
+	string Date;
+	cout << Message;
+	cin >> Date;
+	return Date;
+}
+vector<string>  SplitWord(string S1, string delim)
+{
+	vector<string>spvector;
+	short pos = 0;
+
+	string sWord;
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+
+		sWord = S1.substr(0, pos);
+		if (sWord != "")
+		{
+			spvector.push_back(sWord);
+		}
+		S1.erase(0, pos + delim.length());
+	}
+	if (S1 != "")
+	{
+		spvector.push_back(S1);
+	}
+
+	return spvector;
+}
+
+sDate StringToDate(string DateSDtring)
+{
+	vector<string> vDate = SplitWord(DateSDtring,"/");
+	sDate Date;
+	Date.Day = stoi(vDate[0]);
+	Date.Month = stoi(vDate[1]);
+	Date.Year = stoi(vDate[2]);
+	return Date;
+}
+
+
+
+
+string ConvertDateToString(sDate Date)
+{
+	
+	return to_string(Date.Day) + "/" + to_string(Date.Month) + "/" + to_string(Date.Year);
+	
+
+
+
+}
+
+string ReplaceWordInStringUsingBuildInFunc(string txt, string Replacetxt, string ToReplace)
+{
+	short pos = txt.find(Replacetxt);
+	//while ((pos = txt.find(Replacetxt)) != std::string::npos)
+	while (pos != std::string::npos)
+	{
+		txt = txt.replace(pos, Replacetxt.length(), ToReplace);
+		pos = txt.find(Replacetxt);
+	}
+	return txt;
+}
+string PrintDateFormate(sDate Date, string Format="dd/mm/yyyy")
+{
+	string DateFormating = "";
+	DateFormating = ReplaceWordInStringUsingBuildInFunc(Format, "dd", to_string(Date.Day));
+	DateFormating = ReplaceWordInStringUsingBuildInFunc(DateFormating, "mm", to_string(Date.Month));
+	DateFormating = ReplaceWordInStringUsingBuildInFunc(DateFormating, "yyyy", to_string(Date.Year));
+	return DateFormating;
+}
+int main(){
+	srand((unsigned)time(NULL));
+
+	string StringDate = ReadDateAsString("Please enter Date dd/mm/yyyy? ");
+	
+	sDate Date = StringToDate(StringDate);
+	cout << "\n" << PrintDateFormate(Date) << "\n";
+	cout << "\n" << PrintDateFormate(Date,"yyyy/mm/dd") << "\n";
+	cout << "\n" << PrintDateFormate(Date,"mm/yyyy/dd") << "\n";
+	cout << "\n" << PrintDateFormate(Date,"dd*mm*yyyy") << "\n";
+	cout << "\n" << PrintDateFormate(Date,"yyyy-mm-dd") << "\n";
+	cout << "\n" << PrintDateFormate(Date,"Day::dd,Month:mm,Year:yyyy") << "\n";
+
+
+
+	StringDate = ConvertDateToString(Date);
+	cout << "\nYour Entered: " << StringDate << endl;
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+	
+}

@@ -1,0 +1,22 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+
+
+            var x = 10;
+            var y = 5.88;
+            var z = "Huseein";
+            Console.WriteLine("x={0},y={1},z={2}",x,y,z);
+           
+            Console.WriteLine("\a");
+
+          
+        }
+    }
+}

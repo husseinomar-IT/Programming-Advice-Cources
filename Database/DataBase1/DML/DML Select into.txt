@@ -1,0 +1,20 @@
+select * 
+into EmployeesCopy1
+from Employees;
+
+
+
+select ID, Name
+into EEmployeesCopy2
+from Employees;
+
+
+
+
+
+select * 
+into  EEmployeesCopy3
+from Employees
+where 5=4;
+
+select * from EEmployeesCopy3

@@ -1,0 +1,44 @@
+123#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+int Read_num(string Massage)
+{
+	int Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num <= 0);
+
+	return Num;
+
+}
+
+void DigitNumber(int Num)
+{
+	
+	int Remender = 0;
+	while (Num > 0)
+	{ 
+		Remender = Num % 10;
+		Num = Num / 10;
+		cout << Remender << endl;
+	}
+}
+
+
+
+
+
+
+
+int main()
+
+{
+	int Num = Read_num("Please enter a Postive number");
+	DigitNumber(Num);
+
+}

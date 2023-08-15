@@ -1,0 +1,53 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<cmath>
+#include<ctime>
+#include"MyInput.h"
+#include"MyOutPuth.h"
+
+using namespace std;
+
+
+int sum(int a, int b)
+{
+	return a + b;
+}
+int sum(int a, int b,int c)
+{
+	return a + b+c;
+}
+int sum(int a, int b, int c,int d)
+{
+	return a + b + c + d;
+}
+float sum(float a,float b)
+{
+	return a + b;
+}
+
+
+
+
+
+
+
+
+
+int main()
+{
+	//srand((unsigned)time(NULL));
+	 
+	int a = 10, b = 20, c = 30, d = 40;
+
+	float a2 = 3.5, b2 = 5.0;
+	cout << sum(a, b) << endl;
+	cout << sum(a, b,c) << endl;
+	cout << sum(a, b,c,d) << endl;
+	cout << sum(a2,b2) << endl;
+	
+	
+	
+
+}
+

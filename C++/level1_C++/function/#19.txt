@@ -1,0 +1,34 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+float circle_Area(float diameter)
+{
+
+	
+
+		const float PI = 3.14;
+		
+		
+		return
+			PI*pow(diameter, 2) / 4;
+
+		
+	
+	
+}
+	
+	
+
+
+int main()
+{
+	float diameter;
+	cout << "Enter the value daimeter=";
+	cin >> diameter;
+	
+	cout << circle_Area(diameter) << "\n";
+	
+	
+}

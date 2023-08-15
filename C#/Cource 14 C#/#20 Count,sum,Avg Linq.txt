@@ -1,0 +1,24 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+     
+        static void Main(string[] args)
+        {
+
+            int[] array = { 10, 20, 30, 40, 50, 60, 70, 80, 90,10 };
+
+            Console.WriteLine("Count Element:" +array.Count());
+
+            Console.WriteLine("Sum Element:" + array.Sum());
+
+            Console.WriteLine("Average Element:" + array.Average());
+        
+        Console.ReadKey();
+          
+        }
+    }
+}

@@ -1,0 +1,460 @@
+select   Makes.Make from Makes
+where Makes.Make like 'B%'
+
+
+select   Makes.Make from Makes
+where Makes.Make like '%W'
+
+
+
+
+
+select distinct Makes.Make from VehicleDetails inner join Makes
+ on VehicleDetails.MakeID=Makes.MakeID
+ inner join DriveTypes 
+ on VehicleDetails.DriveTypeID=DriveTypes.DriveTypeID
+ where DriveTypes.DriveTypeName='FWD'
+
+
+
+
+
+
+select count(*) as MakeWithFWD from(
+
+select distinct Makes.Make from VehicleDetails inner join Makes
+ on VehicleDetails.MakeID=Makes.MakeID
+ inner join DriveTypes 
+ on VehicleDetails.DriveTypeID=DriveTypes.DriveTypeID
+ where DriveTypes.DriveTypeName='FWD'
+ )R
+
+
+
+
+
+select   Makes.Make,DriveTypes.DriveTypeName,count(*) as TotalVehicle from VehicleDetails
+inner join Makes on VehicleDetails.MakeID=Makes.MakeID
+inner join DriveTypes on VehicleDetails.DriveTypeID=DriveTypes.DriveTypeID
+group by Makes.Make,DriveTypes.DriveTypeName
+order by Makes.Make,TotalVehicle desc
+
+
+
+
+
+
+
+
+ select   Makes.Make,DriveTypes.DriveTypeName,count(*) as TotalVehicle from VehicleDetails
+inner join Makes on VehicleDetails.MakeID=Makes.MakeID
+inner join DriveTypes on VehicleDetails.DriveTypeID=DriveTypes.DriveTypeID
+group by Makes.Make,DriveTypes.DriveTypeName
+having count(*)>10000
+order by Makes.Make,TotalVehicle desc
+
+
+
+
+
+
+
+
+select  * from VehicleDetails where NumDoors is null
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select COUNT(*) as TotalVehicle from(
+select  * from VehicleDetails where NumDoors is null
+)R
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------------------
+
+
+select CAST(TotalVehicleWithNullDoors as float)/ CAST(Total as float) from(
+
+select *, ( select COUNT(*) from VehicleDetails as TotalVehicle ) as Total from(
+
+select COUNT(*) as TotalVehicleWithNullDoors from(
+select  * from VehicleDetails where NumDoors is null
+)R1
+
+
+
+
+
+
+)R2
+)R3
+
+
+
+------------------------------------------------------------------------------------------
+
+
+select (
+
+CAST((select count(*) as TotalWithNpSpecifiedDoors from VehicleDetails where  NumDoors is null) as float)
+/
+CAST((select COUNT(*) as TotalVehicle from  VehicleDetails)as float)) as Perc
+
+------------------------------------------------------------------------------------------
+
+
+
+
+
+
+select * from VehicleDetails where Engine_Liter_Display >3 and NumDoors =2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select Makes.Make,VehicleDetails.* from VehicleDetails 
+inner join Makes on
+VehicleDetails.MakeID=Makes.MakeID
+where VehicleDetails.Engine like'%OHV%' and VehicleDetails.Engine_Cylinders=4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select  Bodies.BodyName, VehicleDetails.* from VehicleDetails
+inner join Bodies on VehicleDetails.BodyID=Bodies.BodyID
+where Bodies.BodyName='Sport Utility' and VehicleDetails.Year>2000
+
+
+
+
+
+
+select  Bodies.BodyName, VehicleDetails.* from VehicleDetails
+inner join Bodies on VehicleDetails.BodyID=Bodies.BodyID
+where Bodies.BodyName in('Sport Utility','Hatchback','Sedan') 
+and VehicleDetails.Year in(2008,2020,2021);
+
+
+
+
+select Found=1 where
+exists(
+select top 1 * from VehicleDetails where VehicleDetails.Year=1950)
+
+
+
+
+select Found=1 where
+exists(
+select top 1  Result=1 from VehicleDetails where VehicleDetails.Year=1950) 
+
+
+
+
+
+
+
+
+
+
+select VehicleDetails.Vehicle_Display_Name,VehicleDetails.NumDoors,DoorsDescrption=
+case
+when NumDoors=0 then 'Zero Door'
+when NumDoors=2 then 'Two Doors'
+when NumDoors=4 then 'Four Doors'
+when NumDoors=3 then 'Three Doors'
+when NumDoors=5 then 'Five Doors'
+when NumDoors=6 then 'Six Doors'
+when NumDoors=3 then 'One Door'
+when NumDoors=8 then 'Eight Doors'
+when NumDoors is null then 'Not Set'
+else
+'Unknown'
+end
+
+from VehicleDetails
+
+
+
+
+
+
+
+
+
+
+
+
+select VehicleDetails.Vehicle_Display_Name,VehicleDetails.Year,Age=YEAR(GETDATE())-VehicleDetails.Year from
+VehicleDetails
+order by Age desc
+
+
+
+
+
+select MIN(Engine_CC) as MinimumEngineCC,MAX(Engine_CC) as MaximumEngineCC ,AVG(Engine_CC) as AverageEngineCC  from VehicleDetails
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+select VehicleDetails.Vehicle_Display_Name from VehicleDetails
+where VehicleDetails.Engine_CC=(select MIN(Engine_CC) as MinimumEngineCC from VehicleDetails)
+ 
+
+select distinct VehicleDetails.Vehicle_Display_Name from VehicleDetails
+where VehicleDetails.Engine_CC=(select Max(Engine_CC) as MaximumEngineCC from VehicleDetails)
+ 
+
+
+
+
+
+
+
+
+
+select distinct VehicleDetails.Vehicle_Display_Name from VehicleDetails
+where VehicleDetails.Engine_CC=(select Avg(Engine_CC) as AverageEngineCC from VehicleDetails)
+ 
+
+
+
+
+
+
+
+
+select distinct VehicleDetails.Vehicle_Display_Name from VehicleDetails
+where VehicleDetails.Engine_CC>(select Avg(Engine_CC) as AverageEngineCC from VehicleDetails)
+ 
+
+
+
+
+ select  distinct Engine_CC  from VehicleDetails 
+ order by Engine_CC desc
+
+
+
+
+
+
+
+ select top 3 * from(
+ select  distinct Engine_CC  from VehicleDetails)R1 
+ order by Engine_CC desc
+
+
+
+
+
+
+
+
+
+select  distinct  top 3 Engine_CC  from VehicleDetails
+ order by Engine_CC desc
+
+
+
+
+
+
+
+
+ select VehicleDetails.Vehicle_Display_Name from VehicleDetails 
+ where VehicleDetails.Engine_CC in(
+
+ select  distinct  top 3 Engine_CC  from VehicleDetails
+ order by Engine_CC desc
+ )
+
+
+
+
+
+
+
+
+ select distinct Makes.Make from VehicleDetails 
+ inner join Makes on VehicleDetails.MakeID=Makes.MakeID
+
+ where VehicleDetails.Engine_CC in(
+
+ select  distinct  top 3 Engine_CC  from VehicleDetails
+ order by Engine_CC desc
+ )
+
+
+
+
+select distinct Engine_CC,Tax= 
+ case 
+ When Engine_CC between 0 and 1000 then 100
+ When Engine_CC between 1001 and 2000 then 200
+ When Engine_CC between 2001 and 4000 then 300
+ When Engine_CC between 4001 and 6000 then 400
+ When Engine_CC between 6001 and 8000 then 500
+ when Engine_CC >8000 then 600
+ else 0
+ end
+ from VehicleDetails
+
+
+
+
+
+
+
+
+
+
+
+ select Engine_CC,Tax= 
+ case 
+ When Engine_CC between 0 and 1000 then 100
+ When Engine_CC between 1001 and 2000 then 200
+ When Engine_CC between 2001 and 4000 then 300
+ When Engine_CC between 4001 and 6000 then 400
+ When Engine_CC between 6001 and 8000 then 500
+ when Engine_CC >8000 then 600
+ else 0
+ end
+ from 
+ (select distinct  Engine_CC from VehicleDetails)R1
+
+
+
+
+
+
+
+
+
+
+
+
+
+ Select Makes.Make,sum(VehicleDetails.NumDoors) as TotalOfDoors
+ from VehicleDetails inner join Makes
+ on VehicleDetails.MakeID=Makes.MakeID
+ group by(Makes.Make)
+having Makes.Make='Ford'
+
+
+
+
+
+
+ Select  top 3 Makes.Make,count(*) as NumberOfModel
+ from Makes inner join  MakeModels
+ on Makes.MakeID=MakeModels.MakeID
+ group by(Makes.Make)
+ order by NumberOfModel desc
+
+
+
+
+ select Max(NumberOfModel) as MaxNumberOfModel from
+ (
+ Select   Makes.Make,count(*) as NumberOfModel
+ from Makes inner join  MakeModels
+ on Makes.MakeID=MakeModels.MakeID
+ group by(Makes.Make)
+ )R1
+
+
+
+
+
+ Select   Makes.Make,count(*) as NumberOfModel
+ from Makes inner join  MakeModels
+ on Makes.MakeID=MakeModels.MakeID
+ group by(Makes.Make)
+ having COUNT(*)=(select MAX(NumberofModel) from(
+ select MakeModels.MakeID,count(*) as NumberofModel from 
+ MakeModels
+ group by(MakeModels.MakeID)
+
+ )R1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ select * from FuelTypes
+ order by NEWID()
+

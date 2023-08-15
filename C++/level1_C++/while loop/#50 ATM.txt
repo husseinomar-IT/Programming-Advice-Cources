@@ -1,0 +1,56 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+bool check_pass(string PIN)
+{
+	int counter = 1;
+	while (PIN != "1234" && counter < 3)
+	{
+		cout << "Wrong pass,Enter again" << endl;
+		cin >> PIN;
+		counter++;
+
+	}
+	return (PIN == "1234");
+	
+}
+
+string Get_blance(bool PIN)
+{
+	if (PIN)
+	{
+		return "7500";
+	}
+	else
+	{
+		cout << "your account is blocked\n";
+		return 0;
+	}
+
+		
+
+}
+int main()
+{
+	string pass;
+	cout << "Enter the PIN pass: ";
+	cin >> pass;
+	cout << Get_blance(check_pass(pass));
+	
+
+
+	
+	//int i = 5;
+	//while (i < 5)
+	//{
+	//	cout << i << "\n";
+	//	i++;
+	//}
+	//cout << "No";
+
+
+
+
+}

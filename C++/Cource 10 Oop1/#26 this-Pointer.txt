@@ -1,0 +1,51 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+using namespace std;
+class clsEmployee
+{
+public:
+	int ID;
+	string Firstname;
+	float Salary;
+	clsEmployee(int ID, string Firstname, float Salary)
+	{
+		this->ID = ID;
+		this->Firstname = Firstname;
+		this->Salary = Salary;
+	}
+
+	static void Function1(clsEmployee Employee1)
+	{
+		Employee1.Print();
+	}
+
+
+	void Function2()
+	{
+		Function1(*this);
+	}
+
+
+	void Print()
+	{
+		cout << "Employee:\n";
+		cout << "ID      : " << ID << "\n";
+		cout << "FirtName: " << Firstname << "\n";
+		cout << "Salary  : " << Salary << "\n";
+	}
+};
+
+
+int main(){
+
+	
+	clsEmployee Employee1(1,"Hussein",5000);
+	Employee1.Function2();
+	
+
+	system("pause>0");
+	return 0;
+
+}

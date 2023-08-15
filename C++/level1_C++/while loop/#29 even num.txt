@@ -1,0 +1,37 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int print_Number(int N)
+{
+	int counter = 0;
+	int sum = 0;
+	while (counter <= N)
+
+	{
+		cout << counter << "\n";
+		sum += counter;
+
+		counter += 2;
+	}
+	return sum;
+}
+int main()
+{
+	//print_cabtel_letter();
+	int N;
+	cout << "Enter The number" << endl;
+	cin >> N;
+	cout << "______________________________________\n";
+	cout << print_Number(N) << endl;
+
+
+
+	//cout << "--------------------------------Thank you------------------------------------------\n";
+
+
+
+
+
+}

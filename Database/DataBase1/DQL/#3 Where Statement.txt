@@ -1,0 +1,62 @@
+select * from Employees;
+
+
+select * from Employees
+where Gender='F';
+
+select * from Employees
+where MonthlySalary<500;
+
+select * from Employees
+where MonthlySalary<=500;
+
+select * from Employees
+where Not MonthlySalary<=500;
+
+
+
+select  *  from Employees
+where CountryID=1;
+
+select  *  from Employees
+where Not CountryID=1;
+
+
+
+select  *  from Employees
+where  CountryID<>1;
+
+select * from Employees
+where DepartmentID =1 and Gender='M';
+
+
+select * from Employees
+where DepartmentID =1 or DepartmentID=2;
+
+select * from Employees
+where DepartmentID =1 and DepartmentID=2;
+
+
+
+
+
+
+select * from Employees
+where ExitDate is Null ;
+
+
+
+select * from Employees
+where Not ExitDate is Null ;
+
+
+select * from Employees
+where ExitDate is Not Null ;
+
+
+select * from Employees
+where (DepartmentID=2 and Not MonthlySalary<500) or(DepartmentID=3 and  MonthlySalary<500);
+
+
+select * from Employees
+where MonthlySalary>500;

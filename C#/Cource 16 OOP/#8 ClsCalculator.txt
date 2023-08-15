@@ -1,0 +1,119 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+    class clsCalculator
+    {
+        private float _Result=0;
+        private float _LastNumber;
+        private string _LastOpreator = "Clear";
+        private float _PrevResult;
+        private bool _IsZero(int Num)
+        {
+            return (Num <= 0);
+        }
+
+
+        public void  Add(int Num)
+        {
+            _LastNumber = Num;
+            _LastOpreator = "Adding";
+            _PrevResult = _Result;
+            _Result += Num;
+
+        }
+
+        public void Suntract(int Num)
+        {
+            _LastNumber = Num;
+            _LastOpreator = "Subtract";
+            _PrevResult = _Result;
+            _Result -= Num;
+        }
+
+
+        public bool Divide(int Num)
+        {
+            _LastNumber = Num;
+            _PrevResult = _Result;
+            _LastOpreator = "Divide";
+            bool Succeeded = true;
+
+            if(_IsZero(Num))
+            {
+                _Result /= 1;
+                Succeeded = false;
+            }
+            else
+            {
+                _Result /= Num;
+            }
+
+            return Succeeded;
+           
+
+        }
+
+
+
+        public void Multiply(int Num)
+        {
+            _LastNumber = Num;
+            _LastOpreator = "Multiply";
+            _PrevResult = _Result;
+            _Result *= Num;
+        }
+
+        public void Clear()
+        {
+            _LastNumber =0;
+            _LastOpreator = "Zero";
+            _PrevResult = 0;
+            _Result = 0;
+        }
+
+        public void PrintResult()
+        {
+            Console.WriteLine("Result After {0} {1} is :{2}", _LastOpreator, _LastNumber, _Result);
+        }
+
+
+    }
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+
+
+
+            clsCalculator Calculator = new clsCalculator();
+            Calculator.Add(100);
+            Calculator.PrintResult();
+
+
+            Calculator.Add(10);
+            Calculator.PrintResult();
+
+
+            Calculator.Suntract(10);
+            Calculator.PrintResult();
+
+            Calculator.Divide(-1);
+            Calculator.PrintResult();
+
+            Calculator.Multiply(2);
+            Calculator.PrintResult();
+
+
+            Calculator.Clear();
+            Calculator.PrintResult();
+
+            Console.ReadKey();
+          
+        }
+    }
+}

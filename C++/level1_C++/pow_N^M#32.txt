@@ -1,0 +1,16 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{
+double Num,M;
+		cout<<"Enter the number:\n";
+		cin>>Num;
+			cout<<"Enter the number M:\n";
+		cin>>M;
+		double
+		result=pow(Num,M);
+		
+		cout<<"the Result="<<round(result)<<"\n";
+
+}

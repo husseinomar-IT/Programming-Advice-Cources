@@ -1,0 +1,29 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+#include"clsPerson.h"
+#include"clsEmployee.h"
+
+
+
+using namespace std;
+
+
+
+
+
+
+
+
+int main(){
+
+	
+
+
+	clsEmployee Employee1(10, "Hussein", "Khalid Omar", "my@gmail.com", "773787547", "Sana'a", "IT", 10000);
+	Employee1.Print();
+
+	system("pause>0");
+	return 0;
+
+}

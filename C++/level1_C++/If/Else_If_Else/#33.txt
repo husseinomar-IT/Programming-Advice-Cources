@@ -1,0 +1,57 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+void Read_Grade(short Grades)
+{
+	if (Grades >= 90 && Grades <= 100)
+	{
+		cout << "A\n";
+
+	}
+	else if (Grades >= 80 && Grades <= 89)
+	{
+		cout << "B\n";
+
+	}
+	
+	else if (Grades >= 70 && Grades <= 79)
+	{
+		cout << "C\n";
+
+	}
+	else if (Grades >= 60 && Grades <= 69)
+	{
+		cout << "D\n";
+
+	}
+	else if (Grades >= 50 && Grades <= 59)
+	{
+		cout << "A\n";
+
+	}
+	else
+	{
+		cout << "F\n";
+	}
+
+}
+int main()
+{
+	short Grade;
+	cout << "Enter your Grade:";
+	cin >> Grade;
+	Read_Grade(Grade);
+	
+	
+
+
+	
+	cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

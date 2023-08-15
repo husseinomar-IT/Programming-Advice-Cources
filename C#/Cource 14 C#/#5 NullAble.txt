@@ -1,0 +1,24 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+
+       
+        static void Main(string[] args)
+        {
+
+
+         Nullable<int>  i = null;
+
+         Console.WriteLine(i);
+            Console.WriteLine("Min={0},Max={1}",Int32.MinValue,Int32.MaxValue);
+
+            Console.ReadKey();
+
+          
+        }
+    }
+}

@@ -1,0 +1,22 @@
+create table Persons(
+id int not null,
+Firtsname nvarchar(100)not null,
+LastName nvarchar(100)not null,
+city  nvarchar(100),
+Age int check (Age>=18)
+)
+
+create table Persons(
+id int not null,
+Firtsname nvarchar(100)not null,
+LastName nvarchar(100)not null,
+city  nvarchar(100),
+Age int,
+Constraint Check_Con Check (Age>=18 and City='Sanaa')
+)
+
+
+
+
+
+

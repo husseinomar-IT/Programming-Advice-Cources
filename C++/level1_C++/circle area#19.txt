@@ -1,0 +1,12 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main()
+{const float PI=3.14;
+float diameter,Area;
+cout<<"Enter the value daimeter=";
+cin>>diameter;
+Area=PI*pow(diameter,2)/4;
+
+cout<<ceil(Area)<<"\n";
+}

@@ -1,0 +1,44 @@
+drop table  Orders
+
+
+create table Orders(
+Order_ID int not null Primary key,
+Amount int ,
+Customer_ID int  Foreign key References Customers(CustomerID))
+;
+
+
+
+create table Orders(
+Order_ID int not null Primary key,
+Amount int ,
+Customer_ID int,
+Constraint FK_CustomerOrder Foreign key(Customer_ID) References Customers(CustomerID)
+
+)
+;
+
+
+Alter table Orders
+Add Foreign key (Customer_ID) References Customers(CustomerID);
+
+
+
+
+
+
+
+Alter table Orders
+Add Constraint PK_CustomerOrders Foreign key   (Customer_ID) References Customers(CustomerID);
+
+
+
+
+
+Alter table Orders
+drop  Constraint  PK_CustomerOrders;
+
+
+
+
+

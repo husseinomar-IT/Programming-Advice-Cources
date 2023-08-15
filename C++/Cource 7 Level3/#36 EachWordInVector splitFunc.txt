@@ -1,0 +1,74 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+
+using namespace std;
+
+
+
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+
+
+
+
+vector<string>  SplitWord(string S1, string delim)
+{
+	vector<string>spvector;
+	short pos = 0;
+	
+	string sWord;
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+
+		sWord = S1.substr(0, pos);
+		if (sWord != "")
+		{
+		   	 spvector.push_back(sWord);
+		}
+		S1.erase(0, pos + delim.length());
+	}
+	if (S1 != "")
+	{
+		spvector.push_back(S1);
+	}
+
+	return spvector;
+}
+
+void printVector(vector<string>vString)
+{
+	for (string &i : vString)
+	{
+		cout << i << endl;
+	}
+}
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	
+	string txt = ReadString();
+
+	vector<string>spvector;
+	spvector=SplitWord(txt, " ");
+	cout << "Token= " << spvector.size() << endl;
+	
+	printVector(spvector);
+	
+
+
+}

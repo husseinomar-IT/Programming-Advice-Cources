@@ -1,0 +1,59 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+string ReadName(string Massage)
+{
+	string name;
+	
+		cout << Massage << "\n";
+		getline(cin, name);
+		
+	
+
+	return name;
+
+}
+
+string EncyptionName(string txt,short EncryptionKey)
+{
+	for (int i = 0; i <= txt.length(); i++)
+	{
+		txt[i] = char((int)txt[i] + EncryptionKey);
+	}
+	return txt;
+}
+
+
+string DeEncyptionName(string txt,short DeEncryptionKey)
+{
+	for (int i = 0; i <= txt.length(); i++)
+	{
+		txt[i] = char((int)txt[i] - DeEncryptionKey);
+	}
+	return txt;
+}
+
+
+
+
+
+
+int main()
+
+{
+	short key = 2;
+
+	string txt = ReadName("Please enter your name :");
+
+	string EncrptionName = EncyptionName(txt,key);
+
+	string Dencrption = DeEncyptionName(EncrptionName, key);
+
+	cout << "The Encrption name: " << EncrptionName << endl;
+	cout << "The DEncrption name: " << Dencrption << endl;
+
+}
+

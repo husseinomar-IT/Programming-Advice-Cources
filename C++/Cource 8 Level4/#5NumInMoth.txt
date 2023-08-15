@@ -1,0 +1,92 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+#include<fstream>
+
+using namespace std;
+
+
+short ReadYear()
+{
+	short Year;
+	cout << "Please enter the Year? ";
+	cin >> Year;
+	return Year;
+
+}
+
+short ReadMonth()
+{
+	short Month;
+	cout << "\nPlease enter the Month? ";
+	cin >> Month;
+	return Month;
+
+}
+
+short IsLeapYear(short Year)
+
+{
+	return(Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0);
+}
+
+
+
+
+short NumberOfDaysInMonth(short Year,short Month)
+{
+
+	if (Month<1 || Month>12)
+		return 0;
+	if (Month == 2)
+	{
+		return(IsLeapYear(Year) ? 29 : 28);
+	}
+	short arrmonth[7] = { 1, 3, 5, 7, 8, 10, 12 };
+	for (short i = 1; i <= 7; i++)
+	{
+		if (arrmonth[i-1])
+			return 31;
+	}
+	return 30;
+	
+
+}
+
+short NumberOfHoursInMonth(short Year,short Month)
+{
+	return NumberOfDaysInMonth(Year,Month) * 24;
+}
+
+int NumberOfMintueInMonth(short Year, short Month)
+{
+	return NumberOfHoursInMonth(Year, Month) * 60;
+}
+int NumberOfSecondsInMonth(short Year, short Month)
+{
+	return NumberOfMintueInMonth(Year,Month) * 60;
+}
+
+_AGLOBAL short Days;
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	short Year = ReadYear();
+	short Month = ReadMonth();
+
+
+
+	cout << " Number of  Days   in Year  [" << Month << "] is " << NumberOfDaysInMonth(Year,Month) << "\n";
+	cout << " Number of Hours   in Year  [" << Month << "] is " << NumberOfHoursInMonth(Year, Month) << "\n";
+	cout << " Number of Minutes in Year  [" << Month << "] is " << NumberOfMintueInMonth(Year, Month) << "\n";
+	cout << " Number of Seconds in Year  [" << Month << "] is " << NumberOfSecondsInMonth(Year, Month) << "\n";
+
+	
+
+}

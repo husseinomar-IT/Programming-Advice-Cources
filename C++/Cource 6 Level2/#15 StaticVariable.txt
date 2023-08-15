@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+
+
+
+
+
+
+void StaticVariable()
+{
+	 static int Num = 1;
+	cout << "The Value of  Num :" << Num << endl;
+	Num++;
+}
+
+
+int main(){
+
+	StaticVariable();
+	StaticVariable();
+	StaticVariable();
+
+
+
+}

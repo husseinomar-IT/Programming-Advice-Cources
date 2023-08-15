@@ -1,0 +1,55 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+    class clsA
+    {
+        public int x1;
+        public static int x2;
+        public int Func1()
+        {
+            return x1 + x2;
+        }
+
+
+
+        public static int Fun2()
+        {
+            return x2;
+        }
+     }
+   
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+            clsA objA1 = new clsA();
+            clsA objA2 = new clsA();
+            objA1.x1 = 15;
+            objA2.x1 = 20;
+            clsA.x2 = 100;
+            Console.WriteLine("ObjA1 X1={0}", objA1.x1);//Result=15;
+            Console.WriteLine("ObjA2 X1={0}", objA2.x1);//Result=20;
+
+
+         
+
+
+            Console.WriteLine("\nObjA1 Fun1={0}", objA1.Func1()); //Result=115;
+            Console.WriteLine("ObjA2 Fun1={0}", objA2.Func1()); //Result=120;
+
+            Console.WriteLine("\nObject Shared X2={0}", clsA.x2); //Result=100;
+            Console.WriteLine("Object Shared Fun2={0}", clsA.Fun2());// Result = 100;
+        
+
+
+      
+
+        Console.ReadKey();
+          
+        }
+    }
+}

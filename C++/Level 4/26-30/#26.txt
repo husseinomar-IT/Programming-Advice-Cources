@@ -1,0 +1,55 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+int Read_num()
+{
+	int N;
+	cout << "Please Enter the number:\n";
+	cin >> N;
+	return N;
+
+}
+
+void PrintFrom1ToN_usingWhile(int N)
+{
+	int coutnter = 1;
+	cout << "The Range With  do while loop:\n";
+	while (coutnter <= N)
+	{
+		cout << coutnter << endl;
+		coutnter++;
+	}
+
+}
+void PrintFrom1ToN_usingfor(int N)
+{
+	cout << "The Range with Foor loop:\n";
+	for (int i = 1; i <= N; i++)
+	{
+		cout << i << endl;
+	}
+}
+void PrintFrom1ToN_usingDoWhile(int N)
+{
+	cout << "The Range with Do while  loop:\n";
+	int counter = 1;
+	do{
+		cout << counter << endl;
+		counter++;
+	} while (counter <= N);
+}
+
+
+
+
+int main()
+
+{
+	int N = Read_num();
+	PrintFrom1ToN_usingWhile(N);
+	PrintFrom1ToN_usingfor(N);
+	PrintFrom1ToN_usingDoWhile(N);
+
+}

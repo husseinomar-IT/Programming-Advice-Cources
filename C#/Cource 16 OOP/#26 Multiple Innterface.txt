@@ -1,0 +1,92 @@
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+    public interface Iperson
+    {
+         string Firstname { get; set; }
+         string LastName { get; set; }
+         void Introduce();
+         void Print();
+         string To_String();
+
+    }
+
+
+
+    public interface ICommunicate
+    {
+        void CallPhone();
+        void SendEmail(string Title, string body);
+        void SendSMS(string Title, string body);
+        void Sendfax(string Title, string body);
+        
+    }
+
+
+
+    public abstract class clsPerson:Iperson,ICommunicate
+    {
+        public string Firstname { get; set; }
+        public string LastName { get; set; }
+        public abstract void Introduce();
+
+
+        public void Print()
+        {
+            Console.WriteLine("Hi,I'm the Print Menthod");
+        }
+
+
+       public string  To_String()
+       {
+
+           return "Hi,I'm To_String Menthod";
+       }
+
+        public void SayGoodBye()
+        {
+            Console.WriteLine("GoodBye");
+        }
+
+
+
+        public void CallPhone()
+        {
+            Console.WriteLine("Calling Phone...:-)");
+        }
+
+
+        public void SendEmail(string Title,string body)
+        {
+            Console.WriteLine("{0} {1}...:-)", Title, body);
+        }
+
+
+
+        public void SendSMS(string Title,string body)
+        {
+            Console.WriteLine("{0} {1}...:-)", Title, body);
+        }
+
+
+
+
+
+        public void Sendfax(string Title, string body)
+        {
+            Console.WriteLine("{0} {1}...:-)",Title,body);
+        }
+     
+    }
+
+  
+
+
+   public class clsEmployee:clsPerson
+   {
+       public override void Introduce()
+       {
+           Console.WriteLine("Hi,my FirstName:{0} and my LastName:{1}", Firstname, LastName);
+       }
+   }

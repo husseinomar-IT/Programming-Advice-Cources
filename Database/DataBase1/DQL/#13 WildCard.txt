@@ -1,0 +1,37 @@
+update  Employees
+		set FirstName='Mohammed',LastName='Abo-Hadhod'
+		where ID=285;
+
+
+
+
+
+
+			update  Employees
+		set FirstName='Mohammad',LastName='Maher'
+		where ID=286;
+
+
+
+
+		select * from Employees
+		where FirstName like 'Mohammed' or FirstName like 'Mohammad';
+
+
+		select * from Employees
+		where FirstName like'Mohamm[ae]d';
+
+		select * from Employees
+		where FirstName Not like'Mohamm[ae]d';
+		
+		select * from Employees
+		where FirstName like'a%' or FirstName like'b%' or  FirstName like 'c%'
+
+			
+		select * from Employees
+		where FirstName like'[abc]%';
+
+
+
+		select * from Employees
+		where FirstName like'[a-l]%';

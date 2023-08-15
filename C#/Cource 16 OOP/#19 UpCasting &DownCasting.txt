@@ -1,0 +1,89 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+
+  public  class clsPerson
+    {
+
+
+
+     
+
+        public string Name
+        {
+            get;
+            set;
+        }
+
+
+
+        public short Age
+        {
+            get;
+            set;
+        }
+       
+        
+
+
+  public void Greet()
+        {
+            Console.WriteLine("Hi,My name is {0} and I am {1} years old", Name, Age);
+        }
+
+    }
+
+
+
+
+    public class  clsEmployee:clsPerson
+    {
+      
+        public float Salary
+        {
+            get;
+            set;
+        }
+        public string Company
+        {
+            get;
+            set;
+        }
+
+     
+
+
+        public void Work()
+        {
+            Console.WriteLine("I work at {0}. and earn ${1} per year", Company, Salary);
+        }
+    }
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+
+            //Up Casting
+            clsEmployee Employee = new clsEmployee { Name = "Hussein", Age = 22, Company = "AL-Hussein Soft", Salary = 10000 };
+            clsPerson Person = Employee;
+            Person.Greet();
+
+
+
+            // Down Casting
+            clsPerson Person2 = new  clsEmployee{ Name = "Hussein", Age = 22, Company = "AL-Hussein Soft", Salary = 10000 };
+            clsEmployee Employee2 = (clsEmployee)Person2;
+            Employee2.Work();
+            Console.ReadKey();
+
+        }
+    }
+}

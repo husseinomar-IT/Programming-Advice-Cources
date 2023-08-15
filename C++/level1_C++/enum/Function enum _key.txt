@@ -1,0 +1,75 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+enum enCountry{Yemen=1,Oman=2,Sudia=3,Dubi=4,Iraq=5,Egypt=6};
+
+void Key_Country(enCountry Country)
+{
+	
+	
+	
+	
+	//country = (enCountry)c;
+
+	if (Country == enCountry::Yemen)
+	{
+		cout << "your Country key is +967\n";
+	}
+	else if (Country == enCountry::Oman)
+	{
+		cout << "your Country key is +968\n";
+	}
+	else if (Country == enCountry::Sudia)
+	{
+		cout << "your Country key is +966\n";
+	}
+	else if (Country == enCountry::Dubi)
+	{
+		cout << "your Country key is +977\n";
+	}
+	else if (Country == enCountry::Iraq)
+	{
+		cout << "your Country key is +946\n";
+	}
+	else if (Country == enCountry::Egypt)
+	{
+		cout << "your Country key is +20\n";
+	}
+
+	else
+	{
+		cout << "not found";
+	}
+
+
+
+}
+int main()
+{
+	
+	cout << "__________________________________________________\n";
+	cout << "Please enter your number country\n";
+	cout << "1- Yemen\n";
+	cout << "2- Oman\n";
+	cout << "3- Sudia\n";
+	cout << "4- Dubi\n";
+	cout << "5- Iraq\n";
+	cout << "6- Egypt\n";
+	cout << "Your choise is??\n";
+	enCountry Con;
+	int c;
+	cin >> c;
+	Con = (enCountry)c;
+	Key_Country(Con);
+	
+
+
+	
+
+	
+
+
+
+}

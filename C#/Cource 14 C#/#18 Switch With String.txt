@@ -1,0 +1,46 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+     
+        static void Main(string[] args)
+
+
+
+
+
+           
+
+        {
+            string name = "";
+            Console.WriteLine("Please enter your name ");
+            name = Convert.ToString(Console.ReadLine());
+           
+          
+            switch(name.ToLower())
+            {
+                case "hussein":
+                    
+                    Console.WriteLine("Yes it is Hussein");
+                    break;
+                case "khalid":
+               
+                     Console.WriteLine("Yes it is Khalid");
+                    break;
+
+
+              
+                default:
+                    Console.WriteLine("Not Found");
+
+                    break;
+            }
+        
+
+          
+        }
+    }
+}

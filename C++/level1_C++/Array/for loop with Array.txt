@@ -1,0 +1,49 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+void Read_Array(int Array[100], int size)
+{
+	
+	for (int i = 0; i <= size - 1; i++)
+	{
+		cin >> Array[i];
+	}
+
+}
+void print_Array(int Array[100], int size)
+{
+	for (int i = 0; i <= size - 1; i++)
+	{
+		cout << "Number[" << i+1 << "]= " << Array[i] << "\n";
+	}
+	}
+	int sum_array(int Array[100], int size)
+	{
+		int sum = 0;
+		for (int i = 0; i <= size - 1; i++)
+		{
+			sum += Array[i];
+		}
+		return sum;
+
+	}
+
+
+
+
+int main()
+{
+	int Array[100], size;
+	cout << "Please enter the number of elements you want: ";
+	cin >> size;
+	Read_Array(Array, size);
+	print_Array(Array, size);
+	int sum = sum_array(Array, size);
+	cout << "The sum =" << sum << endl;
+	cout << "The average of elements =" << (float)sum / size << endl;
+
+
+
+}

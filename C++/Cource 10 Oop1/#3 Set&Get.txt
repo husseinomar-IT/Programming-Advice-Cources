@@ -1,0 +1,57 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+class clsPerson{
+private:
+	string _Firstname;
+	string _Lastname;
+
+	
+
+
+public:
+	
+	void setFirsatname(string firstname)
+	{
+		_Firstname = firstname;
+	}
+
+	void setLastname(string lastname)
+	{
+		_Lastname = lastname;
+	}
+	string Firstname()
+	{
+		return _Firstname;
+	}
+	string Lastname()
+	{
+		return _Lastname;
+	}
+
+	string FullName()
+	{
+		return _Firstname + " " + _Lastname;
+	}
+
+};
+
+
+
+
+int main(){
+
+
+	clsPerson Person1;
+	Person1.setFirsatname("Hussein");
+	Person1.setLastname("Khalid Omar");
+	cout << Person1.FullName() << endl;
+
+}

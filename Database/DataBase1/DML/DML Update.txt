@@ -1,0 +1,35 @@
+
+
+
+
+
+Use DB1;
+
+select  * from Employees
+
+
+insert into Employees
+values
+(1,'EMP1',773787547,1000),
+(2,'EMP2',7010104225,500),
+(3,'EMP3',77777777,800),
+(4,'EMP4',01012142,900),
+(5,'EMP5',01012142,700),
+(6,'EMP6',01012142,300),
+(8,'EMP7',01012142,200)
+
+
+update Employees
+set Name='Hussein omar'where ID=1
+
+
+
+update Employees
+set Salary+=500 where Salary<=1000;
+
+
+update Employees
+set Salary=1000 where Salary<1500;
+
+
+delete from Employees

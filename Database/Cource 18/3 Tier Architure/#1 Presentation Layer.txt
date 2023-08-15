@@ -1,0 +1,234 @@
+using System;
+using System.Data;
+using ContactsBusinisLayer;
+
+namespace ContactsConsole_PresentationLayer
+{
+
+
+    
+    class Program
+    {
+
+       static void TestFindContact(int ContactID)
+        {
+            clsContact Contact1 = clsContact.Find(ContactID);
+           if(Contact1!=null)
+           {
+               Console.WriteLine("ID:" + Contact1.ID);
+               Console.WriteLine("FullName:" + Contact1.Firstname + " " + Contact1.Lastname);
+               Console.WriteLine("Email:" + Contact1.Email);
+               Console.WriteLine("Phone:" + Contact1.Phone);
+               Console.WriteLine("Address:" + Contact1.Address);
+               Console.WriteLine("DateOfBirth:" + Contact1.DateOfBirth);
+               Console.WriteLine("ImagePath:" + Contact1.ImagePath);
+               Console.WriteLine("CountryID:" + Contact1.CountryID);
+
+           }
+           else
+           {
+               Console.WriteLine("Contact with id:{0} is not found.", ContactID);
+           }
+        }
+        static void TestAddNewContact()
+       {
+           clsContact Contact1 = new clsContact();
+
+
+           Contact1.Firstname = "Hussein";
+           Contact1.Lastname = "Khalid";
+           Contact1.Email = "Hussein@gmail.com";
+           Contact1.Phone = "773787547";
+           Contact1.Address = "Sanaa";
+           Contact1.DateOfBirth = new DateTime(2002, 5, 25);
+           Contact1.CountryID = 1;
+           Contact1.ImagePath = "";
+          if( Contact1.Save())
+          {
+              Console.WriteLine("Inserted Record Successfuly with ID"+Contact1.ID);
+       
+          }
+          else
+          {
+              Console.WriteLine("Faild inserted");
+          }
+          
+          
+
+       }
+
+
+
+        static void TestUpdateContact(int ID)
+        {
+            clsContact Contact1 = clsContact.Find(ID);
+            if(Contact1 !=null)
+            {
+                Contact1.Firstname = "Tofiq";
+                Contact1.Lastname = "Omar";
+                Contact1.Email = "To@gmail.com";
+                Contact1.Phone = "773282881";
+                Contact1.Address = "Sanaa";
+                Contact1.DateOfBirth = new DateTime(1995, 8, 11);
+                Contact1.CountryID = 1;
+                if(Contact1.Save ())
+                {
+                    Console.WriteLine("Updated Successfuly");
+                }
+            }
+        }
+
+
+        static void TestDeleteContact(int ID)
+        {
+
+            if (clsContact.IsConatctExist(ID))
+
+                if (clsContact.DeleteContact(ID))
+
+                    Console.WriteLine("Record Deleted Successfuly");
+                else
+                    Console.WriteLine("Faild Deleted Record");
+
+         
+            else
+            Console.WriteLine("Contact with ID:{0} is not Exist", ID);
+
+
+        }
+         
+        
+
+
+        static void TestIsContactExist(int ID)
+        {
+            if (clsContact.IsConatctExist(ID))
+                Console.WriteLine("Contact with ID:{0} is Exist",ID);
+            else
+                Console.WriteLine("Contact with ID:{0} is not Exist", ID);
+
+        }
+
+        static void ListContact()
+        {
+            DataTable dataTable = clsContact.GetAllContact();
+            foreach(DataRow Row in dataTable.Rows)
+            {
+                Console.WriteLine(Row["ContactID"] + " " + Row["FirstName"] + " " + Row["Phone"]);
+            }
+        }
+
+
+
+
+        static void TestIsCountryExistByName(string Name)
+        {
+            if (clsCountry.IsCountryExistByName(Name))
+                Console.WriteLine("Country With Name:{0} is Found", Name);
+            else
+                Console.WriteLine("Country With Name:{0} is not  Found", Name);
+        }
+
+
+
+
+        static void TestIsCountryExistByID(int ID)
+        {
+            if (clsCountry.IsCountryExistByID(ID))
+                Console.WriteLine("Country With ID:{0} is Found", ID);
+            else
+                Console.WriteLine("Country With ID:{0} is not  Found", ID);
+        }
+
+
+
+
+   
+
+
+
+        static void TestFindCountryByName(string name)
+        {
+            clsCountry Country1 = clsCountry.FindCountryByName(name);
+            if(Country1 !=null)
+            {
+                Console.WriteLine("CountryID:{0}", Country1.ID);
+                Console.WriteLine("CountryCode:{0}", Country1.Code);
+                Console.WriteLine("CountryPhoneCode:{0}", Country1.PhoneCode);
+            }
+        }
+
+
+
+        static void TestFindCountryByID(int ID)
+        {
+            clsCountry Country1 = clsCountry.FindCountryByID(ID);
+            if(Country1 != null)
+            {
+                Console.WriteLine("CountryName:{0}", Country1.Name);
+            }
+        }
+
+
+
+
+        static void TestAddNewCountry()
+        {
+            clsCountry Country1 = new clsCountry();
+            Country1.Name = "Yemen";
+            Country1.Code = "000";
+            Country1.PhoneCode = "967";
+
+            if(Country1.Save())
+            {
+                Console.WriteLine("Record with ID: {0} added Successfuly", Country1.ID);
+            }
+
+
+        }
+
+
+
+        static void TestUpdateCountry(int ID)
+        {
+            clsCountry Country1 = clsCountry.FindCountryByID(ID);
+            Country1.Name = "Saudia Arabia";
+            Country1.Code = "966";
+            Country1.PhoneCode = "966";
+            if (Country1.Save())
+            {
+                Console.WriteLine("Record with ID: {0} Updated Successfuly", Country1.ID);
+            }
+            
+        }
+
+
+
+        static void TestListContries()
+        {
+            DataTable dataTable = clsCountry.GetAllCountries();
+            foreach (DataRow Row in dataTable.Rows)
+            {
+                Console.WriteLine(Row["CountryName"]);
+            }
+        }
+
+        static void Main(string[] args)
+        {
+           //TestFindContact(9);
+            //TestAddNewContact();
+           // TestUpdateContact(8);
+           // TestDeleteContact(5);
+           // ListContact();
+          //  TestIsContactExist(9);
+            //TestCheckCountryExistByName("Canada");
+           // TestFindCountryByName("United States");
+           // TestFindCountryByID(1);
+           // TestIsCountryExistByName("Canada");
+           // TestIsCountryExistByID(5);
+           // TestAddNewCountry();
+          //  TestUpdateCountry(1);
+            TestListContries();
+        }
+    }
+}

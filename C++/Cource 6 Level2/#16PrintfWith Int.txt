@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+
+
+
+
+
+
+
+
+int main(){
+
+	int  a = 1, Page = 10;
+	printf("The Number of Page =%d\n", a);
+	printf("This is Page %d of Pages %d\n ", a, Page);
+	printf("The nuumber =%0*d\n", 2, a);
+	printf("The nuumber =%0*d\n", 3, a);
+	printf("The nuumber =%0*d\n", 4, a);
+	printf("The nuumber =%0*d\n", 5, a);
+	int Number1 = 20, Number2 = 30;
+	printf("The Result of Num1+Num2=%d+%d=%d\n",Number1,Number2,Number1+Number2);
+
+
+
+
+}

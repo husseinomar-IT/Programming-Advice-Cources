@@ -1,0 +1,14 @@
+select * from Employees
+where (MonthlySalary>=500 and MonthlySalary<=1000);
+
+select * from Employees
+where MonthlySalary between 500 and 1000;
+
+
+
+select ID,FullName=FirstName+' '+LastName,MonthlySalary,
+YearlySalary=MonthlySalary*12,
+BonusAmout=MonthlySalary*BonusPerc,
+Age=DATEDIFF(YEAR,DateOfBirth,GETDATE())
+from Employees
+where DATEDIFF(YEAR,DateOfBirth,GETDATE()) between 20 and 40;

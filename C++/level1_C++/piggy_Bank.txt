@@ -1,0 +1,22 @@
+float
+	 penny,
+	 Nickel,
+	 Dime,
+	 Quarter,
+	 Dollar;
+	 cout<<"the num of Penny=\n";
+	 cin>>penny;
+	 cout<<"the num of Nickel=\n";
+	 cin>>Nickel;
+	 cout<<"the num of Dime=\n";
+	 cin>>Dime;
+	 cout<<"the num of Quarter=\n";
+	 cin>>Quarter;
+	 cout<<"the num of Dollar=\n";
+	 cin>>Dollar;
+	 float
+	 total_penny=1*penny+5*Nickel+10*Dime+25*Quarter+100*Dollar,
+	 total_Dollar=total_penny/100;
+	 cout<< total_penny <<" pinnes\n";
+	 cout<< total_Dollar <<" Dollars\n";
+	 

@@ -1,0 +1,23 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+	int Number;
+	string name;
+	string country;
+	cout << "please enter the Number\n";
+
+	cin >> Number;
+	cout << "please enter the Name\n";
+	cin.ignore(1, '\n');
+	getline(cin, name);
+	cout << "please enter the Name Country\n";
+	cin >> country;
+	cout << "Name:" << name << "\n";
+	cout << "Number:" << Number << "\n";
+	cout << "Country:" << country << "\n";
+
+}

@@ -1,0 +1,128 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+void printRandomArray(int array[3][3], short Rows, short Cols)
+{
+	
+
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+		
+			//printf("%0*d\t", 2, array[i][j]);
+			cout << setw(3) << array[i][j] << " ";
+		}
+		cout << endl;
+
+	}
+
+
+}
+
+
+
+
+
+
+void FillMatrixWithRandomNumbers(int array[3][3], short Rows, short Cols)
+{
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j < Cols; j++)
+		{
+			array[i][j] = RandomNumberBetweenRange(0, 1);
+		}
+
+
+	}
+
+	
+
+}
+
+
+bool CheckScalerMatrix(int arr[3][3], short Rows, short Cols)
+{
+	int FirstNumber = arr[0][0];
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+			
+			if (i == j  && arr[i][j]!=FirstNumber)
+			{
+				return false;
+			}
+			
+		
+			
+			else if(i!=j && arr[i][j]!=0)
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+short InsertNumberSearch()
+{
+	short  Num;
+	cout << "Enter the Number to count in Matrix? ";
+	cin >> Num;
+	return Num;
+}
+
+int CountNumberInMatrix(int arr[3][3], short Rows, short Cols, short Number)
+{
+	int counter = 0;
+	
+	
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+
+			if (arr[i][j] == Number)
+			{
+				counter++;
+			}
+		}
+	}
+	return counter;
+}
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	int Matrixarr1[3][3] = { { 1,2,9}, { 5, 2, 4 },  {2,3,9} };
+	
+
+
+	cout << "Matrix1: \n";
+	printRandomArray(Matrixarr1, 3, 3);
+	short Number = InsertNumberSearch();
+	
+	cout << "Number "<<Number<<"count in matrix is " << CountNumberInMatrix(Matrixarr1, 3, 3, Number) << endl;
+
+
+
+}

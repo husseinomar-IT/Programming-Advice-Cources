@@ -1,0 +1,8 @@
+
+insert into EEmployeesCopy2
+select ID,Name from Employees;
+
+
+
+insert into EEmployeesCopy3
+select * from Employees;

@@ -1,0 +1,48 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+
+enum encharType{ smallLeteer = 1, captellLetter = 2, SpecialLetter = 3, Digit = 4 };
+
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+char GetTypeLetter(encharType type)
+{
+	switch (type)
+	{
+	case encharType::captellLetter:
+		return char(RandomNumberBetweenRange(65, 90));
+
+	case encharType::smallLeteer:
+		return char(RandomNumberBetweenRange(97, 122));
+
+
+	case encharType::Digit:
+		return char(RandomNumberBetweenRange(48, 57));
+
+	case encharType::SpecialLetter:
+		return char(RandomNumberBetweenRange(33, 47));
+
+	default:
+		return RandomNumberBetweenRange(1, 10);
+
+	}
+}
+int main()
+{
+
+	srand((unsigned)time_t(NULL));
+	encharType type;
+	cout << GetTypeLetter(type=encharType::captellLetter) << endl;
+	cout << GetTypeLetter(type = encharType::smallLeteer) << endl;
+	cout << GetTypeLetter(type = encharType::Digit) << endl;
+	cout << GetTypeLetter(type = encharType::SpecialLetter) << endl;
+	
+
+}

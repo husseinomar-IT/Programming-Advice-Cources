@@ -1,0 +1,15 @@
+select TotalCounts=Count(MonthlySalary),
+        SumSalary=Sum(MonthlySalary),
+		Avarage=AVG(MonthlySalary),
+		MinSalary=MIN(MonthlySalary),
+		MaxSalary=Max(MonthlySalary)
+		from Employees;
+
+	select DepartmentID,TotalCounts=Count(MonthlySalary),
+        SumSalary=Sum(MonthlySalary),
+		Avarage=AVG(MonthlySalary),
+		MinSalary=MIN(MonthlySalary),
+		MaxSalary=Max(MonthlySalary)
+		from Employees
+		group by(DepartmentID)
+		order by DepartmentID;

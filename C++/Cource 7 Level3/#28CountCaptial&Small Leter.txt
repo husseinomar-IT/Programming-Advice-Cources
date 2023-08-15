@@ -1,0 +1,55 @@
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+string ReadString(string Message)
+{
+	string txt;
+	cout << Message << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+short SmallLettersCount(string txt)
+{
+	short Counter = 0;
+	for (short i = 0; i < txt.length(); i++)
+	{
+		if ( islower(txt[i]))
+			Counter++;
+	
+	}
+	return Counter;
+}
+
+short CapitalLettersCount(string txt)
+{
+	short Counter = 0;
+	for (short i = 0; i < txt.length(); i++)
+	{
+		if ( isupper(txt[i]))
+			Counter++;
+	
+	}
+	return Counter;
+}
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	
+
+	string txt = ReadString("Please enter Your string?");
+	
+	
+	short CaptialLetter=CapitalLettersCount(txt),
+                SmallLetter=SmallLettersCount(txt);
+	cout << "\nString Length= " << txt.length() << endl;
+	cout << "\nCapital Letters Count= " << CaptialLetter << endl;
+	cout << "\nSmall Letters Count= " << SmallLetter << endl;
+	
+}

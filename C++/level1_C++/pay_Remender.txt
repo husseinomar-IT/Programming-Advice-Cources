@@ -1,0 +1,7 @@
+float TotalBill,CashPaid,Result;
+	cout<<"Enter the TotalBill=\n";
+	cin>>TotalBill;
+	cout<<"Enter the cashPaid=\n";
+	cin>>CashPaid;
+	Result=CashPaid-TotalBill;
+	cout<<"the Result ="<<Result<<"\a\n"; 

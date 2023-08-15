@@ -1,0 +1,53 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+class clsPerson{
+private:
+	int Variabli1 = 10;
+	int Function1()
+	{
+		return 40;
+	}
+
+protected:
+	 int Variabli2 = 20;
+	 int Function2()
+	 {
+		 return 30;
+	 }
+
+public:
+	string Firstname;
+	string Lastname;
+
+	string FullName()
+	{
+		return Firstname + " " + Lastname;
+	}
+
+	int Function3()
+	{
+		return Function1() * Function2()* Variabli1* Variabli2;
+	}
+};
+
+
+
+
+int main(){
+
+
+	clsPerson Person1;
+	Person1.Firstname = "Hussein";
+	Person1.Lastname = "Khalid Omar";
+	cout << Person1.FullName() << endl;
+	cout << Person1.Function3() << endl;
+
+}

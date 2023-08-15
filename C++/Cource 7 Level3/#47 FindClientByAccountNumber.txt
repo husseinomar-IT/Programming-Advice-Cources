@@ -1,0 +1,281 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+#include<fstream>
+
+using namespace std;
+
+
+struct stClienData
+{
+	string AccountNumber;
+	string PINCODE;
+	string Name;
+	string Phone;
+	double AccountBlance;
+};
+
+string ReadString()
+{
+	string txt;
+	
+	getline(cin, txt);
+	return txt;
+
+}
+
+
+
+
+
+
+vector<string> SplitStringWord(string S1, string delim)
+{
+	vector<string>vstring;
+
+
+	short pos = 0;
+	string sWord;
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+
+		sWord = S1.substr(0, pos);
+		if (sWord != "")
+		{
+			vstring.push_back(sWord);
+		}
+		S1.erase(0, pos + delim.length());
+	}
+	cout << endl;
+	if (S1 != "")
+	{
+		vstring.push_back(S1);
+
+	}
+
+	return vstring;
+}
+
+
+
+
+
+
+
+
+
+
+
+stClienData ReadClientData()
+{
+	cout << "Adding New Client:\n";
+	stClienData ClientData;
+	cout << "Enter Account Number?";
+	getline(cin >> ws, ClientData.AccountNumber);
+	cout << "Enter PINCODE?";
+	getline(cin >> ws, ClientData.PINCODE);
+	cout << "Enter Name?";
+	getline(cin >> ws, ClientData.Name);
+	cout << "Enter Phone?";
+	getline(cin >> ws, ClientData.Phone);
+	cout << "Enter AccountBlance ?";
+	cin >> ClientData.AccountBlance;
+	return ClientData;
+}
+
+string ConvertRecordToLine(stClienData ClientData, string Spletor = "#//#")
+{
+	string line = "";
+	line += ClientData.AccountNumber + Spletor;
+	line += ClientData.PINCODE + Spletor;
+	line += ClientData.Name + Spletor;
+	line += ClientData.Phone + Spletor;
+	line += to_string(ClientData.AccountBlance);
+	return line;
+
+
+
+}
+stClienData ConvertLineToRecord(string line, string seperator = "#//#")
+{
+	stClienData Client;
+	vector<string>vString = SplitStringWord(line, seperator);
+	Client.AccountNumber = vString[0];
+	Client.PINCODE = vString[1];
+	Client.Name = vString[2];
+	Client.Phone = vString[3];
+	Client.AccountBlance = stod(vString[4]);
+	return Client;
+
+}
+void printRecord(stClienData Client)
+{
+	cout << "Account Number: " << Client.AccountNumber << endl;
+
+	cout << "PINCODE: " << Client.PINCODE << endl;
+
+	cout << "Name: " << Client.Name << endl;
+
+	cout << "Phone: " << Client.Phone << endl;
+
+	cout << "AccountBlance:" << Client.AccountBlance << endl;
+
+}
+
+void RsetetScreen()
+{
+	system("cls");
+
+}
+
+void AddLineToFile(string line)
+{
+	fstream MyFile;
+	MyFile.open("ClientData.txt", ios::out | ios::app);
+	if (MyFile.is_open())
+	{
+		MyFile << line << endl;
+		MyFile.close();
+
+
+	}
+
+
+
+}
+void AddNewClient()
+{
+	stClienData Client = ReadClientData();
+	AddLineToFile(ConvertRecordToLine(Client));
+}
+void StartAddClient()
+{
+	char PlayAgain = 'Y';
+	do
+	{
+		system("cls");
+
+
+		AddNewClient();
+		cout << "Clien Added Successfully,do you want to add more clients? \n";
+		cin >> PlayAgain;
+
+	} while (PlayAgain == 'Y' || PlayAgain == 'y');
+}
+
+vector<stClienData>LoadDataFromFileToVector(string filename)
+{
+	vector<stClienData>vClicent;
+	fstream MyFile;
+	MyFile.open(filename, ios::in);
+	if (MyFile.is_open())
+	{
+		string line;
+		stClienData ClientStructure;
+		while (getline(MyFile, line))
+		{
+			ClientStructure = ConvertLineToRecord(line);
+			vClicent.push_back(ClientStructure);
+		}
+		MyFile.close();
+	}
+	return vClicent;
+}
+
+
+void PrintClient(stClienData Client)
+{
+	cout << "| " << left << setw(16) << Client.AccountNumber;
+	cout << "| " << left << setw(20) << Client.PINCODE;
+	cout << "| " << left << setw(30) << Client.Name;
+	cout << "| " << left << setw(12) << Client.Phone;
+	cout << "| " << left << setw(10) << Client.AccountBlance;
+	
+}
+
+void PrintAlllClientFromFile(vector<stClienData>vClicent)
+{
+	cout << "                                       Client List(" << vClicent.size() << ") Client(s)" << endl;
+	cout << "\n---------------------------------------------------------------";
+	cout << "---------------------------------------------------------\n";
+	cout << "| " << left << setw(16) << "Account Number";
+	cout << "| " << left << setw(20) << "Pin code";
+	cout << "| " << left << setw(30) << "Client Name";
+	cout << "| " << left << setw(12) << "Phone";
+	cout << "| " << left << setw(10) << "Blance";
+	cout << "\n---------------------------------------------------------------";
+	cout << "---------------------------------------------------------\n";
+	
+	for (stClienData &Client : vClicent)
+	{
+		PrintClient(Client);
+		cout << endl;
+	}
+	cout << "\n---------------------------------------------------------------";
+	cout << "---------------------------------------------------------\n";
+}          
+
+
+ 
+bool FindClientByAccountNumber(string Filename, string AccountNumber,stClienData &Client)
+{
+	vector<stClienData> vClients = LoadDataFromFileToVector(Filename);
+	for (stClienData &C : vClients)
+	{
+		if (C.AccountNumber == AccountNumber)
+		{
+			Client = C;
+			return true;
+		}
+	}
+	return false;
+}
+string ReadClientAccountNumber()
+{
+	string Account;
+	cout << "Please enter AccountNumber?";
+	getline(cin, Account);
+	return Account;
+}
+int main(){
+	srand((unsigned)time(NULL));
+
+	
+	/*StartAddClient();*/
+	stClienData Client;
+	const string FileName = "ClientData.txt";
+	
+	string Account = ReadClientAccountNumber();
+
+	
+	
+	if (FindClientByAccountNumber(FileName, Account, Client))
+	{
+		cout << "\n The following are the Client detaills:\n\n";
+		printRecord(Client);
+	}
+	else
+	{
+		cout << "\n Client with Account Number(" << Account << ") is not found\n";
+	}
+	
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+}

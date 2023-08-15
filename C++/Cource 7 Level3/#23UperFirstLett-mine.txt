@@ -1,0 +1,59 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+
+string Readstring(string Message)
+{
+	string InsertedStr;
+	cout << Message << endl;
+	getline(cin, InsertedStr);
+	return InsertedStr;
+
+}
+
+void UperFirstLetterOfEachWord(string txt)
+{
+	bool isFirstLetter = true;
+	cout << "firstLetters of this string: \n";
+	for (short i = 0; i < txt.length(); i++)
+	{
+		if (txt[i] != ' ' && isFirstLetter)
+		{
+			cout << char(toupper(txt[i])) << "";
+		}
+		isFirstLetter = (txt[i] == ' ' ? true : false);
+		if (!isFirstLetter)
+		{
+			cout << txt[i+1] << "";
+		}
+	}
+	cout << endl;
+
+}
+
+
+
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	
+
+	
+	string txt = Readstring("Please Enter Your String?");
+	UperFirstLetterOfEachWord(txt);
+	
+	
+}

@@ -1,0 +1,83 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+
+void printRandomArray(int array[3][3], short Rows, short Cols)
+{
+	
+
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+		
+			//printf("%0*d\t", 2, array[i][j]);
+			cout << setw(3) << array[i][j] << " ";
+		}
+		cout << endl;
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+bool checkIdentity(int arr[3][3], short Rows, short Cols)
+{
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+			if (i == j &&arr[i][j] != 1)
+			{
+				return false;
+			}
+			else if(i!=j && arr[i][j]!=0)
+			{
+				return false;
+			}
+		}
+	}
+	return true;
+}
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	int Matrixarr1[3][3] = { { 1, 0, 0 }, { 0, 1, 0 },  {0,0,1} };
+	
+
+
+	cout << "Matrix1: \n";
+	printRandomArray(Matrixarr1, 3, 3);
+	
+
+	if (checkIdentity(Matrixarr1,3, 3))
+		cout << "Matrix is Identity \n";
+	else
+		cout << "Matrix is not  Identity \n";
+	
+
+
+
+
+}

@@ -1,0 +1,70 @@
+using System;
+
+
+
+
+    public class OuterClass
+    {
+        private int _OuterVariable;
+        public OuterClass(int outervariable)
+        {
+            this._OuterVariable = outervariable;
+        }
+
+        public void PrintOuterClass()
+        {
+            Console.WriteLine("Outer Class... :-)");
+        }
+
+
+        public class InnerClass
+        {
+
+            private int _InnerVariable;
+            public InnerClass(int innervariable)
+            {
+                this._InnerVariable = innervariable;
+            }
+
+
+
+            public void  PrintInnerClass()
+            {
+                Console.WriteLine("Inner Class .. :-)");
+            }
+
+
+
+            public void AccessOuterVariable(OuterClass outer)
+            {
+                Console.WriteLine("Outter class varaible is :{0} ",outer._OuterVariable);
+
+            }
+
+        }
+    }
+   
+
+
+
+
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            OuterClass Outer = new OuterClass(42);
+
+            OuterClass.InnerClass Inner = new OuterClass.InnerClass(100);
+
+            Outer.PrintOuterClass();
+            Inner.PrintInnerClass();
+            Inner.AccessOuterVariable(Outer);
+           
+            Console.ReadKey();
+
+        }
+    }
+}

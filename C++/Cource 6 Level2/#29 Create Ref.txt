@@ -1,0 +1,36 @@
+
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+
+
+
+
+
+
+
+int main(){
+
+	int a = 10;
+	int &x = a;
+
+	
+	cout << "The Ref of variable a : " << &a << endl;
+	cout << "The Ref of variable x : " << &x << endl;
+
+	x = 20;
+
+	cout << "The value of a : " << a << endl;
+	cout << "The value of x : " << x << endl;
+
+}
+
+
+
+
+

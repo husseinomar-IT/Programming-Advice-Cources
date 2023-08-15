@@ -1,0 +1,35 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+void power_of(int Num)
+{
+	
+	short a, b, c;
+		a = pow(Num, 2),
+		b = pow(Num, 3),
+		c = pow(Num, 4),
+		cout << "the Num^2=" << round(a) << "\n";
+	cout << "the Num^3=" << round(b) << "\n";
+	cout << "the Num^4=" << round(c) << "\n";
+
+	
+	
+}
+	
+	
+
+
+int main()
+{
+	int Num;
+	cout << "Enter the number:\n";
+	cin >> Num;
+	
+	power_of(Num);
+
+	
+	
+	
+}

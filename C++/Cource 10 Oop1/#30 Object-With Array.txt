@@ -1,0 +1,52 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<vector>
+#include<string>
+
+using namespace std;
+
+class clsA
+{
+public:
+
+	int x;
+	clsA()
+	{
+
+	}
+	clsA(short value)
+	{
+		x = value;
+	}
+	void Print()
+	{
+		cout << "The value of x= " << x << endl;
+	}
+
+};
+
+
+
+int main(){
+	
+	
+	clsA arr[] = { clsA(1), clsA(2), clsA(3), clsA(4), clsA(5) };
+
+	
+
+
+
+	for (short i = 0; i < 5; i++)
+	{
+	
+		arr[i].Print();
+		
+	}
+
+
+
+
+	system("pause>0");
+	return 0;
+
+}

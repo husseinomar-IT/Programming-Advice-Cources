@@ -1,0 +1,104 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+enum enPrimeNumber{ prime = 1, noprime = 2 };
+enPrimeNumber checkPrimeNumber(int Num)
+{
+	int M = 0;
+	M = round(Num / 2);
+	for (int Counter = 2; Counter <= M; Counter++)
+	{
+		if (Num %Counter == 0)
+			return enPrimeNumber::noprime;
+	}
+	return enPrimeNumber::prime;
+}
+
+short ReadNumber(string Maseage)
+{
+	short size;
+	do{
+		cout << Maseage << endl;
+		cin >> size;
+	} while (size <= 0);
+	return
+		size;
+}
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+void ReadAraayFillRandomNumber(int array[100], int &size)
+{
+	cout << "Please enter the length of array: ";
+	cin >> size;
+	
+	for (int i = 1; i <= size; i++)
+	
+		
+		array[i] = RandomNumberBetweenRange(1, 100);
+	
+	
+	
+	
+}
+
+void PrintArrayFillRandomNumber(int array[100], int size)
+{
+	
+
+	for (int i = 1; i <= size; i++)
+	{
+		
+		cout << array[i] << " ";
+
+	}
+	cout << endl;
+
+}
+
+void copyArray(int arry[100],int array2[100], int arrLength,int &arr2Length)
+{
+	int counter = 1;
+	for (int i = 1; i <= arrLength; i++)
+	{
+		if (checkPrimeNumber(arry[i]) == enPrimeNumber::prime)
+		{
+			array2[counter] = arry[i];
+			counter++;
+		}
+
+	}
+	arr2Length =--counter;
+	
+	
+	
+}
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+	int arr[100];
+	int Length;
+	ReadAraayFillRandomNumber(arr,Length);
+
+	int arr2[100];
+	int arr2Length=0;
+
+	cout << "The Array is ";
+	PrintArrayFillRandomNumber(arr, Length);
+
+	copyArray(arr, arr2,Length,arr2Length);
+	cout << "The Copy Array is ";
+	PrintArrayFillRandomNumber(arr2, arr2Length);
+
+	
+
+}
+

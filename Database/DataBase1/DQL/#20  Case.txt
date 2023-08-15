@@ -1,0 +1,42 @@
+select ID,FirstName,LastName,TitleGender=
+case
+when Gender='M' then 'Male'
+when Gender='F' then 'Female'
+else 'Unknown'
+end
+from Employees;
+
+
+
+select ID,FirstName,LastName,TitleGender=
+case
+when Gender='M' then 'Male'
+when Gender='F' then 'Female'
+else 'Unknown'
+end,
+Status=
+case
+when ExitDate is null then 'Active'
+when ExitDate is not null then 'Resigned'
+end
+
+from Employees
+
+select ID,FirstName,LastName,TitleGender=
+case
+when Gender='M' then 'Male'
+when Gender='F' then 'Female'
+else 'Unknown'
+end,
+Status=
+case
+when ExitDate is null then 'Active'
+when ExitDate is not null then 'Resigned'
+end,
+NewSalary=
+case
+
+when Gender='M'then MonthlySalary*1.1
+when Gender='F'then MonthlySalary*1.15
+end
+from Employees

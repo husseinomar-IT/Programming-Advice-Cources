@@ -1,0 +1,24 @@
+select DepartmentID,TotalCounts=Count(MonthlySalary),
+        SumSalary=Sum(MonthlySalary),
+		Avarage=AVG(MonthlySalary),
+		MinSalary=MIN(MonthlySalary),
+		MaxSalary=Max(MonthlySalary)
+		from Employees
+		group by(DepartmentID)
+		having Count(MonthlySalary)>=100
+		order by DepartmentID;
+
+
+
+
+		select * from (
+		select DepartmentID,TotalCounts=Count(MonthlySalary),
+        SumSalary=Sum(MonthlySalary),
+		Avarage=AVG(MonthlySalary),
+		MinSalary=MIN(MonthlySalary),
+		MaxSalary=Max(MonthlySalary)
+		from Employees
+		group by(DepartmentID)
+		
+		)R
+		where R.TotalCounts>=100;

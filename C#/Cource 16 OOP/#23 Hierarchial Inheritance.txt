@@ -1,0 +1,76 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+    public class clsPerson
+    {
+        public string Name { get; set; }
+        public short Age { get; set; }
+        public void Introduce()
+        {
+            Console.WriteLine("Hi,my name is {0} and I'm {1} years old.", Name, Age);
+        }
+    }
+
+    public class clsEmployee : clsPerson
+    {
+        public int EmployeeID { get; set; }
+        public float Salary { get; set; }
+        public void Work()
+        {
+            Console.WriteLine("Employee with ID {0} and Salary {1} is Working.", EmployeeID, Salary);
+        }
+    }
+
+
+
+
+    public class clsUser : clsPerson
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public int Permission { get; set; }
+
+        public void Info()
+        {
+            Console.WriteLine("Username is:{0} and Password is: {1}.", Username, Password);
+        }
+    }
+
+
+
+
+
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+            clsEmployee Employee = new clsEmployee();
+            Console.WriteLine("Employee class:");
+            Employee.Name = "Hussein";
+            Employee.Age = 22;
+            Employee.EmployeeID = 15;
+            Employee.Salary = 10000;
+            Employee.Introduce();
+            Employee.Work();
+            Console.WriteLine("\nUser class:");
+            clsUser User = new clsUser();
+            User.Name = "Hussein";
+            User.Age = 22;
+            User.Username = "mygmail@.com";
+            User.Password = "P1234";
+            User.Introduce();
+            User.Info();
+
+            Console.ReadKey();
+
+        }
+    }
+}

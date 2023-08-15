@@ -1,0 +1,51 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+class clsA{
+private:
+	int Var1 = 10;
+	int Function1()
+	{
+		return 40;
+	}
+
+protected:
+	int Var2 = 20;
+	int Function2()
+	{
+		return 30;
+	}
+
+public:
+
+
+	int Var3 = 30;
+
+	int Function3()
+	{
+		return Var1 + Var2 + Var3;
+	}
+};
+
+class clsB :public clsA
+{
+public:
+	void Func()
+	{
+		cout << clsA::Var2 << endl;
+	}
+};
+
+
+int main(){
+
+	clsB B;
+	B.Func();
+}

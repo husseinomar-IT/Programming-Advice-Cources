@@ -1,0 +1,21 @@
+create table Customers(
+ID int identity(1,1) not null,
+FirstName nvarchar(100) not null,
+LastName nvarchar(100) not null
+Primary key(ID)
+)
+
+
+
+
+
+ALTER table Orders
+Add Foreign key (Customer_ID) References Customers(ID);
+
+
+create table  Orders(
+ID int identity(1,1) not null,
+Item nvarchar(100)not null,
+Amout int,
+Customer_ID int ,
+Primary key(ID));

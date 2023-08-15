@@ -1,0 +1,14 @@
+select Customers.CustomerID,Customers.Name,Orders.Amount
+from Customers inner join Orders ON
+Customers.CustomerID=Orders.CustomerID;
+
+
+
+
+Select Employees.ID,Employees.FirstName,Employees.LastName,Employees.MonthlySalary,
+Departments.Name as DeptName,Countries.Name AS CountryName from Employees inner join Departments on
+Employees.DepartmentID=Departments.ID
+inner join Countries on
+Employees.CountryID=Countries.ID
+where Departments.Name='IT';
+

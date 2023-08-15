@@ -1,0 +1,72 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+void display_card_info()
+{
+	cout << "******************************************\n";
+
+	string name = "Hussein khalid.", city = "sana'a", country = "Yemen";
+	double M_salary = 5000, Y_salary = 60000;
+
+
+	int age = 21;
+	char Gender = 'M';
+	bool married = true;
+
+	cout << "Name:" << name << "\n";
+
+	cout << "Age:" << age << "Years\n";
+	cout << "City;" << city << "\n";
+	cout << "Country:" << country << "\n";
+	cout << "Monthiy_salary:" << M_salary << "\n";
+	cout << "Year_salary:" << Y_salary << "\n";
+	cout << "Gender:" << Gender << "\n";
+	cout << "Maried:" << married << "\n";
+
+
+
+	cout << "******************************************\n\n\n";
+
+}
+void print_Text()
+{
+
+	cout << "I Love Programming!\n";
+	cout << "I promise to be the best developer ever!\n";
+	cout << "I Know it will take some time to practice,"
+		<< "but I will achieve my goal\n.";
+	cout << "Best Regards.\n";
+	cout << "Hussein Khalid\n";
+}
+void print_star()
+{
+	cout << "*************\n";
+	cout << "*************\n";
+	cout << "*************\n";
+	cout << "*************\n";
+}
+void print_H()
+{
+
+	cout << "*" << "       " << "*\n";
+	cout << "*" << "       " << "*\n";
+	cout << "*" << "*******" << "*\n";
+	cout << "*" << "       " << "*\n";
+	cout << "*" << "       " << "*\n";
+
+
+}
+
+int main()
+{
+	display_card_info();
+	cout << "____________________________________________________________________\n";
+	print_Text();
+	cout << "____________________________________________________________________\n";
+	print_star();
+	cout << "____________________________________________________________________\n";
+
+	print_H();
+
+}

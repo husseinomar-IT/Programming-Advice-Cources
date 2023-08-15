@@ -1,0 +1,27 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+       
+       
+        static void Main(string[] args)
+        {
+            DateTime CurrentDateTime = DateTime.Now;
+            DateTime TodaysDate = DateTime.Today;
+            DateTime CurrentDateTimeUTC = DateTime.UtcNow;
+            DateTime MaxDateTimeValue = DateTime.MaxValue;
+            DateTime MinDateTimeValue = DateTime.MinValue;
+            Console.WriteLine("CurrentDateTime:" + CurrentDateTime);
+            Console.WriteLine("Today:" + TodaysDate);
+            Console.WriteLine("CurrentDateTimeUTC:" + CurrentDateTimeUTC);
+            Console.WriteLine("MinDateTimeValue:" + MinDateTimeValue);
+            Console.WriteLine("MaxDateTimeValue:" + MaxDateTimeValue);
+
+
+          
+        }
+    }
+}

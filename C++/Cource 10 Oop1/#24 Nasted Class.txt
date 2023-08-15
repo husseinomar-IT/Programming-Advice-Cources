@@ -1,0 +1,119 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+class clsPerson{
+	
+
+	class clsAddress{
+	private:
+		string _AddresLine1;
+		string _AddresLine2;
+		string _Country;
+		string _City;
+
+	public:
+
+		void SetAddresLine1(string Address)
+		{
+			_AddresLine1 = Address;
+		}
+
+
+
+		string AddressLine1()
+		{
+			return _AddresLine1;
+		}
+
+		void SetAddresLine2(string Address)
+		{
+			_AddresLine2 = Address;
+		}
+
+		string AddressLine2()
+		{
+			return _AddresLine2;
+		}
+
+		void SetCountry(string Country)
+		{
+			_Country = Country;
+		}
+
+		string Country()
+		{
+			return _Country;
+		}
+
+
+		void SetCity(string City)
+		{
+			_City = City;
+		}
+
+		string City()
+		{
+			return _City;
+		}
+
+		
+		clsAddress(string AddressLine1, string AddressLine2, string Country,string City)
+		{
+			_AddresLine1 = AddressLine1;
+			_AddresLine2 = AddressLine2;
+			_Country = Country;
+			_City = City;
+		}
+		void Print()
+		{
+			cout << "Adreess:\n";
+			cout << "Address Line 1: " << _AddresLine1 << endl; 
+			cout << "Address Line 2: " << _AddresLine2 << endl;
+			cout << "Country       : " << _Country << endl;
+			cout << "City          : " << _City << endl;
+		}
+	};
+	string _Fullname;
+
+public:
+
+	void SetFullname(string Fullname)
+	{
+		_Fullname = Fullname;
+	}
+
+
+	string Fullname()
+
+	{
+		return _Fullname;
+	}
+	
+	clsAddress Address1 = clsAddress("", "", "", "");
+	
+	clsPerson(string FullName,string AddressLine1,string AddresLine2,string Country,string City)
+		//:Address1(AddressLine1, AddresLine2, Country, City)
+	{
+		_Fullname = FullName;
+		Address1 = clsAddress(AddressLine1, AddresLine2, Country, City);
+	}
+	
+};
+
+
+
+ 
+int main(){
+
+	clsPerson Person1("Hussein Khalid Hussein Omar","Bulding 105","Amran Road","Yemen","Sana'a");
+	Person1.Address1.Print();
+	
+
+
+
+}

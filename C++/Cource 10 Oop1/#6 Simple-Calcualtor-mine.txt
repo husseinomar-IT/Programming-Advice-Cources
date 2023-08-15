@@ -1,0 +1,151 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+class clsCalculator{
+private:
+	int _Number;
+	int _FinalResult = 0;
+
+	int RresultAdd(int Num)
+	{
+		return _FinalResult += Num;
+	}
+
+	int ResultSubtract(int Num)
+	{
+		return _FinalResult -= Num;
+	}
+
+
+	int CheckNumberDivide(int Num)
+	{
+		if (Num == 0)
+			return 1;
+		else
+			return Num;
+	}
+
+	int ResultDividing(int Num)
+	{
+		return (_FinalResult /= Num);
+	}
+
+	int FinalResult()
+	{
+		return _FinalResult;
+	}
+
+
+	int MultiplyResult(int Num)
+	{
+		return (_FinalResult*=Num);
+	}
+
+	int ResultClear(int Num)
+	{
+		return (_FinalResult = Num);
+	}
+
+
+public:
+
+
+	void Add(int Num)
+	{
+		_Number = Num;
+		cout << "Result After Adding " << _Number << " is :";
+		RresultAdd(_Number);
+		
+	}
+
+	
+
+	void Subtract(int Num)
+	{
+		
+		_Number = Num;
+		cout << "Result After Subtracting " << _Number << " is: ";
+		ResultSubtract(_Number);
+
+	}
+
+	
+
+
+
+
+
+	void Divide(int Num)
+	{
+
+		_Number = Num;
+		_Number = CheckNumberDivide(_Number);
+		cout << "Result After Dividing " << _Number << " is: ";
+		ResultDividing(_Number);
+		
+
+	}
+
+	void Multiply(int Num)
+	{
+
+		_Number = Num;
+		cout << "Result After Multiply " << _Number << " is: ";
+		MultiplyResult(_Number);
+
+	}
+	void Clear()
+	{
+
+		_Number = 0;
+		cout << "Result After Clear " << _Number << " is: ";
+		ResultClear(_Number);
+
+	}
+
+
+	
+
+	void PrintResult()
+	{
+		cout << FinalResult() << endl;
+	}
+};
+
+int main(){
+
+	clsCalculator Calculator1;
+
+	Calculator1.Add(10);
+	Calculator1.PrintResult();
+
+
+	Calculator1.Add(100);
+	Calculator1.PrintResult();
+
+
+	Calculator1.Subtract(20);
+	Calculator1.PrintResult();
+
+	Calculator1.Divide(0);
+	Calculator1.PrintResult();
+
+	Calculator1.Divide(2);
+	Calculator1.PrintResult();
+
+	Calculator1.Multiply(3);
+	Calculator1.PrintResult();
+
+
+	Calculator1.Clear();
+	Calculator1.PrintResult();
+
+
+}

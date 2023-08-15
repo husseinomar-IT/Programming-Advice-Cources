@@ -1,0 +1,37 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int Read_num(int From,int to)
+
+
+{
+	int number;
+
+	cout << "Please Enter number bettween" << From << "to" << to << endl;
+	cin >> number;
+
+	while (number< From || number>to)
+	{
+		cout << "Please Enter number bettween" << From << "to" << to << endl;
+		cin >> number;
+	}
+	return number;
+}
+
+int main()
+{
+	
+	
+	
+	
+	cout << Read_num(2,10) << endl;;
+	
+	
+
+
+
+
+
+}

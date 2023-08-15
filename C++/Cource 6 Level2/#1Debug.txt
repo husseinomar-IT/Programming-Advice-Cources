@@ -1,0 +1,47 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<cmath>
+#include<ctime>
+
+using namespace std;
+
+int SumOf2(int a, int b)
+{
+	return a + b;
+}
+
+
+
+
+int main()
+{
+
+	int arr[5]{ 20, 30, 40, 50, 60 };
+	int a, b, c;
+	a = 10;
+	b = 20;
+
+	a++;
+	++b;
+	c = a + b;
+	cout << a << endl;
+	cout << b << endl;
+	cout << c << endl;
+
+	for (int i = 0; i < 3; i++)
+	{
+		a = a * 2;
+		cout << a << endl;
+	}
+	int Result = SumOf2(a, b);
+	cout << Result << endl;
+
+
+
+	return 0;
+
+
+
+}
+

@@ -1,0 +1,75 @@
+
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+void swap(int *ptr1, int *ptr2)
+{
+	int temp = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = temp;
+}
+
+
+
+
+
+
+
+int main(){
+
+	int array[4] = { 10, 20, 30, 40 };
+	int *p;
+	p = array;
+	cout << "--------------address----------------\n";
+	cout << p << endl;
+	cout << p+1 << endl;
+	cout << p+2 << endl;
+	cout << p+3 << endl;
+	cout << "--------------address----------------\n";
+
+
+	cout << endl;
+
+
+	cout << "--------------Value----------------\n";
+	cout << *p << endl;
+	cout << *(p + 1) << endl;
+	cout <<*( p + 2) << endl;
+	cout <<* (p + 3) << endl;
+	cout << "--------------Value----------------\n";
+
+
+	cout << endl;
+
+
+	cout << "--------------address-WithForLoop----------------\n";
+	for (int i = 0; i < 4; i++)
+	{
+		cout << (p + i) << "\n";
+	}
+	cout << "--------------address-WithForLoop----------------\n";
+
+
+
+
+	cout << endl;
+
+
+
+	cout << "--------------Value-WithForLoop----------------\n";
+	for (int i = 0; i < 4; i++)
+	{
+		cout << *(p + i) << "\n";
+	}
+	cout << "--------------Value-WithForLoop----------------\n";
+
+}
+
+
+
+
+

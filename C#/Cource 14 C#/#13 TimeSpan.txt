@@ -1,0 +1,30 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+       
+       
+        static void Main(string[] args)
+        {
+            DateTime Currentdate=DateTime.Now;
+            TimeSpan tm = new TimeSpan(49,25,34);
+            Console.WriteLine(tm);
+            Console.WriteLine(tm.Days);
+            Console.WriteLine(tm.Hours);
+            Console.WriteLine(tm.Minutes);
+            Console.WriteLine(tm.Seconds);
+         
+
+
+
+            DateTime newDate = Currentdate.Add(tm);
+            Console.WriteLine(newDate);
+
+
+          
+        }
+    }
+}

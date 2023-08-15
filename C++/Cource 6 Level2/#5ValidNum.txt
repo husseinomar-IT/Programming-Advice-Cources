@@ -1,0 +1,37 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<cmath>
+#include<ctime>
+#include"MyInput.h"
+#include"MyOutPuth.h"
+
+using namespace std;
+
+
+int ReadValidNum()
+{
+	int Num;
+	cout << "Please enter the Number:\n";
+	cin >> Num;
+	while (cin.fail())
+	{
+		cin.clear();
+		cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		cout << "Invalid Number,Enter valid Number again\n";
+		cin >> Num;
+	}
+	return Num;
+}
+
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	cout << ReadValidNum() << endl;
+	return 0;
+
+
+
+}
+

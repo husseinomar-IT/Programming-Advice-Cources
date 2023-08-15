@@ -1,0 +1,85 @@
+
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+struct STAddress
+{
+	string city;
+	string country;
+};
+
+
+struct STsalary
+{
+	double Monthly_salary;
+	double Yearly_salary;
+};
+struct STdetails
+{
+	string phone;
+	string email;
+	STAddress address;
+	STsalary salary;
+	char Gender;
+	bool statue;
+};
+
+
+struct Employe
+{
+
+	string name;
+	short age;
+	STdetails details;
+};
+
+void Read_info(Employe &person)
+{
+	cout << "please Enter your name:\n";
+	cin >> person.name;
+	cout << "please Enter your age:\n";
+	cin >> person.age;
+
+	cout << "please Enter your city:\n";
+	cin >> person.details.address.city;
+	cout << "please Enter your country:\n";
+	cin >> person.details.address.country;
+	cout << "Monthly_salary\n";
+	cin >> person.details.salary.Monthly_salary;
+	/*cout << "yearly_salary\n";
+	cin >> person.details.salary.Yearly_salary;*/
+	cout << "Gender\n";
+	cin >> person.details.Gender;
+	cout << "Married\n";
+	cin >> person.details.statue;
+}
+void print_info(Employe person)
+{
+	cout << "_____________________________________\n";
+	cout << "   Name :" << person.name << "\n";
+	cout << "  Age :" << person.age << "\n";
+	cout << " City :" << person.details.address.city << "\n";
+	cout << " Country:" << person.details.address.country<< "\n";
+	cout << " Monthly_salary:" << person.details.salary.Monthly_salary << "\n";
+	cout << " yearly_salary:" << person.details.salary.Monthly_salary*12 << "\n";
+	cout << "Gender:" << person.details.Gender << "\n";
+	cout << "Married:" << person.details.statue << "\n";
+	
+	cout << "_____________________________________\n";
+
+}
+
+int main()
+{
+	Employe person1;
+	Read_info(person1);
+	print_info(person1);
+	cout << "*******************************************************************************************\n";
+	/*stInfo person2;
+	Read_info(person2);
+	print_info(person2);*/
+
+}

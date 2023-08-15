@@ -1,0 +1,13 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("{0}{1}", "Welcome to ", "Programming Advice");
+            Console.WriteLine("Hi My name is:{0} I am Learn {1}", "Hussein", "C#");
+        }
+    }
+}

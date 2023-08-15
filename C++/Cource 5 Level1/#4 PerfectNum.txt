@@ -1,0 +1,50 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+bool PerfectNumber(int Num)
+{
+	int sum = 0;
+	for (int i = 1; i < Num; i++)
+	{
+		if (Num%i == 0)
+
+			sum += i;
+
+
+	}
+	return Num == sum;
+}
+
+float Read_num(string Massage)
+{
+	float Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num <= 0);
+
+	return Num;
+
+}
+void PrintPerfectNumber(int Num)
+{
+	for (int i = 1; i < Num; i++)
+
+	{
+		if (PerfectNumber(i))
+			cout << i << endl;
+	}
+
+	
+}
+
+
+int main()
+
+{
+	PrintPerfectNumber(Read_num("Enter Positve number"));
+
+
+}

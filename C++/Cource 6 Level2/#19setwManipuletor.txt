@@ -1,0 +1,26 @@
+#include<iostream>
+#include<iomanip>
+using namespace std;
+
+
+
+
+
+
+
+
+int main(){
+
+	cout << "---------|--------------------------------|---------|\n";
+	cout << "    Code |              Name              |   Mark  |\n";
+	cout << "---------|--------------------------------|---------|\n";
+
+
+
+	cout << setw(9) << "0100" << "|" << setw(32) << "introduction to Programing" << "|" << setw(9) << "20$" << "|" << endl;
+	cout << setw(9) << "0101" << "|" << setw(32) << "Computer Hardware" << "|" << setw(9) << "10$" << "|" << endl;
+	cout << setw(9) << "0102" << "|" << setw(32) << "Machine Leraning" << "|" << setw(9) << "50$" << "|" << endl;
+	cout << "---------|--------------------------------|---------|\n";
+
+
+}

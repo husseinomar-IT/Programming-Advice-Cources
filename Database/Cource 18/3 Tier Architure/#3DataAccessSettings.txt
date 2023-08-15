@@ -1,0 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ContactsDataAccess
+{
+ static    class clsContactDataAccessSettingscs
+
+    {
+
+     public static string ConncetionString = "Server=.;Database=ContactDB;User Id=sa;Password=se123456";
+    }
+}

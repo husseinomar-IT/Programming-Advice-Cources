@@ -1,0 +1,19 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+       
+       
+        static void Main(string[] args)
+        {
+            Console.WriteLine(DateTime.MinValue.Ticks);
+            Console.WriteLine(DateTime.MaxValue.Ticks);
+            Console.ReadKey();
+
+          
+        }
+    }
+}

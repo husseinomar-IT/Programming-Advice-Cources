@@ -1,0 +1,116 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+void printRandomArray(int array[3][3], short Rows, short Cols)
+{
+
+
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+
+			//printf("%0*d\t", 2, array[i][j]);
+			cout << setw(3) << array[i][j] << " ";
+		}
+		cout << endl;
+
+	}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+int MinNumberInMatrix(int arr[3][3], short Rows, short Cols)
+{
+
+	short min = arr[0][0];
+
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+
+			if (arr[i][j]<min)
+			{
+				min = arr[i][j];
+			}
+
+
+		}
+
+	}
+	return min;
+
+
+}
+int MaxNumberInMatrix(int arr[3][3], short Rows, short Cols)
+{
+
+	short Max = arr[0][0];
+
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+
+			if (arr[i][j]>Max)
+			{
+				Max = arr[i][j];
+			}
+
+
+		}
+
+	}
+	return Max;
+
+
+}
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	
+	
+	int Matrixarr1[3][3] = {
+		{ 77, 5, 12 },
+		{ 22, 20, 6 },
+		{ 14, 3, 9 } };
+
+
+
+	cout << " Matrix1: \n";
+	printRandomArray(Matrixarr1, 3, 3);
+
+	cout << "The min number in Matrix: " << MinNumberInMatrix(Matrixarr1, 3, 3) << endl;
+	cout << "The man number in Matrix: " << MaxNumberInMatrix(Matrixarr1, 3, 3) << endl;
+
+}

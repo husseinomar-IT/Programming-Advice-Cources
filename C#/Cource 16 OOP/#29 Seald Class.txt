@@ -1,0 +1,34 @@
+using System;
+
+
+
+
+   
+
+
+
+sealed  class clsA
+{
+   
+}
+
+
+ class clsB:clsA
+{
+  
+}
+
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+            clsB b = new clsB();
+
+            Console.ReadKey();
+
+        }
+    }
+

@@ -1,0 +1,27 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+void Read_num(int &a, int &h)
+{
+	cout << "Enter the A : ";
+	cin >> a;
+	cout << "Enter the h : ";
+	cin >> h;
+}
+float CalcuTriangleArea(int a, int h)
+{
+	return  (float) (a/2)*h;
+}
+
+void print_Area(float Area)
+{
+	cout << "The Triangle Area =" << Area << "\n";
+}
+int main()
+{
+	int num, num2;
+	Read_num(num, num2);
+	print_Area(CalcuTriangleArea(num, num2));
+
+}

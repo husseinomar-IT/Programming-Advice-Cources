@@ -1,0 +1,121 @@
+using System;
+using System.Linq;
+using MyFirstClassLibrary;
+using System.Data.SqlClient;
+
+namespace ConsoleApplication7
+{
+
+   
+  
+
+
+
+
+    class Program
+    {
+        static string ConncetionString = "Server=.;Database=ContactsDB;User Id=sa;Password=se123456";
+  
+        static void PrintAllContactsWithFirstName(string Firstname)
+        {
+            SqlConnection Connection = new SqlConnection(ConncetionString);
+            string Query = "select * from Contacts where FirstName=@Firstname";
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.AddWithValue("@Firstname", Firstname);
+            try
+            {
+                Connection.Open();
+                SqlDataReader Reader = Command.ExecuteReader();
+                while (Reader.Read())
+                {
+                    int ContactID = (int)Reader["ContactID"];
+                    string FirstName = (string)Reader["FirstName"];
+                    string LastName = (string)Reader["LastName"];
+                    string email = (string)Reader["Email"];
+                    string phone = (string)Reader["Phone"];
+                    string address = (string)Reader["Address"];
+                    int CountryID = (int)Reader["CountryID"];
+
+
+                    Console.WriteLine("ContactID:{0}", ContactID);
+                    Console.WriteLine("FirstName:{0}", FirstName);
+                    Console.WriteLine("LastName:{0}", LastName);
+                    Console.WriteLine("email:{0}", email);
+                    Console.WriteLine("Phone:{0}", phone);
+                    Console.WriteLine("Address:{0}", address);
+                    Console.WriteLine("CountryID:{0}", CountryID);
+                    Console.WriteLine();
+
+
+                }
+                Reader.Close();
+                Connection.Close();
+            }
+
+
+            catch (Exception e)
+            {
+                Console.WriteLine("Error:" + e.Message);
+
+            }
+
+        }
+
+        static void PrintAllContactsWithFirstNameAndContryID(string Firstname, int countryid)
+        {
+            SqlConnection Connection = new SqlConnection(ConncetionString);
+            string Query = "select * from Contacts where FirstName=@Firstname and CountryID=@CountryID";
+            SqlCommand Command = new SqlCommand(Query, Connection);
+            Command.Parameters.AddWithValue("@Firstname", Firstname);
+            Command.Parameters.AddWithValue("@CountryID", countryid);
+            try
+            {
+                Connection.Open();
+                SqlDataReader Reader = Command.ExecuteReader();
+                while (Reader.Read())
+                {
+                    int ContactID = (int)Reader["ContactID"];
+                    string FirstName = (string)Reader["FirstName"];
+                    string LastName = (string)Reader["LastName"];
+                    string email = (string)Reader["Email"];
+                    string phone = (string)Reader["Phone"];
+                    string address = (string)Reader["Address"];
+                    int CountryID = (int)Reader["CountryID"];
+
+
+                    Console.WriteLine("ContactID:{0}", ContactID);
+                    Console.WriteLine("FirstName:{0}", FirstName);
+                    Console.WriteLine("LastName:{0}", LastName);
+                    Console.WriteLine("email:{0}", email);
+                    Console.WriteLine("Phone:{0}", phone);
+                    Console.WriteLine("Address:{0}", address);
+                    Console.WriteLine("CountryID:{0}", CountryID);
+                    Console.WriteLine();
+
+
+                }
+                Reader.Close();
+                Connection.Close();
+            }
+
+
+            catch (Exception e)
+            {
+                Console.WriteLine("Error:" + e.Message);
+
+            }
+
+        }
+
+
+        static void Main(string[] args)
+        {
+
+        
+            //PrintAllContactsWithFirstName("Jane");
+            PrintAllContactsWithFirstNameAndContryID("Jane", 1);
+            Console.ReadKey();
+
+        }
+    }
+}

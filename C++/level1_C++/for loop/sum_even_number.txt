@@ -1,0 +1,41 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int print_Sum_even(int N)
+{
+	int sum = 0;
+	for (int i = 0; i <=N; i=i+2)
+
+	{
+		 
+	
+		cout << i << "\n";
+		sum = sum + i;
+		
+	
+	}
+	return sum;
+
+
+}
+
+int main()
+{
+	//print_cabtel_letter();
+	int N;
+	cout << "Enter The number" << endl;
+	cin >> N;
+	cout << "______________________________________\n";
+	cout << print_Sum_even(N) << endl;
+	
+	
+
+	//cout << "--------------------------------Thank you------------------------------------------\n";
+
+
+
+
+
+}

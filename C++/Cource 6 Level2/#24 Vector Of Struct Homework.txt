@@ -1,0 +1,80 @@
+
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+
+struct stEmployee{ 
+	string FirstName;
+	string LastName; 
+	float Salary; };
+
+
+
+
+void InsertEmplyee(vector<stEmployee>&VEmplyee)
+{
+	
+	stEmployee tempEmployee;
+
+	char acccept = 'Y';
+	do{
+		cout << "First name : "; cin >> tempEmployee.FirstName;
+		
+		
+		cout << "Last name : "; cin >> tempEmployee.LastName;
+		cout << "Salary  : ";    cin >> tempEmployee.Salary;
+		VEmplyee.push_back(tempEmployee);
+		cout << "Do you want to add a number more Y/N?:";
+		cin >> acccept;
+		cout << endl;
+
+
+
+
+
+	} while (acccept == 'Y' || acccept == 'y');
+
+
+
+
+}
+
+void print(vector<stEmployee>&VEmplyee)
+{
+	cout << "Vector Employees: ";
+	cout << endl;
+	for (stEmployee &employee : VEmplyee)
+	{
+		cout << "First name: " << employee.FirstName << endl;
+		cout << "Last name : " << employee.LastName << endl;
+		cout << "Salary    : " << employee.Salary << endl;
+		cout << endl;
+	}
+	cout << endl;
+}
+
+
+
+
+int main(){
+
+	vector<stEmployee>vNumber;
+
+	InsertEmplyee(vNumber);
+	print(vNumber);
+	
+
+
+
+
+}
+
+
+
+
+

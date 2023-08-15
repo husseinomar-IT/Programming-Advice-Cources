@@ -1,0 +1,15 @@
+short Age;
+	bool Drive_licence;
+	cout<<"Enter your Age:\n";
+	cin>>Age;
+	cout<<"Do you have Drive_licence\"true=>1 or false=>0\"\n";
+	cin>>Drive_licence;
+	bool R=(Age>=21 && Drive_licence==true);
+	if(R==true)
+	{
+		
+		cout<<"Hired\n";
+	}
+	
+			else
+	cout<<"Rejected/n";

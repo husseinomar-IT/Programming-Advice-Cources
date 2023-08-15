@@ -1,0 +1,12 @@
+short num1,num2,num3;
+		cout<<"Enter the num1:\n";
+		cin>>num1;
+		cout<<"Enter the num2:\n";
+		cin>>num2;
+		cout<<num1<<"\n";
+		cout<<num2<<"\n";
+		num3=num1;
+		num1=num2;
+		num2=num3;
+			cout<<num1<<"\n";
+		cout<<num2<<"\n";

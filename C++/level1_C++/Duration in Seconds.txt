@@ -1,0 +1,12 @@
+	
+	float day,hours,minutes,second;
+	cout<<"the number of Day=\n";
+	cin>>day;
+	cout<<"the number of Hours=\n";
+	cin>>hours;
+	cout<<"the number of Miutesn=\n";
+	cin>>minutes;
+	cout<<"the number of Second=\n";
+	cin>>second;
+	float Total_second=(day*24*60*60)+(hours*60*60)+(minutes*60)+second;
+	cout<<"Seconds="<<round(Total_second)<<"\a\n";

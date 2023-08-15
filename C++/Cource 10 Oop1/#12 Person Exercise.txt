@@ -1,0 +1,108 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+class clsPerson{
+private:
+	int _ID ;
+	string _Firstname;
+	string _Lastname;
+	string _email;
+	string _phone;
+public:
+	clsPerson(int ID,string Firstname,string Lastname,string email,string phone)
+	{
+		_ID = ID;
+		_Firstname = Firstname;
+		_Lastname = Lastname;
+		_email = email;
+		_phone = phone;
+	}
+	int GetID()
+	{
+		return _ID;
+	}
+	void SetFirstname(string Name)
+	{
+		_Firstname = Name;
+	}
+
+	void SetLastname(string Name)
+	{
+		_Lastname = Name;
+	}
+
+	string Firstname( )
+	{
+		 return _Firstname;
+	}
+
+	string Lastname()
+	{
+		return _Lastname;
+	}
+
+	string Fullname()
+	{
+		return _Firstname + " " + _Lastname;
+	} 
+
+	string email()
+	{
+		return _email;
+	}
+
+	string Phone()
+	{
+		return _phone;
+	}
+
+	void Print()
+	{
+		cout << "\nInfo:\n";
+		cout << "_______________________\n";
+		cout << "ID        :" << _ID << "\n";
+		cout << "FirstName :" << _Firstname << "\n";
+		cout << "LAstName  :" << _Lastname << "\n";
+		cout << "FullName  :" << Fullname() << "\n";
+		cout << "Email     :" << _email << "\n";
+		cout << "Phone     :" << _phone << "\n";
+		cout << "_______________________\n";
+
+	}
+
+	void SendEmail(string subject,string body)
+	{
+		cout << "\nThe following sent successfully to email: " << _email << "\n";
+		cout << "Subject: " << subject << endl;
+		cout << "Body: " << body << endl;
+	}
+	
+
+	void SendSms(string Message)
+	{
+		cout << "\nThe following SMS sent successfully to phone: " << _phone << "\n";
+		cout << Message << "\n";
+	}
+	
+
+};
+
+
+
+int main(){
+
+	clsPerson Person1(100, "Hussein", "Khalid Omar", "my@gmail.com", "773787547");
+	Person1.Print();
+	Person1.SendEmail("Hi", "How are you?");
+	Person1.SendSms("How are you?");
+	
+	system("pause>0");
+	return 0;
+
+}

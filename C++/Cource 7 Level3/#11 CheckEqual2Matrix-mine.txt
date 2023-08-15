@@ -1,0 +1,116 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+void printRandomArray(int array[3][3], short Rows, short Cols)
+{
+	
+
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+		
+			printf("%0*d\t", 2, array[i][j]);
+		}
+		cout << endl;
+
+	}
+
+
+}
+
+
+
+
+
+
+void FillMatrixWithRandomNumbers(int array[3][3], short Rows, short Cols)
+{
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j < Cols; j++)
+		{
+			array[i][j] = RandomNumberBetweenRange(1, 10);
+		}
+
+
+	}
+
+	
+
+}
+
+
+
+int SumOfMatrix(int array[3][3], short Rows, short Cols)
+{
+	int sum = 0;
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+			sum += array[i][j];
+			
+		}
+	
+	}
+	return sum;
+}
+bool EquilMatrix(int Matrix1[3][3],int Matrix2[3][3], short Rows, short Cols)
+{
+	int sum1 = 0, sum2 = 0;
+	sum1 = SumOfMatrix(Matrix1, 3, 3);
+	sum2 = SumOfMatrix(Matrix2, 3, 3);
+	return (sum1 == sum2);
+		
+}
+void PrintResultOfEquil(int Matrix1[3][3], int Matrix2[3][3], short Rows, short Cols)
+{
+	if (EquilMatrix(Matrix1, Matrix2, Rows, Cols))
+		cout << "Matrices are equal \n";
+	else
+		cout << "Matrices are  not equal \n";
+}
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	int Matrixarr1[3][3],
+		Matrixarr2[3][3];
+
+
+	FillMatrixWithRandomNumbers(Matrixarr1, 3, 3);
+	cout << "Matrix1: \n";
+	printRandomArray(Matrixarr1, 3, 3);
+
+
+	FillMatrixWithRandomNumbers(Matrixarr2, 3, 3);
+	cout << "Matrix2: \n";
+	printRandomArray(Matrixarr2, 3, 3);
+ 
+	PrintResultOfEquil(Matrixarr1, Matrixarr2, 3, 3);
+
+	
+
+
+
+
+}

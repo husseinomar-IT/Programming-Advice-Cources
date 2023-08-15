@@ -1,0 +1,83 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+enum enDayOfWeek{ Sunday = 1, Monday = 2, Tuesday = 3, Wedensday = 4, Thursday = 5, Friday = 6, Saturday=7 };
+
+//enDayOfWeek ReadDayOfWeek()
+//{
+//	int Day = 0;
+//	Day = ReadPositiveNumber("Enter the number of day");
+//	return(enDayOfWeek)Day;
+//}
+
+
+
+int ReadNumberInRange(string Massage,int from,int to)
+{
+	int Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num <from || Num >to);
+
+	return Num;
+
+}
+
+enDayOfWeek ReadDayOfWeek()
+{
+	int Day = 0;
+	Day = ReadNumberInRange("Enter the number of day",1,7);
+	return(enDayOfWeek)Day;
+}
+string Print_Day(enDayOfWeek Day)
+{
+	switch (Day)
+	{
+	case enDayOfWeek::Sunday :
+		return "Sunday";
+		
+	case enDayOfWeek::Monday:
+	 return 	 "Monday";
+		
+	case enDayOfWeek::Tuesday:
+		return  "Tuesday";
+
+		
+	case enDayOfWeek::Wedensday:
+		 return  "Wedensday";
+		
+	case enDayOfWeek::Thursday:
+		return  "Thursday";
+
+		
+	case enDayOfWeek::Friday:
+		return "Friday";
+		
+	case enDayOfWeek::Saturday:
+		return "Saturday";
+		
+	default:
+		return "Not Found";
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+int main()
+
+{
+	cout << Print_Day(ReadDayOfWeek()) << endl;
+
+}

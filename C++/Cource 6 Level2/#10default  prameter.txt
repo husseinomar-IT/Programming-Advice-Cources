@@ -1,0 +1,28 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<cmath>
+#include<ctime>
+#include"MyInput.h"
+#include"MyOutPuth.h"
+
+using namespace std;
+
+
+int sum(int a, int b,int c=0,int d=0)
+{
+	return (a + b + c + d);
+}
+
+
+int main()
+{
+	srand((unsigned)time(NULL));
+
+	cout << sum(10, 20) << endl;
+	cout << sum(10, 20,30) << endl;
+	cout << sum(10, 20,30,40) << endl;
+
+
+}
+

@@ -1,0 +1,58 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+
+
+class clsA
+{
+private:
+	int _var1;
+
+protected:
+	int _var3;
+public:
+	int var2;
+	clsA()
+	{
+		_var1 = 10;
+		var2 = 20;
+		_var3 = 30;
+	}
+	friend class clsB;
+
+};
+
+
+class clsB 
+{
+public:
+	void Print(clsA A1)
+	{
+		cout << "The value of var1 = " << A1._var1 << endl;
+		cout << "The value of var2 = " << A1.var2 << endl;
+		cout << "The value of var2 = " << A1._var3 << endl;
+
+	}
+};
+
+
+ 
+int main(){
+
+	
+	clsB B1;
+	clsA A1;
+	B1.Print(A1);
+	
+
+
+
+
+}

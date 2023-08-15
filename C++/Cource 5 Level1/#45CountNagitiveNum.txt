@@ -1,0 +1,102 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+
+using namespace std;
+
+
+int ReadNumber()
+{
+	int Num;
+	cout << "Please enter the Number? ";
+	cin >> Num;
+	return Num;
+}
+
+
+void AddArrayElement(int Number, int arr[100], int &size)
+{
+	size++;
+	arr[size - 1] = Number;
+}
+
+
+
+
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+
+
+
+
+void FullArrayWithRandom(int arr[100], int &size)
+
+{
+	cout << "Please enter the size of Array :";
+	cin >> size;
+	for (int i = 0; i < size; i++)
+	{
+		arr[i] = RandomNumberBetweenRange(-100, 100);
+	}
+}
+short checkNigativeNum(int arr[100], int size)
+{
+	short counter = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] < 0)
+			counter++;
+	}
+	return counter;
+}
+
+void PrintArray(int array[100], int size)
+{
+
+
+	for (int i = 0; i < size; i++)
+	{
+
+		cout << array[i] << " ";
+
+	}
+	cout << endl;
+
+}
+
+
+
+
+
+
+
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+	int arr[100];
+	int Length = 0;
+	
+
+	FullArrayWithRandom(arr, Length);
+	PrintArray(arr, Length);
+	
+
+	short NumOfNigative = checkNigativeNum(arr, Length);
+	cout << "Positve Num count is:" << NumOfNigative << endl;
+
+
+
+
+
+
+
+}
+

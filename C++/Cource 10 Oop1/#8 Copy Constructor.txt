@@ -1,0 +1,107 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+class clsAddress{
+private:
+	string _AddressLine1;
+	string _AddressLine2;
+	string _POBox;
+	string _ZebCode;
+public:
+
+
+
+	clsAddress(string Address1, string Address2, string PoBox, string ZebCode)
+	{
+		_AddressLine1 = Address1;
+		_AddressLine2 = Address2;
+		_POBox = PoBox;
+		_ZebCode = ZebCode;
+
+	}
+	
+
+	//Copy Constructor
+	/*clsAddress(clsAddress & Old_Oje)
+	{
+		_AddressLine1 = Old_Oje.AddresLine1();
+		_AddressLine2 = Old_Oje.AddresLine2();
+		_POBox = Old_Oje.PoBox();
+		_ZebCode = Old_Oje.ZebCode();
+
+	}*/
+
+	void setAddressLine1(string Address)
+	{
+		_AddressLine1 = Address;
+	}
+
+	void setAddressLine2(string Address)
+	{
+		_AddressLine2 = Address;
+	}
+	void setPoBox(string POBox)
+	{
+		_POBox = _POBox;
+	}
+
+	void setZebCode(string ZebCode)
+	{
+		_ZebCode = ZebCode;
+	}
+
+
+	string AddresLine1()
+	{
+		return _AddressLine1;
+	}
+
+
+	string AddresLine2()
+	{
+		return _AddressLine2;
+	}
+
+
+	string PoBox()
+	{
+		return _POBox;
+	}
+
+
+	string ZebCode()
+	{
+		return _ZebCode;
+	}
+
+	
+
+	void PrintAddress()
+	{
+		cout << "\n Address Details:\n";
+		cout << "-----------------------------\n";
+		cout << "AddressLine 1: " << _AddressLine1 << endl;
+		cout << "AddressLine 2: " << _AddressLine2 << endl;
+		cout << "PoBox: " << _POBox << endl;
+		cout << "ZebCode: " << _ZebCode << endl;
+	
+	}
+
+
+};
+
+int main(){
+
+	clsAddress Address1("Sana'a","Hamdain","7737875775","4150");
+	Address1.PrintAddress();
+
+
+
+	clsAddress Address2 = Address1;
+	Address2.PrintAddress();
+}

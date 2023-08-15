@@ -1,0 +1,39 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int power_of(int N, int M)
+{
+	int result=1;
+	if (M == 0)
+		return 1;
+	else
+	{
+		for (int i = M; i >= 1; i--)
+		{
+			result = result*N;
+		}
+		return result;
+	}
+
+}
+
+int main()
+{
+	int N, M;
+	cout << "Enter the number N: ";
+	cin >> N;
+	cout << "Enter the number M: ";
+	cin >> M;
+	cout << power_of(N, M) << "\n";
+	
+	
+
+	//cout << "--------------------------------Thank you------------------------------------------\n";
+
+
+
+
+
+}

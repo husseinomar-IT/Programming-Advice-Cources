@@ -1,0 +1,55 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int Read_number()
+{
+	int Num;
+	cout << "Please Enter the number: ";
+	cin >> Num;
+	return Num;
+}
+
+int Read_Power()
+{
+	int Pow;
+	cout << "Please Enter the Power: ";
+	cin >>Pow ;
+	return Pow;
+}
+
+int PowerOfM(int Num,int M)
+{
+	int Pow = 1;
+	if (M == 0)
+	{
+		return 1;
+	}
+	for (int i = 1; i <= M; i++)
+	{
+		Pow *= Num;
+	}
+	return Pow;
+
+}
+
+
+
+
+
+
+
+
+int main()
+
+{
+	cout << PowerOfM(Read_number(), Read_Power()) << "\n";
+	
+
+
+
+	
+	
+	
+
+}

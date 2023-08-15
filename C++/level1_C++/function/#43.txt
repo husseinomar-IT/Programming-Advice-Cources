@@ -1,0 +1,59 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+void Second_to_anther(int Total_second)
+{
+	
+	
+	
+	
+
+	
+	
+	int  SecondPerDay, SecondPerHour, SecondPerMin,
+		NumberOfDay, NumberOfHour, NumberOfMin, NumberOfSeconds, Remender;
+	
+	SecondPerDay = 24 * 60 * 60;
+	SecondPerHour = 60 * 60;
+	SecondPerMin = 60;
+
+	NumberOfDay = floor(Total_second / SecondPerDay);
+	Remender = (Total_second) % (SecondPerDay);
+	
+	NumberOfHour = floor(Remender / SecondPerHour);
+	Remender = (Remender) % (SecondPerHour);
+
+	NumberOfMin = floor(Remender / SecondPerMin);
+	Remender = (Remender%SecondPerMin);
+
+
+	NumberOfSeconds = Remender;
+	cout << "NumberOfDay:" << round(NumberOfDay)  << "  NumberOfHour:" << round(NumberOfHour) << "\n";
+
+		
+		
+
+	cout << "NumberOfMin:" << round(NumberOfMin) << "  NumberOfSecond:" << round(NumberOfSeconds) << "\n";
+
+	
+	
+}
+	
+	
+
+
+int main()
+{
+	int Total_second;
+	cout << "the number of seconds=\n";
+	cin >> Total_second;
+	Second_to_anther(Total_second);
+
+	
+
+	
+	
+	
+}

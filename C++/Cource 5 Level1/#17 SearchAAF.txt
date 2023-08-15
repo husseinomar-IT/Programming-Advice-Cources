@@ -1,0 +1,67 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+string ReadPass(string Massage)
+{
+	string  pass;
+	
+	
+		cout << Massage << "\n";
+		cin >> pass;
+
+
+	return pass;
+
+}
+
+bool PrintALLetter(string Password)
+{
+	string word = " ";
+	int counter = 0;
+	cout << endl;
+	for (int i = 65; i<=90; i++)
+	{
+		for (int j = 65; j <=90; j++)
+		{
+			for (int k = 65; k <= 90; k++)
+			{
+				counter++;
+				word = word + char(i);
+				word = word + char(j);
+				word = word + char(k);
+				cout << "Trial[" << counter << "]" << word << endl;
+				if (word == Password)
+				{
+					cout << "\n password is" << word << endl;
+					cout << "the Trial is:" << counter << endl;
+					return true;
+				}
+
+
+				word = "";
+
+			}
+		
+		}
+		
+	}
+
+}
+
+
+
+
+
+
+int main()
+
+{
+	string pass = ReadPass("Enter your pass");
+	cout << PrintALLetter(pass);
+	
+	
+
+}

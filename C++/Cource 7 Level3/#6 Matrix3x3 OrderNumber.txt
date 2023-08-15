@@ -1,0 +1,63 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+using namespace std;
+
+
+
+
+void printArray(int array[3][3], short Rows, short Cols)
+{
+	cout << "The following is a 3x3 random matrix: \n";
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+			cout << setw(3) << array[i][j] << "  ";
+		}
+		cout << endl;
+
+	}
+
+
+}
+
+
+void FillMatrixWithOrderdNumbers(int array[3][3], short Rows, short Cols)
+{
+	int counter = 0;
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j < Cols; j++)
+		{
+			counter++;
+			array[i][j] = counter;
+		}
+
+	}
+	printArray(array, Rows, Cols);
+
+}
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	int Matrixarr[3][3];
+	
+
+
+	FillMatrixWithOrderdNumbers(Matrixarr, 3, 3);
+
+
+
+}
+
+
+
+
+

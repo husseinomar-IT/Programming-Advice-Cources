@@ -1,0 +1,105 @@
+#include<iostream>
+#include<string>
+using namespace std;
+enum enOddorEven{ odd = 1,even=2 };
+
+
+enum enWhattosum{all=1,oddNumber=2,evenNumber=3};
+
+
+
+enWhattosum checkOPrator(string txt)
+{
+	if (txt == "all")
+		return enWhattosum::all;
+	else if (txt == "odd")
+
+		return  enWhattosum::oddNumber;
+	else
+		return enWhattosum::evenNumber;
+	
+}
+string ReadOpreator()
+{
+	string txt;
+	cout << "Enter your opreator you want?? all,,,odd,,,,even:\n";
+	cin >> txt;
+	return txt;
+}
+
+int Read_num()
+{
+	int N;
+	cout << "Please Enter the number:\n";
+	cin >> N;
+	return N;
+
+}
+enOddorEven checknum(int num)
+{
+	if (num % 2 == 0)
+		return enOddorEven::even;
+	else
+		return enOddorEven::odd;
+	
+}
+
+int sumRange(int num, string txt)
+{
+	int sum = 0;
+	if (checkOPrator(txt)==enWhattosum::all)
+	{
+		for (int i = 1; i <= num; i++)
+		{
+			sum += i;
+		}
+		return sum;
+
+	}
+	else if (checkOPrator(txt) == enWhattosum::oddNumber)
+	{
+		int sum = 0;
+		for (int i = 1; i <= num; i++)
+		{
+			if (checknum(i) == enOddorEven::odd)
+			{
+				sum += i;
+			}
+
+		}
+		return sum;
+	}
+	else
+	{
+		int sum = 0;
+		for (int i = 1; i <= num; i++)
+		{
+			if (checknum(i) == enOddorEven::even)
+			{
+				sum += i;
+			}
+
+		}
+		return sum;
+
+	}
+
+}
+void print_value(int sum)
+{
+	cout << "The sum of odd  number:" << sum << endl;
+}
+
+
+
+int main()
+
+{
+	
+	int N = Read_num();
+	string txt = ReadOpreator();
+	
+	
+	print_value(sumRange(N, txt));
+
+}

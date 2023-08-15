@@ -1,0 +1,38 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+void ReadArbitraryTriangle(float &a,float &b,float &c)
+{
+	
+	cout << "Enter the Triangle  a: ";
+	cin >> a;
+	cout << "Enter the Triangle b: ";
+	cin >> b;
+	cout << "Enter the Triangle c: ";
+	cin >> c;
+}
+
+float CircleAreaByIsTriangle(float a, float b,float c)
+{
+	const float PI = 3.141592653589793238;
+	float p = (a + b + c) / 2;
+	float Area = (a*b*c) / (4 * sqrt(p*(p - a)*(p - b)*(p - c)));
+	Area = pow(Area, 2);
+	float result = Area*PI;
+	return result;
+}
+
+void print_Area(float Area)
+{
+	cout << "The Circle Area =" << Area << "\n";
+}
+int main()
+{
+	float a, b,c;
+	ReadArbitraryTriangle(a, b,c);
+	
+	print_Area(CircleAreaByIsTriangle(a, b,c));
+
+
+}

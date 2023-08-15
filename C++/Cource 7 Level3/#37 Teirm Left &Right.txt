@@ -1,0 +1,80 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+
+using namespace std;
+
+
+
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+string printTremLeft(string txt)
+{
+	
+	for (short i = 0; i < txt.length(); i++)
+	{
+		if (txt[i] != ' ')
+		{
+			return txt.substr(i, txt.length() - i);
+		}
+	}
+	return "";
+	
+}
+
+
+string printTerimRight(string txt)
+{
+
+	for (short i = txt.length() - 1; i >= 0;  i++)
+	{
+		if (txt[i] != ' ')
+		{
+			return txt.substr(0,i+1);
+		}
+	}
+	return "";
+
+}
+
+string PrintTerimRightAndLeft(string txt)
+{
+	return (printTerimRight(printTremLeft(txt)));
+}
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	
+	string txt = "        Hussein Khalid Hussein       ";
+	cout << "String: " << txt << endl; 
+	//printTremRight(txt);
+	string terimLeft = printTremLeft(txt);
+	string terimRight = printTerimRight(txt);
+	string term = PrintTerimRightAndLeft(txt);
+	 
+	cout << "TeirmLeft:" << terimLeft << endl;
+	cout << "TeirmRight:" << terimRight << endl;
+	cout << "Term:" << term << endl;
+
+
+	
+
+}

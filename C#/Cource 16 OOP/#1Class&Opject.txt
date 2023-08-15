@@ -1,0 +1,38 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+    class clsPerson
+    {
+        public string FirstName;
+        public string LastName;
+     public    string FullName()
+        {
+            return FirstName + " " + LastName;
+        }
+    }
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+            clsPerson Person1 = new clsPerson();
+            Console.WriteLine("Accessing Object 1 :-)");
+            Person1.FirstName = "Hussein";
+            Person1.LastName = "Omar";
+            Console.WriteLine(Person1.FullName());
+
+            Console.WriteLine("\nAccessing Object 2 :-)");
+            clsPerson Person2 = new clsPerson();
+            Person1.FirstName = "Khalid";
+            Person1.LastName = "Omar";
+            Console.WriteLine(Person1.FullName());
+
+        Console.ReadKey();
+          
+        }
+    }
+}

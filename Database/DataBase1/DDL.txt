@@ -1,0 +1,100 @@
+create database DB1;
+
+
+
+
+if not exists(select * from sys.databases where name='DB1')
+begin
+create database DB1;
+end
+
+
+
+
+drop database DB1;
+
+
+if exists(select * from sys.databases where name='DB1')
+begin
+drop database DB1;
+end
+
+
+
+create table Employees(
+ID int not null,
+Name nvarchar(50) not null,
+Phone nvarchar(10)null,
+Salary smallmoney null,
+Primary key(ID))
+
+
+
+
+
+ALTER table Employees
+ADD Gender char(1)
+
+
+
+-- using in the feauture
+--ALTER table Employees
+--RENAME COLUMN Gender to Gendor
+
+
+
+exec sp_rename'Employees.Gender','KOKO','COLUMN';
+
+
+
+
+exec sp_rename'EMPS','Employees';
+
+
+--ALTER table Employees
+--RENAME EMPS;
+
+
+ALTER table Employees
+ALTER column Name varchar(100)not null
+
+
+ALTER table Employees
+Modify column Name varchar(100)not null
+
+
+
+
+ALter table Employees
+drop column Gender
+
+
+
+
+
+backup database DB1
+TO DISK='F:\MyDB.bak';
+
+
+
+
+backup database DB1
+TO DISK='F:\MyDB.bak'
+with Differential;
+
+
+
+
+Restore database DB1
+from DISK='F:\MyDB.bak';
+
+
+
+//using diagram:
+exec sp_changedbowner'sa';
+
+
+
+
+
+  truncate table TempTable;

@@ -1,0 +1,57 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<vector>
+#include<string>
+
+using namespace std;
+
+class clsA
+{
+public:
+
+	int x;
+	clsA()
+	{
+
+	}
+	clsA(short value)
+	{
+		x = value;
+	}
+	void Print()
+	{
+		cout << "The value of x= " << x << endl;
+	}
+
+};
+
+
+
+int main(){
+
+
+	int size = 5;
+	clsA *PtrArray = new clsA[size];
+
+	
+
+	for (short i = 0; i <size; i++)
+	{
+		PtrArray[i] = clsA(i+1);
+	}
+
+
+	for (short i = 0; i < size; i++)
+	{
+	
+		PtrArray[i].Print();
+		
+	}
+	delete PtrArray;
+
+
+
+	system("pause>0");
+	return 0;
+
+}

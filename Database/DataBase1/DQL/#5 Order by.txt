@@ -1,0 +1,44 @@
+select FirstName,LastName,Gender,MonthlySalary from Employees
+where DepartmentID=1
+order by FirstName;
+
+
+
+select FirstName,LastName,Gender,MonthlySalary from Employees
+where DepartmentID=1
+order by FirstName Asc;
+
+
+
+
+
+select FirstName,LastName,Gender,MonthlySalary from Employees
+where DepartmentID=1
+order by FirstName Desc;
+
+
+
+select FirstName,Gender,MonthlySalary from Employees
+where DepartmentID In(1,5,7)
+order by MonthlySalary Desc;
+
+
+
+select FirstName,Gender,MonthlySalary from Employees
+where DepartmentID In(select DepartmentID from Employees)
+order by MonthlySalary Desc;
+
+
+
+
+
+select FirstName,Gender,MonthlySalary from Employees
+where DepartmentID In(select DepartmentID from Employees)
+order by FirstName, MonthlySalary ;
+
+
+
+select FirstName,Gender,MonthlySalary from Employees
+where DepartmentID =1
+order by MonthlySalary Desc;
+s

@@ -1,0 +1,65 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+
+ public class clsA
+ {
+     public  virtual void MyFunction()
+     {
+         Console.WriteLine("Hi I'am MyFunction  from base class A");
+     }
+
+
+     public virtual void MyOtherFunction()
+     {
+         Console.WriteLine("Hi I'am MyOtherFunction  from base class A");
+     }
+ }
+
+
+  public  class clsB:clsA
+  {
+      public override void MyFunction()
+      {
+          Console.WriteLine("Hi I'am MyFunction  from drived class B");
+ 
+      }
+
+      public new void MyOtherFunction()
+      {
+          Console.WriteLine("Hi I'am MyOtherFunction  from drived class B");
+      }
+  }
+
+
+
+   
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Base Class:");
+            clsA A1 = new clsA();
+            A1.MyFunction();
+            A1.MyOtherFunction();
+            Console.WriteLine("\nDrived Class:");
+            clsB B1  = new clsB();
+            B1.MyFunction();
+            B1.MyOtherFunction();
+            Console.WriteLine("\nAfter Casting:");
+            clsA A2 = B1;
+            A2.MyFunction();
+            A2.MyOtherFunction();
+         
+            Console.ReadKey();
+
+        }
+    }
+}

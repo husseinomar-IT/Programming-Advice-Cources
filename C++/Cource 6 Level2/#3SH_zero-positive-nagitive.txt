@@ -1,0 +1,32 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+#include<cmath>
+#include<ctime>
+#include"MyInput.h"
+#include"MyOutPuth.h"
+
+using namespace std;
+
+
+
+
+
+
+int main()
+{
+	srand((unsigned)time(NULL));
+	int Number = MyInput::ReadNumber("Please enter the number\n");
+	string Result;
+	/*Result = (Number >= 0) ? "Positive\n" : "Nagtive\n";
+	cout << Result;*/
+	
+	(Number == 0) ? cout << "Zero\n" : (Number >= 0) ? cout << " Positive\n" : cout << "Nagtive\n";
+	
+	
+	return 0;
+
+
+
+}
+

@@ -1,0 +1,107 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+void printRandomArray(int array[3][3], short Rows, short Cols)
+{
+	
+
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+		
+			printf("%0*d\t", 2, array[i][j]);
+		}
+		cout << endl;
+
+	}
+
+
+}
+
+
+
+
+
+
+void FillMatrixWithRandomNumbers(int array[3][3], short Rows, short Cols)
+{
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j < Cols; j++)
+		{
+			array[i][j] = RandomNumberBetweenRange(1, 10);
+		}
+
+
+	}
+
+	
+
+}
+
+
+int SumOfRow(int array[3][3], short NumberofRow, short cols)
+{
+	int sum = 0;
+	for (int i = 0; i < cols; i++)
+	{
+		sum += array[NumberofRow][i];
+	}
+	return sum;
+}
+void SumMatrixRowsInAraay(int array[3][3], short Rows, short cols, int arrResult[3])
+{
+
+	for (int i = 0; i < Rows; i++)
+	{
+		arrResult[i] = SumOfRow(array, i, cols);
+
+	}
+
+}
+
+
+int SumAllMatrixArray(int arrResult[3], int item)
+{
+	int sum = 0;
+	for (int i = 0; i < item; i++)
+	{
+		sum += arrResult[i];
+	}
+	return sum;
+}
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	int Matrixarr1[3][3];
+	int arrResult[3];
+
+	FillMatrixWithRandomNumbers(Matrixarr1, 3, 3);
+	cout << "Matrix: \n";
+	printRandomArray(Matrixarr1, 3, 3);
+ 	SumMatrixRowsInAraay(Matrixarr1, 3, 3, arrResult);
+
+	cout << "Sum of Matrix is: " << SumAllMatrixArray(arrResult, 3) << endl;
+
+
+
+
+}

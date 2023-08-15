@@ -1,0 +1,66 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+    public abstract class clsPerson
+    {
+        public string Firstname { get; set; }
+        public string LastName { get; set; }
+        public abstract void Introduce();
+        public void SayGoodBye()
+        {
+            Console.WriteLine("GoodBye");
+        }
+     
+    }
+
+    public class clsEmployee : clsPerson
+    {
+        public int EmployeeID { get; set; }
+        public float Salary { get; set; }
+
+
+
+        public override void Introduce()
+        {
+            Console.WriteLine("Hi,my FirstName:{0} and my LastName:{1} ,my ID is:{2}", Firstname, LastName, EmployeeID);
+        }
+        public void Work()
+        {
+            Console.WriteLine("Employee with ID {0} and Salary {1} is Working.", EmployeeID, Salary);
+        }
+    }
+
+
+
+
+   
+
+
+
+
+
+    class Program
+    {
+
+        static void Main(string[] args)
+        {
+
+
+            clsEmployee Employee = new clsEmployee();
+            Employee.Firstname = "Hussein";
+            Employee.LastName = "Omar";
+            Employee.EmployeeID = 15;
+            Employee.Salary = 10000;
+            Employee.Introduce();
+            Employee.SayGoodBye();
+            Console.ReadKey();
+
+        }
+    }
+}

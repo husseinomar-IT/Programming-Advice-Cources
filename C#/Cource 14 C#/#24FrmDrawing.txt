@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Pizza
+{
+    public partial class FrmDrawing : Form
+    {
+        public FrmDrawing()
+        {
+            InitializeComponent();
+        }
+
+        private void FrmDrawing_Paint(object sender, PaintEventArgs e)
+        {
+            Color Balck = Color.FromArgb(255, 0, 0, 0);
+            Pen Pen1 = new Pen(Balck);
+
+            Pen1.Width = 10;
+            Pen1.StartCap = System.Drawing.Drawing2D.LineCap.Round;
+            Pen1.EndCap = System.Drawing.Drawing2D.LineCap.Round;
+            e.Graphics.DrawLine(Pen1, 100, 100, 100, 200);
+            e.Graphics.DrawRectangle(Pen1, 200,200,200, 200);
+            e.Graphics.DrawEllipse(Pen1, 300, 300, 100,600);
+        }
+    }
+}

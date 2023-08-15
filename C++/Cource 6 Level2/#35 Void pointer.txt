@@ -1,0 +1,47 @@
+
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+struct stPerson
+{
+	string Name;
+	float salary;
+
+};
+
+
+
+
+
+int main(){
+	string name = "Hussein";
+	int x = 50;
+	float f1 = 10.5;
+	void *ptr;
+		ptr = &f1;
+	cout << ptr << endl;
+	cout << *(static_cast<float*>(ptr)) << endl;
+	cout << endl;
+	ptr = &x;
+
+	cout << ptr << endl;
+	cout << *(static_cast<int*>(ptr)) << endl;
+	cout << endl;
+	ptr = &name;
+
+
+	cout << ptr << endl;
+	cout << *(static_cast<string*>(ptr)) << endl;
+	cout << endl;
+
+}
+
+
+
+
+

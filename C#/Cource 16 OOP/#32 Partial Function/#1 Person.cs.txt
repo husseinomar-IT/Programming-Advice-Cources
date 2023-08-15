@@ -1,0 +1,29 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication7
+{
+  public partial  class Person
+    {
+
+      public short Age
+      {
+          get;
+          set;
+      }
+       partial void PrintAge();
+      public void BirthDay()
+      {
+          Age++;
+          PrintAge();
+      }
+      
+      public void Fun1()
+      {
+          Console.WriteLine("Fun1 From Partial 1");
+      }
+    }
+}

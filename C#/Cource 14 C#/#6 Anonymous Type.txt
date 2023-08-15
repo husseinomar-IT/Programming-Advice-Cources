@@ -1,0 +1,27 @@
+using System;
+
+namespace ConsoleApplication7
+{
+    class Program
+    {
+
+
+       
+        static void Main(string[] args)
+        {
+            var Student = new { id = 1, FirstNamee = "Hussein", LastName = "Khalid", Address = new {Country="Yemen",City="Sana'a",Street="Amran" } };
+
+
+         Console.WriteLine(Student.id);
+
+         Console.WriteLine(Student.FirstNamee);
+         Console.WriteLine(Student.Address.Country);
+         Console.WriteLine(Student.Address.City);
+         Console.WriteLine(Student.Address.Street);
+
+            Console.ReadKey();
+
+          
+        }
+    }
+}

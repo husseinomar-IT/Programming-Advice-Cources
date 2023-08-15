@@ -1,0 +1,3 @@
+create table Departments
+(ID int identity(1,1)not null,
+name nvarchar(100) not null);

@@ -1,0 +1,29 @@
+select top 3 * from Employees;
+
+
+
+select top 10 percent * from Employees;
+
+select  distinct top 3 MonthlySalary from Employees 
+order by MonthlySalary desc;
+
+
+
+
+
+select ID,FirstName,MonthlySalary,DepartmentID from Employees
+where MonthlySalary in(select  distinct top 3 MonthlySalary from Employees 
+order by MonthlySalary desc)
+order by MonthlySalary desc;
+
+
+
+
+
+
+
+
+select ID,FirstName,MonthlySalary,DepartmentID from Employees
+where MonthlySalary in(select  distinct top 3 MonthlySalary from Employees 
+order by MonthlySalary Asc)
+order by MonthlySalary Asc;

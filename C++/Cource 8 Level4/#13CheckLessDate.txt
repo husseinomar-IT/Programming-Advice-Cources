@@ -1,0 +1,117 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+#include<fstream>
+
+using namespace std;
+
+
+short ReadYear()
+{
+	short Year;
+	cout << "\nPlease enter a Year? ";
+	cin >> Year;
+	return Year;
+
+}
+
+short ReadMonth()
+{
+	short Month;
+	cout << "\nPlease enter a Month? ";
+	cin >> Month;
+	return Month;
+
+}
+
+short ReadDay()
+{
+	short Day;
+	cout << "\nPlease enter a Day? ";
+	cin >> Day;
+	return Day;
+
+}
+
+short IsLeapYear(short Year)
+
+{
+	return(Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0);
+}
+
+
+
+
+struct sDate
+
+{
+
+	short Day;
+	short Month;
+	short Year;
+};
+
+
+short NumberOfDaysInMonth(short Year, short Month)
+{
+
+	if (Month<1 || Month>12)
+		return 0;
+	int NumberOfDays[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	return	(Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+
+
+}
+
+
+
+sDate ReadFullDate()
+{
+	sDate Date;
+	Date.Day = ReadDay();
+	Date.Month = ReadMonth();
+	Date.Year = ReadYear();
+	return Date;
+}
+
+
+bool CheckLessDate(sDate Date1, sDate Date2)
+{
+	
+	return(Date1.Year < Date2.Year) ? true
+		: ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true 
+		: (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+
+}
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+
+	sDate Date1 = ReadFullDate();
+	sDate Date2 = ReadFullDate();
+	string Result = "";
+	if (CheckLessDate(Date1, Date2))
+
+		cout << "Yes,Date1 is Less than Date2 \n";
+	else
+		cout << "No,Date1 is Less than Date2 \n";
+   
+	/*Result = (CheckLessDate(Date1, Date2) ? "Yes, Date1 is Less than Date2 \n" : "No,Date1 is  not Less than Date2 \n");*/
+	
+	
+	
+	
+	cout << Result << endl;
+	
+
+	
+
+}

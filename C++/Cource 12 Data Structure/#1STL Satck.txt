@@ -1,0 +1,39 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+#include<stack>
+
+using namespace std;
+
+
+
+
+
+int main(){
+	
+	stack<int>stkNumber;
+
+
+	stkNumber.push(10);
+	stkNumber.push(20);
+	stkNumber.push(30);
+	stkNumber.push(40);
+	stkNumber.push(50);
+
+
+
+	cout << "Stack size = " << stkNumber.size() << endl;
+
+	while (!stkNumber.empty())
+	{
+		cout << stkNumber.top() << endl;
+
+	stkNumber.pop();
+
+	}
+
+	
+	system("pause>0");
+	return 0;
+
+}

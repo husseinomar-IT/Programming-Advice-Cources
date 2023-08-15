@@ -1,0 +1,49 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+
+
+
+
+class clsA
+{
+private:
+	int _var1;
+
+protected:
+	int _var3;
+public:
+	int var2;
+	clsA()
+	{
+		_var1 = 10;
+		var2 = 20;
+		_var3 = 30;
+	}
+	friend int MySum(clsA A1);
+
+};
+
+int MySum(clsA A1)
+{
+	return A1._var1 + A1.var2 + A1._var3;
+}
+
+ 
+int main(){
+
+	
+	
+	clsA A1;
+	cout << "The Result of sum= " << MySum(A1) << endl;
+	
+
+
+
+
+}

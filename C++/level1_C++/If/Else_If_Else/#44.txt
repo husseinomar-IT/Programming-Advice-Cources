@@ -1,0 +1,67 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+void Print_day(int numofday)
+{
+	if (numofday == 1)
+	{
+		cout << "Sunday\n";
+	}
+	else if (numofday == 2)
+	{
+		cout << "Monday\n";
+	}
+	else if (numofday == 3)
+	{
+		cout << "Tuesday\n";
+	}
+	else if (numofday == 4)
+	{
+		cout << "Wedenesday\n";
+	}
+	else if (numofday == 5)
+	{
+		cout << "Thursday\n";
+	}
+	else if (numofday == 6)
+	{
+		cout << "Friday\n";
+	}
+	else if (numofday == 7)
+	{
+		cout << "Saturday\n";
+	}
+	else
+	{
+		cout << "Wrong day\n";
+	}
+
+}
+
+int main()
+{
+	int day;
+	cout << "Enter the num of day:";
+	cin >> day;
+	
+
+
+
+	
+	
+	cout << "It is:";
+	Print_day(day);
+	
+	
+
+
+	
+	//cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

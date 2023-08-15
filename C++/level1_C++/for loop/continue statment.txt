@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+
+int sum_number()
+{
+	int num, sum = 0;
+
+	for (int i = 1; i <= 5; i++)
+	{
+
+		cout << "Enter the number: " << i << endl;
+		cin >> num;
+
+		if (num>50)
+		{
+			continue;
+		}
+		
+			sum += num;
+	}
+	return sum;
+}
+int main()
+{
+
+	cout << sum_number() << endl;
+	
+}
+	

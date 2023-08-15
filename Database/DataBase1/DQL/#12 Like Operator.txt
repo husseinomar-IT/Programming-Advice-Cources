@@ -1,0 +1,25 @@
+	select * from Employees
+		where FirstName like 'a%';
+
+		
+		select * from Employees
+		where FirstName like '%a';
+
+		
+		select * from Employees
+		where FirstName like 'a%a';
+
+
+		
+		select * from Employees
+		where FirstName like '%tell%';
+
+
+		
+		select * from Employees
+		where FirstName like '__a%';
+
+
+		
+		select * from Employees
+		where FirstName like 'a___%';

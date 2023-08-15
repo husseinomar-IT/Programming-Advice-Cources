@@ -1,0 +1,26 @@
+
+
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+
+int main()
+{
+	int X[3], sum;
+	cout << "Please enter Gradel1:\n";
+	cin >> X[0];
+
+	cout << "Please enter Gradel2:\n";
+	cin >> X[1];
+	cout << "Please enter Gradel3:\n";
+	cin >> X[2];
+	sum = X[0] + X[1] + X[2];
+	cout << "the avg:" << sum / 3 << endl;
+
+
+
+}

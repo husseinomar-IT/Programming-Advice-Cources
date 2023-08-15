@@ -1,0 +1,88 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+#include<cctype>
+#include<fstream>
+using namespace std;
+void LoadDateFromFileToVector(string filename,vector<string>&vContantFile)
+{
+	fstream FileName;
+	FileName.open(filename, ios::in);
+	if (FileName.is_open())
+	{
+		string line;
+		while (getline(FileName,line))
+		{
+			vContantFile.push_back(line);
+		}
+		FileName.close();
+	}
+}
+
+void LoadDateFromVectorToFile(string filename, vector<string>vContantFile)
+{
+	fstream FileName;
+	FileName.open(filename, ios::out);
+	if (FileName.is_open())
+	{
+		for (string &line : vContantFile)
+		{
+			if (line != "")
+			{
+				FileName << line << endl;
+			}
+		}
+		FileName.close();
+	}
+}
+
+void UpdateItemFromFile(string filename, string item,string newItem)
+{
+	vector<string>vContantFile;
+	LoadDateFromFileToVector(filename,vContantFile);
+
+	for (string &line : vContantFile)
+	{
+		if (line == item)
+		{
+			line = newItem;
+		}
+	}
+	LoadDateFromVectorToFile(filename, vContantFile);
+}
+
+void printContentFile(string filename)
+{
+	fstream File;
+	File.open(filename, ios::in);
+	if (File.is_open())
+	{
+		string line;
+		while (getline(File, line))
+		{
+			cout << line << endl;
+		}
+		File.close();
+	}
+	
+}
+
+int main(){
+	
+	
+	cout << "File Content Before Delete : \n\n";
+	printContentFile("Name_Student.txt");
+	cout << "\n\n";
+	UpdateItemFromFile("Name_Student.txt", "Omar","Ali");
+
+	cout << "File Content After Delete : \n\n";
+	printContentFile("Name_Student.txt");
+	
+}
+
+
+
+
+

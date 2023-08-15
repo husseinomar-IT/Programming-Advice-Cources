@@ -1,0 +1,13 @@
+short LoanAmount,Monthly_Payment,
+NumberOfMonth;
+cout<<" The LoanAmount=";
+cin>>LoanAmount;
+
+cout<<"The Monthly_payment=";
+cin>>Monthly_Payment;
+NumberOfMonth=LoanAmount/Monthly_Payment;
+cout<<NumberOfMonth<<" Months\a\n";
+
+	
+	
+	

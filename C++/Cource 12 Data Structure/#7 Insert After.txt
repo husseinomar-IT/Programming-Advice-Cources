@@ -1,0 +1,101 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+class Node
+{
+public:
+	int value;
+	Node * next;
+};
+
+
+
+
+void InsertNodeAtBegining(Node* &head, int Value)
+{
+	Node* new_Node = new Node();
+	new_Node->value = Value;
+	new_Node->next = head;
+	head = new_Node;
+}
+
+
+
+void PrintList(Node* head)
+{
+
+	while (head != NULL)
+	{
+		cout << head->value << " ";
+		head = head->next;
+	}
+
+	cout << endl;
+}
+
+
+
+Node * FindNode(Node *head, int Value)
+{
+
+	while (head != NULL)
+	{
+
+		if (head->value == Value)
+		
+			return head;
+		
+		
+		head = head->next;
+	}
+	return NULL;
+
+
+}
+
+void InsertAfter(Node* Prev_node, int Value)
+{
+	if (Prev_node == NULL)
+	{
+		cout << "\nThe Given Prives Node can not be Null \n\n";
+		return;
+	}
+
+
+	Node* new_node = new Node();
+	new_node->value = Value;
+	new_node->next = Prev_node->next;
+	Prev_node->next = new_node;
+
+
+}
+int main(){
+	
+	Node* head = NULL;
+
+	InsertNodeAtBegining(head, 1);
+	InsertNodeAtBegining(head, 2);
+	InsertNodeAtBegining(head, 3);
+	InsertNodeAtBegining(head, 4);
+	InsertNodeAtBegining(head, 5);
+
+	PrintList(head);
+
+	
+
+	Node *Node1 = FindNode(head,2);
+
+	InsertAfter(Node1,500);
+
+
+	PrintList(head);
+
+	system("pause>0");
+	return 0;
+
+}

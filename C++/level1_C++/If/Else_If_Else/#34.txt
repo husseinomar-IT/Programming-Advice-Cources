@@ -1,0 +1,54 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+double calculated_commission(double Total_sales)
+{
+	if (Total_sales > 1000000)
+	{
+		double result = Total_sales*0.01;
+		return result;
+	}
+	else if (Total_sales >= 500000 && Total_sales<=1000000)
+	{
+		double result = Total_sales*0.02;
+		return result;
+	}
+	else if (Total_sales >= 100000 && Total_sales <= 500000)
+	{
+		double result = Total_sales*0.03;
+		return result;
+	}
+	else if (Total_sales >= 50000 && Total_sales <= 100000)
+	{
+		double result = Total_sales*0.03;
+		return result;
+	}
+	else
+	{
+		//double commission = 0;
+		return 0;
+		 
+	}
+}
+int main()
+{
+	double Total_sal,commission;
+	cout << "Enter your Grade:";
+	cin >> Total_sal;
+
+	commission = calculated_commission(Total_sal);
+	 cout << "Commission=" << commission << "\n";
+	
+	
+
+
+	
+	cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

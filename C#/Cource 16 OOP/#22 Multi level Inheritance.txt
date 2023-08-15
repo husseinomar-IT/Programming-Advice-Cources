@@ -1,0 +1,65 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+   public class clsPerson
+    {
+       public string Name { get; set; }
+       public short Age { get; set; }
+       public void Introduce()
+       {
+           Console.WriteLine("Hi,my name is {0} and I'm {1} years old.", Name, Age);
+       }
+    }
+
+    public class clsEmployee:clsPerson
+    {
+        public int EmployeeID { get; set; }
+        public float Salary { get; set; }
+        public void Work()
+        {
+            Console.WriteLine("Employee with ID {0} and Salary {1} is Working.", EmployeeID, Salary);
+        }
+    }
+
+
+
+    public class clsDoctor:clsEmployee
+    {
+        public string Specialty { get; set; }
+        public void Heal()
+        {
+               Console.WriteLine("Doctor {0} With ID {1},Salary ${2},and specialty{3} is healing a patient",Name,EmployeeID,Salary,Specialty);
+        }
+    }
+
+
+
+
+   
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+            clsDoctor Doctor1 = new clsDoctor();
+            Doctor1.Name = "Mohmmed";
+            Doctor1.Age = 45;
+            Doctor1.EmployeeID = 115;
+            Doctor1.Salary = 10000;
+            Doctor1.Specialty = "Genric";
+            Doctor1.Introduce();
+            Doctor1.Work();
+            Doctor1.Heal();
+ 
+         
+            Console.ReadKey();
+
+        }
+    }
+}

@@ -1,0 +1,49 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+int Read_num(string Massage)
+{
+	int Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num <= 0);
+
+	return Num;
+
+}
+
+int DigitNumber(int Num)
+{
+	int sum = 0;
+	int Remender = 0;
+	while (Num > 0)
+	{ 
+		Remender = Num % 10;
+		Num = Num / 10;
+		sum += Remender;
+		
+	}
+	return sum;
+}
+
+
+
+void PrintSumOfDigit(int sum)
+{
+	cout << "The sum of Digit is :" << sum << endl;
+}
+
+
+
+int main()
+
+{
+	int Num = Read_num("Please enter a Postive number");
+	PrintSumOfDigit(DigitNumber(Num));
+
+}

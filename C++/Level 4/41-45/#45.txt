@@ -1,0 +1,96 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+enum enMonthOfYear{
+	jan = 1, february = 2, march = 3, April = 4, may = 5, june = 6, july = 7, August = 8, september = 9, Actoper = 10, Novmber = 11, December=12
+};
+
+//enDayOfWeek ReadDayOfWeek()
+//{
+//	int Day = 0;
+//	Day = ReadPositiveNumber("Enter the number of day");
+//	return(enDayOfWeek)Day;
+//}
+
+
+
+int ReadNumberInRange(string Massage,int from,int to)
+{
+	int Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num <from || Num >to);
+
+	return Num;
+
+}
+
+enMonthOfYear ReadMonthOfYear()
+{
+	int Month = 0;
+	Month = ReadNumberInRange("Enter the number of day",1,7);
+	return(enMonthOfYear)Month;
+}
+string Print_Day(enMonthOfYear Month)
+{
+	switch (Month)
+	{
+	case enMonthOfYear::jan :
+		return "jan";
+		
+	case  enMonthOfYear::february:
+	 return 	 "february";
+		
+	case enMonthOfYear::march:
+		return  "march";
+
+		
+	case  enMonthOfYear::April:
+		 return  "April";
+		
+	case enMonthOfYear::june:
+		return  "june";
+
+		
+	case enMonthOfYear::july:
+		return "july";
+		
+	case enMonthOfYear::August:
+		return "August";
+	case enMonthOfYear::september:
+		return"september";
+	case enMonthOfYear::Actoper:
+		return"Actoper";
+	case enMonthOfYear::Novmber:
+		return"Novmber";
+	case enMonthOfYear::December:
+		return"December";
+
+		
+
+		
+	default:
+		return "Not Found";
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+int main()
+
+{
+	cout << Print_Day(ReadMonthOfYear()) << endl;
+
+}

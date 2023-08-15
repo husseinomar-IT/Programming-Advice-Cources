@@ -1,0 +1,74 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+class Node
+{
+public:
+	int value;
+	Node * next;
+};
+
+
+
+
+
+
+
+
+void PrintList(Node* head)
+{
+
+	while (head != NULL)
+	{
+		cout << head->value << " ";
+		head = head->next;
+	}
+
+	cout << endl;
+}
+
+
+
+
+
+
+
+void InsertAtEnd(Node* &head, int Value)
+{
+	Node * new_node = new Node();
+	new_node->value = Value;
+	new_node->next = NULL;
+	if (head == NULL)
+	{
+		head = new_node;
+		return;
+	}
+
+
+
+	Node *Last_node = head;
+
+	while (Last_node->next != NULL)
+	{
+		Last_node = Last_node->next;
+	}
+	Last_node->next = new_node;
+	return;
+}
+int main(){
+	
+	Node* head = NULL;
+
+	InsertAtEnd(head, 1);
+	InsertAtEnd(head, 2);
+	InsertAtEnd(head, 3);
+	PrintList(head);
+	system("pause>0");
+	return 0;
+
+}

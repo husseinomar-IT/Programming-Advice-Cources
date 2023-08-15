@@ -1,0 +1,106 @@
+
+#include<iostream>
+#include<string>
+#include<cmath>
+
+
+using namespace std;
+
+int ReadNumber()
+{
+	int Num;
+	cout << "Please enter the Number? ";
+	cin >> Num;
+	return Num;
+
+}
+
+
+string NumberToString(int Num)
+{
+	if (Num == 0)
+	{
+		return "";
+	}
+		
+	if (Num >= 1 && Num <= 19)
+	{
+		string arr[] = { "", "One", "Tow", "Three", "Four", "Five",
+			"Six", "Seven", "Eight", "Nine", "Ten", "Eleven",
+			"Twelve", "Thirteen", "Fourteen", "Fiveteen", "Sixteen",
+			"Seventeen", "Eighteen", "Ninteen" };
+		return arr[Num] + " ";
+	}
+
+	if (Num >= 20 && Num <= 99)
+	{
+		string arr[] = { "", "", "Twenty", "Thirty", "Forty", "Fivty", "Sixty", "Seventy", "Eighty", "Ninty" };
+		return arr[Num / 10] + "" + NumberToString(Num % 10);
+	}
+
+	if (Num>=100 && Num<=199)
+	{
+		return "One Hundred" + NumberToString(Num % 100);
+	}
+
+	if (Num >= 200 && Num <= 999)
+	{
+		return NumberToString(Num / 100) + "Hundred" + NumberToString(Num % 100);
+	}
+	
+	if (Num >= 1000 && Num <= 1999)
+	{
+		return "One thousent" + NumberToString(Num % 1000);
+	}
+
+	if (Num >= 2000 && Num <= 999999)
+	{
+		return NumberToString(Num / 1000) + "thousent" + NumberToString(Num % 1000);
+	}
+
+	if (Num >= 1000000 && Num <= 1999999)
+	{
+		return "One Millon" + NumberToString(Num % 100000);
+	}
+
+		if (Num >= 2000000 && Num <= 999999999)
+	{
+			return NumberToString(Num / 1000000) + "Millons" + NumberToString(Num % 1000000);
+	}
+
+		if (Num >= 1000000000 && Num <= 1999999999)
+		{
+			return "One Billion" + NumberToString(Num % 1000000000);
+		}
+		else
+		{
+			return NumberToString(Num / 1000000000) + "Billion" + NumberToString(Num % 1000000000);
+		}
+
+
+
+
+}
+
+int main(){
+	srand((unsigned)time(NULL));
+
+	int Num = ReadNumber();
+	
+	
+	
+	cout << NumberToString(Num) << endl;
+	
+
+
+
+
+
+
+
+
+
+
+
+
+}

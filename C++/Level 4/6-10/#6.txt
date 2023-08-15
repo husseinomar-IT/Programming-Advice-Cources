@@ -1,0 +1,44 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+struct stName
+{
+	string firstname;
+	string lastname;
+
+};
+stName Read_name()
+{
+	stName person;
+	cout << "Enter your name :";
+
+	getline(cin, person.firstname);
+
+	
+	cout << "Enter your name :";
+	getline(cin, person.lastname);
+	return person;
+}
+string Fullname(stName person)
+{
+	string Fullname=
+	  person.firstname +"  "+  person.lastname;
+	return Fullname;
+	
+}
+void print_name(string Fullname)
+{
+	cout <<"Your Full name is: "<< Fullname << endl;
+}
+
+
+
+
+
+
+int main()
+{
+	print_name(Fullname(Read_name()));
+}
+	

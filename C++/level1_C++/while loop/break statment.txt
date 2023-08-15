@@ -1,0 +1,24 @@
+#include<iostream>
+using namespace std;
+
+
+int main()
+{
+
+	int array[12] = { 10, 44, 55, 33, 22, 99, 88, 99, 100,20,666,77};
+	int num_of_search = 20;
+	int i = 0;
+	while (i < 12)
+	{
+		cout << "we are in search about value :" << i + 1 << ":" << array[i] << endl;
+		i++;
+		if (array[i] == num_of_search)
+		{
+			cout << "the value is found in possiion " << i + 1 << ":" << array[i] << endl;
+			break;
+
+		}
+
+	}
+}
+	

@@ -1,0 +1,49 @@
+#include<iostream>
+#include<string>
+using namespace std;
+enum enOpType{ Add = '+', SubTract = '-', Multiple = '*', Divide = '/' };
+float Read_num(string Massage)
+{
+	int Num;
+	cout << Massage << endl;
+	cin >> Num;
+	return Num;
+	
+}
+enOpType ReadOprator()
+{
+	char OP = '+';
+	cout << "Please enter the Oprator Type +..-..*../\n";
+	cin >> OP;
+	return (enOpType)OP;
+
+
+}
+float calcOfnumber(int num, int num2, enOpType OP)
+{
+	switch (OP)
+	{
+	case enOpType::Add:
+			return num + num2;
+		
+	case enOpType::SubTract:
+		return num - num2;
+		
+	case enOpType::Multiple:
+		return num * num2;
+	case enOpType::Divide:
+		return num / num2;
+	default:
+		return num + num2;
+
+	}
+}
+int main()
+
+{	
+	float num1 = Read_num("Please enter the num 1:");
+	float num2 = Read_num("Please enter the num 2:");
+	enOpType OP = ReadOprator();
+	cout << "The Result of our calcute is =" << calcOfnumber(num1, num2, OP) << endl;
+
+}

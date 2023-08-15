@@ -1,0 +1,173 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+
+using namespace std;
+
+
+
+
+string ReadString()
+{
+	string txt;
+	cout << "Please enter Your String" << endl;
+	getline(cin, txt);
+	return txt;
+
+}
+
+
+
+
+vector<string> SplitStringWord(string S1, string delim)
+{
+	vector<string>vstring;
+
+
+	short pos = 0;
+	string sWord;
+	while ((pos = S1.find(delim)) != std::string::npos)
+	{
+
+		sWord = S1.substr(0, pos);
+		if (sWord != "")
+		{
+			vstring.push_back(sWord);
+		}
+		S1.erase(0, pos + delim.length());
+	}
+	cout << endl;
+	if (S1 != "")
+	{
+		vstring.push_back(S1);
+
+	}
+
+	return vstring;
+}
+
+char InvertLetterCase(char Letter)
+{
+	return(isupper(Letter) ? tolower(Letter) : toupper(Letter));
+
+
+}
+
+
+string LowerAllString(string txt)
+
+{
+	for (short i = 0; i < txt.length(); i++)
+	{
+		txt[i] = tolower(txt[i]);
+		txt[i] = InvertLetterCase(txt[i]);
+	}
+	return txt;
+
+
+
+}
+
+string JoinString(vector<string>vstring,string delim)
+{
+	
+	
+	vector<string>::iterator itr = vstring.begin();
+	string S1 = "";
+	for (string &s:vstring)
+	{
+		
+		S1 += s + delim;
+
+	}
+	S1 = S1.substr(0, S1.length() - 1);
+	return S1;
+
+}
+
+
+
+
+string printReverceWord(string txt, string SearchItem, string NewItem, bool MatchCase = true)
+{
+	vector<string>vstring;
+	vstring = SplitStringWord(txt, " ");
+
+	string S = "";
+	for (string &Word : vstring)
+	{
+		if (MatchCase)
+		{
+			if (Word == SearchItem)
+			{
+				Word = NewItem;
+			}
+				
+
+		}
+		else
+		{
+			if (LowerAllString(Word) == LowerAllString(SearchItem))
+			{
+				Word = NewItem;
+			}
+				
+		}
+
+	}
+
+	return JoinString(vstring," ");
+
+}
+
+
+
+
+
+
+
+void printVector(vector<string>vString)
+{
+	for (string &i : vString)
+	{
+		cout << i << " ";
+	}
+	cout << endl;
+}
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+
+	string txt = "Hussein from Yemen Yemen is nice Counter";
+	string Replace = "yemen", ToReplace = "USE";
+
+	cout << "Original String:\n";
+	cout << txt << endl;
+
+
+	cout << "\n\nReplace with match case:\n" << printReverceWord(txt, Replace, ToReplace, true) << endl;
+	
+	
+
+
+
+	 cout << "\n\nReplace with dont match case:\n" << printReverceWord(txt, Replace, ToReplace, false) << endl;
+	
+	
+
+
+
+
+
+
+
+
+
+
+}

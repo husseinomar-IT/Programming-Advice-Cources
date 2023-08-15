@@ -1,0 +1,91 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+
+int ReadLength(string Massage)
+{
+	int Length;
+	do
+	{
+		cout << Massage;
+		cin >> Length;
+	} while (Length <= 0);
+	return Length;
+}
+
+int RandomNumberBetweenRange(int from, int to)
+{
+	int Random = rand() % (to - from + 1) + from;
+	return Random;
+}
+
+void ReadAraayFillRandomNumber(int array[100], int size)
+{
+	
+
+	for (int i = 1; i <= size; i++)
+
+
+		array[i] = RandomNumberBetweenRange(1, 100);
+
+
+
+
+}
+
+void PrintArrayFillRandomNumber(int array[100], int size)
+{
+
+
+	for (int i = 1; i <= size; i++)
+	{
+
+		cout << array[i] << " ";
+
+	}
+	cout << endl;
+
+}
+
+void SumTowArrayRandom(int arry[100], int array2[100], int arry3[100], int size)
+{
+	
+	for (int i = 1; i <= size; i++)
+	{
+		arry3[i] = arry[i] + array2[i];
+	}
+
+
+
+
+}
+
+
+int main()
+{
+	srand((unsigned)time_t(NULL));
+
+	int arr[100];
+	int arr2[100];
+	int arr3[100];
+	int Length = ReadLength("Please enter the Length of Array:");
+	ReadAraayFillRandomNumber(arr, Length);
+	ReadAraayFillRandomNumber(arr2, Length);
+	SumTowArrayRandom(arr, arr2, arr3, Length);
+	
+	
+	
+	cout << "The Array 1 is ";
+	PrintArrayFillRandomNumber(arr, Length);
+	cout << "The Array 2 is ";
+	PrintArrayFillRandomNumber(arr2, Length);
+	cout << "The sum of to array is ";
+	PrintArrayFillRandomNumber(arr3, Length);
+	
+
+
+
+
+}
+

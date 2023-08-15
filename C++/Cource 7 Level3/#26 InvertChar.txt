@@ -1,0 +1,46 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+
+
+char ReadLetter(string Message)
+{
+	char Letter;
+	cout << Message << endl;
+	cin >> Letter;
+	return Letter;
+
+}
+
+char InvertLetterCase(char Letter)
+{
+	return(isupper(Letter) ? tolower(Letter) : toupper(Letter));
+
+	
+}
+
+
+
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+
+	char Letter = ReadLetter("Please enter a Character?");
+	Letter = InvertLetterCase(Letter);
+	cout << "Char after inverting case:\n";
+	cout << Letter << endl;
+}

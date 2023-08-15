@@ -1,0 +1,37 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+struct stAddresss
+{
+	
+	string street;
+	short num;
+	
+};
+struct stOwner
+{
+	string name;
+	short phone;
+	stAddresss address;
+	
+	
+};
+struct car
+{
+	string type;
+	string model;
+	short year;
+	stOwner owner;
+};
+int main()
+{
+   car C1;
+   C1.type="volov";
+   C1.model="f12";
+   C1.year=1998;
+   C1.owner.name="Hussein omar";
+   C1.owner.address.street="hamdan";
+   cout<<"type:"<<C1.type<<" "<<"model:"<<C1.model<<" "<<"year:"<<C1.year<<"\n";
+   cout<<C1.owner.name<<"\n";
+   cout<< C1.owner.address.street<<"\n";
+}

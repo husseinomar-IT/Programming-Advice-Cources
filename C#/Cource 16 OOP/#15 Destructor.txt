@@ -1,0 +1,67 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+
+
+
+
+
+    class clsPerson
+    {
+
+
+
+        public clsPerson()
+        {
+            Console.WriteLine("Constructor  Called");
+        }
+
+
+      ~clsPerson()
+        {
+            Console.WriteLine("Destructor  Called");
+
+        }
+
+
+
+
+
+        public int Salary()
+      {
+          return 5000;
+      }
+
+
+      
+
+
+       
+
+    }
+
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+
+
+            clsPerson Pertson1 = new clsPerson();
+
+
+       Console.WriteLine(    Pertson1.Salary());
+          
+     
+
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}

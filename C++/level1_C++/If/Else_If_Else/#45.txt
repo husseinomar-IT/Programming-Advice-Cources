@@ -1,0 +1,87 @@
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+void Print_month(int numofmonth)
+{
+	if (numofmonth == 1)
+	{
+		cout << "jan\n";
+	}
+	else if (numofmonth == 2)
+	{
+		cout << "february\n";
+	}
+	else if (numofmonth == 3)
+	{
+		cout << "march\n";
+	}
+	else if (numofmonth == 4)
+	{
+		cout << "April\n";
+	}
+	else if (numofmonth == 5)
+	{
+		cout << "may\n";
+	}
+	else if (numofmonth == 6)
+	{
+		cout << "june\n";
+	}
+	else if (numofmonth == 7)
+	{
+		cout << "july\n";
+	}
+	else if (numofmonth == 8)
+	{
+		cout << "August\n";
+	}
+	else if (numofmonth == 9)
+	{
+		cout << "september\n";
+	}
+	else if (numofmonth == 10)
+	{
+		cout << "october\n";
+	}
+	else if (numofmonth == 11)
+	{
+		cout << "Novmber\n";
+	}
+	else if (numofmonth ==12)
+	{
+		cout << "December\n";
+	}
+	else
+	{
+		cout << "Wrong month\n";
+	}
+
+}
+
+int main()
+{
+	int month;
+	cout << "Enter the num of month:";
+	cin >> month;
+	
+
+
+
+	
+	
+	cout << "It is:";
+	Print_month(month);
+	
+	
+
+
+	
+	//cout << "--------------------------------Thank you------------------------------------------\n";
+
+	
+
+
+
+}

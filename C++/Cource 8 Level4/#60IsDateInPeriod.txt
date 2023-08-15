@@ -1,0 +1,824 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+#include<vector>
+#include<cctype>
+#include<fstream>
+
+using namespace std;
+
+enum eCompareDate{Before=-1,Equal=0,After=1};
+short ReadYear()
+{
+	short Year;
+	cout << "Please enter a Year? ";
+	cin >> Year;
+	return Year;
+
+}
+
+short ReadMonth()
+{
+	short Month;
+	cout << "Please enter a Month? ";
+	cin >> Month;
+	return Month;
+
+}
+
+short ReadDay()
+{
+	short Day;
+	cout << "\nPlease enter a Day? ";
+	cin >> Day;
+	return Day;
+
+}
+
+short IsLeapYear(short Year)
+
+{
+	return(Year % 4 == 0 && Year % 100 != 0) || (Year % 400 == 0);
+}
+
+
+
+
+struct sDate
+
+{
+
+	short Day;
+	short Month;
+	short Year;
+};
+
+
+struct sPeriod{
+
+	sDate Start;
+	sDate Ends;
+
+};
+short NumberOfDaysInMonth(short Year, short Month)
+{
+
+	if (Month<1 || Month>12)
+		return 0;
+	int NumberOfDays[12] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+	return	(Month == 2) ? (IsLeapYear(Year) ? 29 : 28) : NumberOfDays[Month - 1];
+
+
+}
+
+
+void PrintDate(short Year, short Month, short Day,short d)
+
+{
+	string Days[7] = { "Sundy", "Monday", "Tuesday", "Wedenesday", "Thursdsy", "Friady", "Sat" };
+	cout <<"Date      : "<< Day << "/" << Month << "/" << Year << "\n";
+	cout << "Day Order:" << d << "\n";
+	
+	cout << "Day Name :" << Days[d] << "\n";
+
+
+}
+
+
+
+
+short OrderOfDay(short Year, short Month, short Day)
+{
+	short a, y, m;
+	a = (14 - Month) / (12);
+	y = Year - a;
+	m = Month + 12 * a - 2;
+	return  (Day + Year + (Year) / (4) - (Year) / (100) + (Year) / (400) + (31 * m) / (12)) % 7;
+	
+	
+}
+
+
+
+string MonthShortName(short Month)
+{
+	string arrMonth[12] = { "Jan", "Feb", "Mar",
+		                   "April", "May", "Jun",
+						   "July", "Aug", "Sep",
+						   "Oct", "Nov", "Dec" };
+	return arrMonth[Month - 1];
+}
+
+
+
+
+void PrintCelender(short Year, short Month)
+{
+	short Current = OrderOfDay(Year, Month, 1);
+	short NumberOfDays = NumberOfDaysInMonth(Year, Month);
+
+	
+	printf("\n----------------------------%s--------------------------\n\n", MonthShortName(Month).c_str());
+	printf(" Sun  Mon  Tue  Wed  Thu  Fri  Sat \n");
+	short i;
+	for (i = 0; i < Current; i++)
+		printf("     ");
+		
+	for (short j = 1; j <= NumberOfDays; j++)
+	{
+		printf("%5d", j);
+		if (++i == 7)
+		{
+			i = 0;
+			printf("\n");
+		}
+	}
+		
+	printf("\n--------------------------------------------------------\n");
+}
+
+
+void PrintCelenderofYear(short Year)
+{
+	printf("\n--------------------------------------------------------\n\n\n");
+	printf("                   Calender-%d\n ",Year);
+	printf("\n\n\n--------------------------------------------------------\n");
+	for (short i = 1; i <= 12; i++)
+	{
+		
+		PrintCelender(Year, i);
+	}
+
+
+}
+
+
+short NumberofDaysFromTheBeginingOfTheYear( short Day,short Month, short Year)
+{
+
+	short TotalDays = 0;
+	for (short i = 1; i <= Month-1; i++)
+
+        {
+			TotalDays += NumberOfDaysInMonth(Year, i);
+	    }
+	TotalDays += Day;
+	return TotalDays;
+
+}
+
+
+
+sDate ReadFullDate()
+{
+	sDate Date;
+	Date.Day = ReadDay();
+	Date.Month = ReadMonth();
+	Date.Year = ReadYear();
+	return Date;
+}
+
+
+sDate AddDaysToDate(short AddDays,sDate Date)
+{
+
+	
+	
+	short RemainingDays = AddDays + NumberofDaysFromTheBeginingOfTheYear(Date.Day,Date.Month,Date.Year);
+	short MonthDays = 0;
+
+	
+	Date.Month = 1;
+	while (true)
+	{
+		MonthDays = NumberOfDaysInMonth(Date.Year, Date.Month);
+		if (RemainingDays > MonthDays)
+		{
+			RemainingDays -= MonthDays;
+			Date.Month++;
+			if (Date.Month > 12)
+			{
+				Date.Month = 1;
+				Date.Year++;
+			}
+			
+		}
+		else
+		{
+			Date.Day = RemainingDays;
+			break;
+		}
+	}
+	return Date;
+}
+
+
+bool IsDate1LessThanDate2(sDate Date1, sDate Date2)
+{
+
+	return(Date1.Year < Date2.Year) ? true
+		: ((Date1.Year == Date2.Year) ? (Date1.Month < Date2.Month ? true
+		: (Date1.Month == Date2.Month ? Date1.Day < Date2.Day : false)) : false);
+
+}
+
+
+bool IsEqualDate1Date2(sDate Date1, sDate Date2)
+{
+	
+	
+	return(Date1.Year == Date2.Year) ? ((Date1.Month == Date2.Month) ? ((Date1.Day == Date2.Day) ? true : false) : false) : false;
+
+}
+
+
+
+bool ISLastDayInMonth(sDate Date)
+{
+	
+	return(Date.Day == NumberOfDaysInMonth(Date.Year,Date.Month));
+
+
+}
+bool isLastMonthInYear(short Month)
+{
+	
+	return(Month==12);
+}
+
+
+
+
+bool ISFirstDayInMonth(sDate Date)
+{
+
+	return(Date.Day == 1);
+
+
+}
+bool isFirstMonthInYear(short Month)
+{
+
+	return(Month == 1);
+}
+
+
+sDate IncreaseByOneDay(sDate Date)
+{
+
+	if (ISLastDayInMonth(Date))
+	{
+		if (isLastMonthInYear(Date.Month))
+		{
+			Date.Day = 1;
+			Date.Month = 1;
+			Date.Year++;
+		}
+		else
+		{
+			Date.Day = 1;
+			Date.Month++;
+		}
+	}
+	else
+	{
+		Date.Day++;
+	}
+		
+	
+	
+	
+
+	return Date;
+}
+
+
+
+
+
+sDate  IncreaseXDays(short Days,sDate Date)
+{
+	for (short i = 1; i <= Days; i++)
+	{
+		Date = IncreaseByOneDay(Date);
+	}
+	
+	return Date;
+
+}
+void SwapDate(sDate &Date1, sDate &Date2)
+{
+	sDate Temp;
+	Temp.Day   = Date1.Day;
+	Temp.Month = Date1.Month;
+	Temp.Year  = Date1.Year;
+	
+
+
+	Date1.Day   = Date2.Day;
+	Date1.Month = Date2.Month;
+	Date1.Year  = Date2.Year;
+
+
+	Date2.Day   = Temp.Day;
+	Date2.Month = Temp.Month;
+	Date2.Year  = Temp.Year;
+	
+}
+
+int DiffrentBetweenDate1Date2(sDate Date1, sDate Date2,bool includeEndDay=false)
+{
+	short TempFlag = 1;
+	if (!IsDate1LessThanDate2(Date1, Date2))
+	{
+		SwapDate(Date1, Date2);
+		TempFlag = -1;
+	}
+
+	short Days = 0;
+ 
+	while (IsDate1LessThanDate2(Date1, Date2))
+	{
+		Days++;
+		Date1 = IncreaseByOneDay(Date1);
+		
+	}
+	return includeEndDay ? (++Days*TempFlag) : (Days*TempFlag);
+	
+}
+
+sDate IncreaseByOneWeek(sDate Date)
+{
+
+
+	for (short i = 1; i <= 7; i++)
+	{
+		Date = IncreaseByOneDay(Date);
+	}
+
+	return Date;
+
+}
+
+sDate IncreaseXWeeks(short Week,sDate Date)
+{
+
+
+	for (short i = 1; i <= Week; i++)
+	{
+		Date = IncreaseByOneWeek(Date);
+	}
+
+	return Date;
+
+
+}
+
+sDate IncreaceDateByOneMonth(sDate Date)
+{
+
+
+	if (Date.Month == 12)
+	{
+		Date.Month = 1;
+		Date.Year++;
+	}
+	else
+	{
+		Date.Month++;
+	}
+	short NumberOfDaysInCurrentMonth = NumberOfDaysInMonth(Date.Year, Date.Month);
+	if (Date.Day > NumberOfDaysInCurrentMonth)
+	{
+		Date.Day = NumberOfDaysInCurrentMonth;
+	}
+
+	return Date;
+}
+
+sDate IncreaceDateByXMonth(short Month,sDate Date)
+{
+	for (short i = 1; i <= Month; i++)
+	{
+		Date = IncreaceDateByOneMonth(Date);
+	}
+	
+	return Date;
+}
+
+
+sDate IncreaceDateByOneYear(sDate Date)
+{
+	Date.Year++;
+	return Date;
+}
+
+sDate IncreaceDateByXYear(short Year, sDate Date)
+{
+	for (short i = 1; i <= Year; i++)
+	{
+		Date = IncreaceDateByOneYear(Date);
+	}
+	
+	return Date;
+}
+
+sDate IncreaceDateByXYearFaster(short Year, sDate Date)
+{
+	Date.Year += Year;
+
+	return Date;
+}
+
+
+sDate IncreaceDateByOneDecade( sDate Date)
+{
+	Date.Year += 10;
+
+	return Date;
+}
+
+
+sDate IncreaceDateByXDecade(short Decade,sDate Date)
+{
+	for (short i = 1; i <= Decade; i++)
+	{
+		Date = IncreaceDateByOneDecade(Date);
+	}
+	Date.Year += Decade*10;
+
+	return Date;
+}
+
+
+
+sDate IncreaceDateByXDecadeFaster(short Decade, sDate Date)
+{
+	
+	Date.Year += Decade * 10;
+
+	return Date;
+}
+
+
+sDate IncreaceDateByOneCentury(sDate Date)
+{
+
+	Date.Year +=   100;
+
+	return Date;
+}
+
+sDate IncreaceDateByOneMillennium(sDate Date)
+{
+
+	Date.Year += 1000;
+
+	return Date;
+}
+sDate DeccreaseDateOneDay(sDate Date)
+{
+
+	if (ISFirstDayInMonth(Date))
+	{
+		if (isFirstMonthInYear(Date.Month))
+		{
+			Date.Day = 31;
+			Date.Month = 12;
+			Date.Year--;
+		}
+		else
+		{
+			Date.Month--;
+			Date.Day = NumberOfDaysInMonth(Date.Year, Date.Month );
+			
+
+		}
+	}
+	else
+	{
+		Date.Day--;
+	}
+
+
+
+
+
+	return Date;
+}
+
+
+sDate  DeccreaseDateXDays(short Days, sDate Date)
+{
+	for (short i = 1; i <= Days; i++)
+	{
+		Date = DeccreaseDateOneDay(Date);
+	}
+	return Date;
+}
+
+
+sDate  DeccreaseDateOneWeek(sDate Date)
+{
+	for (short i = 1; i <= 7; i++)
+	{
+		Date = DeccreaseDateOneDay(Date);
+	}
+	return Date;
+}
+
+sDate DeccreaseDateByXWeeks(short Weeks, sDate Date)
+{
+	for (short i = 1; i <= Weeks; i++)
+	{
+		Date = DeccreaseDateOneWeek(Date);
+	}
+	return Date;
+}
+
+sDate DeccreaseDateByOneMonth( sDate Date)
+{
+	if (Date.Month == 1)
+	{
+		Date.Month = 12;
+		Date.Year--;
+	}
+	else
+	{
+		Date.Month--;
+	}
+		
+
+		short NumberOfDaysInCurrentMonth = NumberOfDaysInMonth(Date.Year, Date.Month);
+		if (Date.Day > NumberOfDaysInCurrentMonth)
+		{
+			Date.Day = NumberOfDaysInCurrentMonth;
+		}
+	return Date;
+}
+
+
+sDate DeccreaseDateByXMonths(short Months, sDate Date)
+{
+	for (short i = 1; i <= Months; i++)
+	{
+		Date = DeccreaseDateByOneMonth(Date);
+	}
+	return Date;
+}
+sDate DeccreaseDateByOneYear( sDate Date)
+{
+	Date.Year--;
+	return Date;
+}
+
+sDate DeccreaseDateXYear(short Years, sDate Date)
+{
+	for (short i = 1; i <= Years; i++)
+	{
+		Date = DeccreaseDateByOneYear(Date);
+	}
+	
+	return Date;
+}
+
+sDate DeccreaseDateXYearFaster(short Years, sDate Date)
+{
+	Date.Year -= Years;
+
+	return Date;
+}
+
+
+sDate DeccreaseDateByOneDecade(sDate Date)
+{
+	Date.Year -= 10;
+
+	return Date;
+}
+
+sDate DeccreaseDateByXDecade(short Decade,sDate Date)
+{
+	for (short i = 1; i <= Decade; i++)
+	{
+		Date = DeccreaseDateByOneDecade(Date);
+	}
+	
+
+	return Date;
+}
+
+sDate DeccreaseDateByXDecadeFaster(short Years, sDate Date)
+{
+	Date.Year -= 10*Years;
+
+	return Date;
+}
+
+sDate DeccreaseDateByOneCentury( sDate Date)
+{
+	Date.Year -= 100;
+
+	return Date;
+}
+
+sDate DeccreaseDateByOneMillennium(sDate Date)
+{
+	Date.Year -= 1000;
+
+	return Date;
+}
+
+
+short OrderOfDay(sDate Data)
+{
+	
+	return OrderOfDay(Data.Year, Data.Month, Data.Day);
+
+}
+
+sDate SystemDate()
+{
+	time_t t = time(0);
+	tm*now = localtime(&t);
+	sDate Date;
+	Date.Day = now->tm_mday;
+	Date.Month = now->tm_mon + 1;
+	Date.Year = now->tm_year + 1900;
+	return Date;
+}
+
+
+string PrintShortNameDay(short Day)
+
+{
+	string Daysarr[7] = { "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat" };
+	
+	return Daysarr[Day];
+
+
+}
+
+
+bool IsEndOfWeek(sDate Date)
+{
+	return(OrderOfDay(Date) == 6);
+}
+
+bool IsWeekEnd(sDate Date)
+{
+	short index = OrderOfDay(Date);
+	return(index==4 || index==5);
+}
+
+bool IsBusinessDay(sDate Date)
+{
+	return(!IsWeekEnd(Date) );
+}
+
+
+short DaysUntilTheEndOfWeek(sDate Date)
+{
+	return 6 - OrderOfDay(Date);
+}
+short DaysUntilTheEndOfMonth(sDate Date)
+{
+	sDate DaysOfCurrentMont;
+	DaysOfCurrentMont.Day = NumberOfDaysInMonth(Date.Year, Date.Month);
+	DaysOfCurrentMont.Month = Date.Month;
+	DaysOfCurrentMont.Year = Date.Year;
+	
+
+	return DiffrentBetweenDate1Date2(Date, DaysOfCurrentMont);
+}
+short DaysUntilTheEndOfYear(sDate Date)
+{
+	sDate DaysOfCurrentMont;
+	DaysOfCurrentMont.Day = 31;
+	DaysOfCurrentMont.Month = 12;
+	DaysOfCurrentMont.Year = Date.Year;
+
+	return DiffrentBetweenDate1Date2(Date, DaysOfCurrentMont);
+}
+
+short CalcVacationPeriod(sDate vStart, sDate vEnds)
+{
+	
+	short Dayscount = 0;
+	while (IsDate1LessThanDate2(vStart,vEnds))
+	{
+		if (IsBusinessDay(vStart))
+			Dayscount++;
+		vStart = IncreaseByOneDay(vStart);
+
+	}
+	return Dayscount;
+}
+
+short ReadVacationDays()
+{
+	short Days;
+	cout << "\nplease enter vacation days? ";
+	cin >> Days;
+	return Days;
+}
+
+
+
+
+sDate CalcVactionReturnDate(sDate startDate, short Days)
+{
+	short counterDays = 0;
+	for (short i = 1; i <= Days; i++)
+	{
+		if (IsWeekEnd(startDate))
+			counterDays++;
+
+
+		startDate = IncreaseByOneDay(startDate);
+	}
+	for (short i = 1; i <= counterDays; i++)
+		startDate = IncreaseByOneDay(startDate);
+	while (IsWeekEnd(startDate))
+	{
+		startDate = IncreaseByOneDay(startDate);
+	}
+
+	return startDate;
+}
+
+
+bool IsDate1AfterDate2(sDate Date1, sDate Date2)
+{
+	return(!IsDate1LessThanDate2(Date1,Date2)&& !IsEqualDate1Date2(Date1,Date2));
+}
+
+
+eCompareDate CompareDates(sDate Date1, sDate Date2)
+{
+	if (IsDate1LessThanDate2(Date1,Date2))
+		return eCompareDate::Before;
+	if (IsEqualDate1Date2(Date1, Date2))
+		return eCompareDate::Equal;
+	return eCompareDate::After;
+}
+
+
+
+sPeriod ReadFullPeriod()
+{
+	sPeriod Period;
+	cout << "Enter Start Date:\n\n";
+	Period.Start = ReadFullDate();
+	cout << "\nEnter End Date:\n\n";
+	Period.Ends = ReadFullDate();
+	return Period;
+}
+
+bool IsOverLapPeriod(sPeriod Period1, sPeriod Period2)
+{
+	
+	if (CompareDates(Period2.Ends, Period1.Start) == eCompareDate::Before ||
+		CompareDates(Period2.Start, Period1.Ends) == eCompareDate::After)
+	return false;
+	else
+		return true;
+	
+	
+	
+}
+
+bool IsDateInPeriod(sPeriod Period, sDate Date)
+{
+	return !(CompareDates(Date, Period.Start) == eCompareDate::Before
+
+		|| CompareDates(Date, Period.Ends) == eCompareDate::After);
+}
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+
+
+
+	sPeriod Period1;
+	cout << "\n Enter Period1:";
+
+	Period1 = ReadFullPeriod();
+
+	sDate Date;
+	cout << "\n Enter Date to check:\n\n";
+	Date = ReadFullDate();
+	if (IsDateInPeriod(Period1, Date))
+		cout << "\n Yes,Date in Period ";
+	else
+		cout << "\n No,Date  Not  in Period ";
+
+
+
+}

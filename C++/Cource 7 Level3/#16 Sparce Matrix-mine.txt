@@ -1,0 +1,100 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<ctime>
+#include<iomanip>
+#include<string>
+#include<cmath>
+
+using namespace std;
+
+
+
+void printRandomArray(int array[3][3], short Rows, short Cols)
+{
+	
+
+	for (int i = 0; i <Rows; i++)
+	{
+
+		for (int j = 0; j <Cols; j++)
+		{
+		
+			//printf("%0*d\t", 2, array[i][j]);
+			cout << setw(3) << array[i][j] << " ";
+		}
+		cout << endl;
+
+	}
+
+
+}
+
+
+int CountNumber0InMatrix(int arr[3][3], short Rows, short Cols)
+{
+	int counter = 0;
+	
+	
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+
+			if (arr[i][j] == 0)
+			{
+				counter++;
+			}
+		}
+	}
+	return counter;
+}
+
+int CountNumberBiggerThan0InMatrix(int arr[3][3], short Rows, short Cols)
+{
+	int counter = 0;
+
+
+	for (int i = 0; i < Rows; i++)
+	{
+		for (int j = 0; j < Cols; j++)
+		{
+
+			if (arr[i][j] > 0)
+			{
+				counter++;
+			}
+		}
+	}
+	return counter;
+}
+
+bool CheckSparseMatrix(int arr[3][3], short Rows, short Cols)
+{
+	int CounterOfZero = CountNumber0InMatrix(arr, Rows, Cols);
+	int CounterNumber = CountNumberBiggerThan0InMatrix(arr, Rows, Cols);
+	return (CounterOfZero > CounterNumber);
+}
+
+
+
+
+
+
+
+
+int main(){
+	srand((unsigned)time(NULL));
+	int Matrixarr1[3][3] = { { 0,0,9}, { 0 ,0, 4 },{0,0,9} };
+	
+
+
+	cout << "Matrix1: \n";
+	printRandomArray(Matrixarr1, 3, 3);
+	if (CheckSparseMatrix(Matrixarr1, 3, 3))
+		cout << "It is sparse \n";
+	else 
+		cout << "It is  not sparse \n";
+
+	
+
+ }

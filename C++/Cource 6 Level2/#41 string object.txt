@@ -1,0 +1,41 @@
+
+#include<iostream>
+#include<iomanip>
+#include<string>
+#include<vector>
+using namespace std;
+
+
+
+
+
+
+
+
+int main(){
+	string s1 = "My name is Hussein khalid  I love Programming,";
+	
+	cout << s1.length() << endl;
+	cout << s1.at(3) << endl;
+	cout << s1.insert(26, "Omar") << endl;
+	cout << s1.append(" @programmingAdvice") << endl;
+	s1.push_back('H');
+	cout << s1 << endl;
+	s1.pop_back();
+	cout << s1 << endl;
+	cout << s1.substr(11, 14) << endl;;
+	cout << s1.find("Hussein") << endl;
+	if (s1.find("hussein") == s1.npos)
+	{
+		cout << "Not found " << endl;
+	}
+	else
+
+	cout << s1.find("hussein") << endl;
+	
+}
+
+
+
+
+

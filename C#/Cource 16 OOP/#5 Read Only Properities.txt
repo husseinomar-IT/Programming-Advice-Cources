@@ -1,0 +1,55 @@
+using System;
+using System.Linq;
+namespace ConsoleApplication7
+{
+
+    class clsEmployee
+    {
+        private int _ID;
+        private string _Name = string.Empty;
+
+        public int ID
+        {
+            get
+        {
+            return _ID;
+        }
+
+      
+        }
+
+
+        public string Name
+        {
+            get
+            {
+                return _Name;
+            }
+
+            set
+            {
+                _Name = value;
+            }
+        }
+    }
+    class Program
+    {
+      
+        static void Main(string[] args)
+        {
+
+
+            clsEmployee Employee1 = new clsEmployee();
+
+         
+            Employee1.Name = "Hussein Khalid Omar";
+            Console.WriteLine("Employee ID={0}", Employee1.ID);
+            Console.WriteLine("Employee Name={0}", Employee1.Name);
+
+      
+
+        Console.ReadKey();
+          
+        }
+    }
+}

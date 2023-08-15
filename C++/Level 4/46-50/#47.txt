@@ -1,0 +1,46 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+
+
+int ReadPositiveNumber(string Massage)
+{
+	int Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num <= 0);
+
+	return Num;
+
+}
+
+
+float CalculateLoadInstallmentMonths(float LoanAmount, float MonthlyInstallment)
+
+{
+	return (float)LoanAmount / MonthlyInstallment;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+int main()
+
+{
+	float LoanAmount = ReadPositiveNumber("Please enter loan Amount");
+	float MonthlyInstallment = ReadPositiveNumber("Please enter the MonthlyInstallment");
+	cout << "The Result =" << CalculateLoadInstallmentMonths(LoanAmount, MonthlyInstallment) << endl;
+}

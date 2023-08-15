@@ -1,0 +1,47 @@
+#pragma warning(disable:4996)
+#include<iostream>
+#include<string>
+
+
+using namespace std;
+
+
+class clsPerson{
+	struct stAddress
+	{
+		
+		string City;
+		string Country;
+	};
+
+public:
+	string Fullname;
+	stAddress Address;
+	clsPerson()
+	{
+		Fullname = "Hussein Khalid Hussein Omar";
+		Address.Country = "Yemen";
+		Address.City = "Sana'a";
+	}
+	void Print()
+	{
+		cout << "Address:\n";
+		cout << "Country: " << Address.Country << endl;
+		cout << "City: " << Address.City << endl;
+
+	}
+};
+
+
+
+ 
+int main(){
+
+	clsPerson Person1;
+	Person1.Print();
+	
+	
+
+
+
+}

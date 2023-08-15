@@ -1,0 +1,64 @@
+#include<iostream>
+using namespace std;
+struct Conection
+{
+	string phone;
+	string email;
+};
+struct State
+{
+	char Gender;
+	bool Married;
+};
+struct salary
+{
+	double Monthly_salary;
+	double Yearly_salary;
+};
+struct Address
+{
+	string city;
+	string country;
+};
+
+struct Employe
+{
+	
+	string name;
+	short age;
+	Address location;
+	salary sala;
+	State s;
+	Conection Contact;
+
+};
+int main()
+{
+	Employe E;
+	E.name="Hussein khalid";
+	E.age=21;
+	E.location.city="sana'a";
+	E.location.country="Yemen";
+	E.sala.Monthly_salary=5000;
+	E.sala.Yearly_salary=E.sala.Monthly_salary*12;
+	E.s.Gender='F';
+	E.s.Married=0;
+	E.Contact.phone="773787547";
+	E.Contact.email="Hussein@gmail.com";
+	
+	cout<<"**************************************\n";
+	cout<<"Name:"<<E.name<<"\n";
+	cout<<"Age:"<<E.age<<"\n";
+	cout<<"City:"<<E.location.city<<"\n";
+	cout<<"Country:"<<E.location.country<<"\n";
+	cout<<"Monthly_Salary"<<E.sala.Monthly_salary<<"\n";
+	cout<<"Year_salary:"<<E.sala.Yearly_salary<<"\n";
+	cout<<"Gender:"<<E.s.Gender<<"\n";
+	cout<<"Maried:"<<E.s.Married<<"\n";
+	cout<<"Phone:"<<E.Contact.phone<<"\n";
+	cout<<"Email:"<<E.Contact.email<<"\n";
+	cout<<"**************************************\n";
+	
+
+	
+}

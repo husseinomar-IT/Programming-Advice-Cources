@@ -1,0 +1,126 @@
+using System;
+using System.Linq;
+using System.Data;
+using MyFirstClassLibrary;
+using System.Data.SqlClient;
+
+namespace ConsoleApplication7
+{
+
+   
+  
+
+
+
+
+    class Program
+    {
+        static string ConncetionString = "Server=.;Database=ContactsDB;User Id=sa;Password=se123456";
+
+
+
+
+  
+
+  
+
+        static void Main(string[] args)
+        {
+            DataTable EmployeesDateTable = new DataTable();
+            //EmployeesDateTable.Columns.Add("ID", typeof(int));
+            //EmployeesDateTable.Columns.Add("Name", typeof(string));
+            //EmployeesDateTable.Columns.Add("Country", typeof(string));
+            //EmployeesDateTable.Columns.Add("Salary", typeof(Double));
+            //EmployeesDateTable.Columns.Add("Date", typeof(DateTime));
+
+            DataColumn dtColumn = new DataColumn();
+
+            dtColumn.DataType = typeof(int);
+            dtColumn.ColumnName = "ID";
+            dtColumn.Caption = "Employee ID";
+            dtColumn.AutoIncrement = true;
+            dtColumn.ReadOnly = true;
+            dtColumn.AutoIncrementSeed = 1;
+            dtColumn.AutoIncrementStep = 1;
+            dtColumn.Unique = true;
+
+            EmployeesDateTable.Columns.Add(dtColumn);
+
+
+
+
+
+            dtColumn = new DataColumn();
+
+            dtColumn.DataType = typeof(string);
+            dtColumn.ColumnName = "Name";
+            dtColumn.Caption = " Name";
+            EmployeesDateTable.Columns.Add(dtColumn);
+
+
+
+
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(string);
+            dtColumn.ColumnName = "Country";
+            dtColumn.Caption = " Country";
+            EmployeesDateTable.Columns.Add(dtColumn);
+
+
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(Double);
+            dtColumn.ColumnName = "Salary";
+            dtColumn.Caption = " Salary";
+            EmployeesDateTable.Columns.Add(dtColumn);
+
+
+
+
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(DateTime);
+            dtColumn.ColumnName = "Date";
+            dtColumn.Caption = " Date";
+            EmployeesDateTable.Columns.Add(dtColumn);
+
+
+
+
+
+
+
+
+            DataColumn[] PrimaryKeyColumns = new DataColumn[1];
+            PrimaryKeyColumns[0] = EmployeesDateTable.Columns["ID"];
+            EmployeesDateTable.PrimaryKey = PrimaryKeyColumns;
+
+
+
+            EmployeesDateTable.Rows.Add(null, "Hussein", "Yemen", 20000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(null, "Khalid", "Yemen", 10000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(null, "Ammar", "KSA", 25000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(null, "Ali", "Chaina", 10000, DateTime.Now);
+
+
+
+        
+
+            foreach (DataRow Row in EmployeesDateTable.Rows)
+            {
+                Console.WriteLine("ID:{0}\tName:{1}\tCountry:{2}\tSalary:{3}\tDate:{4}", Row["ID"], Row["Name"], Row["Country"], Row["Salary"], Row["Date"]);
+             //   Console.WriteLine("ID:{0}\tName:{1}\tCountry:{2}\tSalary:{3}\tDate:{4}\n", Row[0], Row[1], Row[2], Row[3], Row[4]);
+            }
+            Console.WriteLine();
+
+
+   
+
+
+         
+
+
+
+            Console.ReadKey();
+
+        }
+    }
+}

@@ -1,0 +1,61 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+
+
+int Read_num(string Massage)
+{
+	int Num;
+	do
+	{
+		cout << Massage << "\n";
+		cin >> Num;
+	} while (Num <= 0);
+
+	return Num;
+
+}
+
+int CountDigitFrequenecy(int Num,short check_num)
+{
+	
+	int Freqcounter = 0;
+	int Remender = 0;
+
+	while (Num > 0)
+	{ 
+		Remender = Num % 10;
+		Num = Num / 10;
+		if (Remender == check_num)
+		{
+			Freqcounter++;
+		}
+			
+		
+		
+
+	
+	}
+	return Freqcounter;
+
+	
+}
+
+
+
+void PrintDigitNum(int Num,short Counter)
+{
+	cout << "Digit  Num  " << Num << "Frequenency is :" << Counter << endl;
+}
+
+
+
+int main()
+
+{
+	int Num = Read_num("Please enter a Postive number");
+	short Check_num = Read_num("Please enter thr check num");
+	PrintDigitNum(Check_num, CountDigitFrequenecy(Num, Check_num));
+
+}

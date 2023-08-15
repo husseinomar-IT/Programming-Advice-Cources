@@ -1,0 +1,17 @@
+select DepartmentID from Employees;
+
+
+select distinct  DepartmentID from Employees;
+
+
+
+
+select CountryID from Employees;
+
+
+select  distinct CountryID from Employees;
+
+
+
+select FirstName,DepartmentID from Employees;
+select  distinct FirstName,DepartmentID from Employees;

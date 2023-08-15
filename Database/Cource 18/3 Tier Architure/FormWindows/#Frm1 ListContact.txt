@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using ContactsBusinisLayer;
+
+namespace ContactsFormsApplication
+{
+    public partial class FrmContactsList : Form
+    {
+        public FrmContactsList()
+        {
+            InitializeComponent();
+        }
+
+
+
+        private void _RefreshContactsList()
+        {
+            dgvAllContacts.DataSource = clsContact.GetAllContact();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            _RefreshContactsList();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEditAddContact frm2 = new FrmEditAddContact((int)dgvAllContacts.CurrentRow.Cells[0].Value);
+            frm2.ShowDialog();
+            _RefreshContactsList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+             int ID=-1;
+            FrmEditAddContact frm2 = new FrmEditAddContact(ID);
+            frm2.ShowDialog();
+            _RefreshContactsList();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (MessageBox.Show("Are you Sure you want Do Delete Contact With ID[" + dgvAllContacts.CurrentRow.Cells[0].Value+"]")==DialogResult.OK)
+            {
+                if (clsContact.DeleteContact((int)dgvAllContacts.CurrentRow.Cells[0].Value))
+                {
+                    MessageBox.Show("Record Deleted Successfuly ");
+                    _RefreshContactsList();
+                }
+                else
+                {
+                    MessageBox.Show("Record is not Deleted  ");
+                }
+
+
+            }
+           
+
+
+        }
+    }
+}

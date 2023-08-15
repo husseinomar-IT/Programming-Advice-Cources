@@ -1,0 +1,136 @@
+       static void Main(string[] args)
+        {
+            DataTable EmployeesDateTable = new DataTable();
+            EmployeesDateTable.Columns.Add("ID", typeof(int));
+            EmployeesDateTable.Columns.Add("Name", typeof(string));
+            EmployeesDateTable.Columns.Add("Country", typeof(string));
+            EmployeesDateTable.Columns.Add("Salary", typeof(Double));
+            EmployeesDateTable.Columns.Add("Date", typeof(DateTime));
+
+            EmployeesDateTable.Rows.Add(1, "Hussein", "Yemen", 20000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(1, "Khalid", "Yemen", 10000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(1, "Ammar", "KSA", 25000, DateTime.Now);
+            EmployeesDateTable.Rows.Add(1, "Ali", "Chaina", 10000, DateTime.Now);
+
+
+
+
+            int EmployeesCount = 0;
+            double TotalSalaries = 0;
+            double AvgSalaries = 0;
+            double MinSalary = 0;
+            double MaxSalary = 0;
+
+            foreach (DataRow Row in EmployeesDateTable.Rows)
+            {
+                Console.WriteLine("ID:{0}\tName:{1}\tCountry:{2}\tSalary:{3}\tDate:{4}\n", Row["ID"], Row["Name"], Row["Country"], Row["Salary"], Row["Date"]);
+             //   Console.WriteLine("ID:{0}\tName:{1}\tCountry:{2}\tSalary:{3}\tDate:{4}\n", Row[0], Row[1], Row[2], Row[3], Row[4]);
+            }
+
+
+            EmployeesCount = EmployeesDateTable.Rows.Count;
+            TotalSalaries = Convert.ToDouble(EmployeesDateTable.Compute("SUM(Salary)", string.Empty));
+            AvgSalaries  = Convert.ToDouble(EmployeesDateTable.Compute("AVG(Salary)", string.Empty));
+            MinSalary = Convert.ToDouble(EmployeesDateTable.Compute("MIN(Salary)", string.Empty));
+            MaxSalary = Convert.ToDouble(EmployeesDateTable.Compute("Max(Salary)", string.Empty));
+
+
+            Console.WriteLine("Employees Count = " + EmployeesCount);
+            Console.WriteLine("Toatal  Salary  = " + TotalSalaries);
+            Console.WriteLine("Avarege Salary = " + AvgSalaries);
+            Console.WriteLine("Min Salary= " + MinSalary);
+            Console.WriteLine("Max Salary= " + MaxSalary);
+            Console.WriteLine();
+
+
+            int ResultCount = 0;
+            DataRow[] ResultRows;
+
+            ResultRows = EmployeesDateTable.Select("Country='Yemen'");
+            ResultCount=ResultRows.Count();
+            Console.WriteLine("Filter DataRows");
+            Console.WriteLine("Count Rows=" + ResultCount);
+            foreach (DataRow Row in ResultRows)
+            {
+                Console.WriteLine("ID:{0}\tName:{1}\tCountry:{2}\tSalary:{3}\tDate:{4}\n", Row["ID"], Row["Name"], Row["Country"], Row["Salary"], Row["Date"]);
+            }
+
+
+            Console.WriteLine("Agregation Function");
+            EmployeesCount = ResultRows.Count();
+            TotalSalaries = Convert.ToDouble(EmployeesDateTable.Compute("SUM(Salary)", "Country='Yemen'"));
+            AvgSalaries = Convert.ToDouble(EmployeesDateTable.Compute("AVG(Salary)", "Country='Yemen'"));
+            MinSalary = Convert.ToDouble(EmployeesDateTable.Compute("MIN(Salary)", "Country='Yemen'"));
+            MaxSalary = Convert.ToDouble(EmployeesDateTable.Compute("Max(Salary)", "Country='Yemen'"));
+
+
+
+
+            Console.WriteLine("Employees Count = " + EmployeesCount);
+            Console.WriteLine("Toatal  Salary  = " + TotalSalaries);
+            Console.WriteLine("Avarege Salary = " + AvgSalaries);
+            Console.WriteLine("Min Salary= " + MinSalary);
+            Console.WriteLine("Max Salary= " + MaxSalary);
+            Console.WriteLine();
+
+
+
+
+            ResultRows = EmployeesDateTable.Select("Country='Yemen' or Country='KSA' ");
+            ResultCount = ResultRows.Count();
+            Console.WriteLine("Filter DataRows");
+            Console.WriteLine("Count Rows=" + ResultCount);
+            foreach (DataRow Row in ResultRows)
+            {
+                Console.WriteLine("ID:{0}\tName:{1}\tCountry:{2}\tSalary:{3}\tDate:{4}\n", Row["ID"], Row["Name"], Row["Country"], Row["Salary"], Row["Date"]);
+            }
+
+
+            Console.WriteLine("Agregation Function");
+            EmployeesCount = ResultRows.Count();
+            TotalSalaries = Convert.ToDouble(EmployeesDateTable.Compute("SUM(Salary)", "Country='Yemen' or Country='KSA' "));
+            AvgSalaries = Convert.ToDouble(EmployeesDateTable.Compute("AVG(Salary)", "Country='Yemen' or Country='KSA' "));
+            MinSalary = Convert.ToDouble(EmployeesDateTable.Compute("MIN(Salary)", "Country='Yemen' or Country='KSA' "));
+            MaxSalary = Convert.ToDouble(EmployeesDateTable.Compute("Max(Salary)", "Country='Yemen' or Country='KSA' "));
+
+
+
+
+            Console.WriteLine("Employees Count = " + EmployeesCount);
+            Console.WriteLine("Toatal  Salary  = " + TotalSalaries);
+            Console.WriteLine("Avarege Salary = " + AvgSalaries);
+            Console.WriteLine("Min Salary= " + MinSalary);
+            Console.WriteLine("Max Salary= " + MaxSalary);
+            Console.WriteLine();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            Console.ReadKey();
+
+        }

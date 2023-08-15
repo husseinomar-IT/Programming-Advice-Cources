@@ -1,0 +1,88 @@
+
+
+
+create table persons(
+ID int not null Primary key,
+FirtstName nvarchar(100) not null,
+LastName nvarchar(100),
+Age int)
+
+
+
+
+
+create table persons
+(
+ID  int not null,
+
+FirtstName nvarchar(100) not null,
+LastName nvarchar(100),
+Age int,
+Primary key (ID))
+;
+
+
+
+
+
+
+create table persons(
+ID int not null,
+FirstName nvarchar(100),
+LastName nvarchar(100) not null,
+Age int,
+Constraint PK_Person Primary key(ID,LastName)
+);
+
+
+
+
+
+
+create table persons(
+ID int not null,
+FirstName nvarchar(100),
+LastName nvarchar(100) not null,
+Age int,
+);
+
+Alter table persons
+Add Primary key (ID)
+
+
+
+
+
+
+
+create table persons(
+ID int not null,
+FirstName nvarchar(100),
+LastName nvarchar(100) not null,
+Age int,
+);
+
+
+
+Alter table persons
+Add Constraint PK_Person Primary key(ID,LastName); 
+
+
+
+
+
+
+drop table persons
+Alter table persons
+drop  Constraint  PK_Person;
+
+
+
+
+
+
+
+
+
+
+
